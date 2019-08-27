@@ -1,0 +1,79 @@
+\section{$(59)$ Interpolation de Lagrange - Exercices 6.4 et 6.5.}
+	\paragraph{Énoncé - Exercice 6.4}
+		Soient \(P \in \m{Z}_{n}\left[X\right]\) et \(d \in \m{Z}\). Montrer que si \(d \mid P(k)\) pour tout \(k \in \llbracket 0, n \rrbracket\) alors \(d \mid P(k)\) pour tout \(k \in \m{Z}\).
+	\paragraph{Résolution}
+		\(P \in \m{R}_{n}\left[X\right]\) et les coefficients de \(P\) sont dans \(\m{Z}\).
+		\begin{tabbing}
+		\textbf{Remarque} : \= \\
+			\> \(P = \sum_{j = 0}^{n}a_{j}X^{j}\) avec \((a_{0}, ..., a_{n}) \in \m{Z}^{n + 1}\)\\
+			\> \(\forall k \in \m{Z}, P(k) = \sum_{j = 0}^{n}\underbrace{a_{j}}_{\in \m{Z}}\underbrace{k^{j}}_{\in \m{Z}} \in \m{Z}\)
+		\end{tabbing}
+		Soit \(d \in \m{Z}\)\\
+		Supposons que \(\forall k \in \llbracket 0, n \rrbracket, d \mid P(k)\)\\
+		\(0, 1, ..., n\) sont deux à deux disctints.\\
+		Par théorème, il existe un unique polynôme \(Q \in \m{R}_{n}\left[X\right]\) tel que :\\
+		\[\forall k \in \llbracket 0, n \rrbracket, Q(k) = P(k) \text{ : On prend } b_{k} = P(k)\]
+		Et \(Q = \sum_{k = 0}^{n}P(k)L_{k}\) avec \(L_{k}\) étant le \(k^{\text{ième}}\) polynôme interpolateur de Lagrange.\\
+		En fait \(Q = P\) par unicité. On a donc une écriture de P.\\
+		\[P = \sum_{k = 0}^{n}P(k)L_{k} \text{ où } L_{k} = \prod_{\substack{i = 0\\ i \ne j}}^{n}\frac{X - i}{k - i}\]
+		Soit \(j \in \m{N} \setminus \llbracket 0, n \rrbracket\)
+		\[P(j) = \sum_{k = 0}^{n}P(k)L_{k}(j)\]
+		Pour \(k \in \llbracket 0, n \rrbracket, d \mid P(k)\) et \(P(k) = d\alpha_{k}\), \(\alpha_{k} \in \m{Z}\)
+		\[P(j) = d\sum_{k = 0}^{n}\alpha_{k}L_{k}(j)\]
+		Montrons que \(\forall k \in \llbracket 0, n \rrbracket, L_{k}(j) \in \m{Z}\).\\
+		Fixons \(k \in \llbracket 0, n \rrbracket\).\\
+		\[L_{k}(j) = \prod_{\substack{i = 0\\i \ne j}}^{n} \frac{j - i}{k - i} = \frac{j - 0}{k - 0} \times \frac{j - 1}{k - 1} \times ... \times \frac{j - (k - 1)}{k - (k - 1)} \times \frac{j - (k + 1)}{k - (k + 1)} \times ... \times \frac{j - n}{k - n}\]
+		\[= \frac{\frac{j!}{(j - k)!}}{k!} \times \frac{(j - n)(j - (n - 1))...(j - (k + 1))}{(-1)(-2)...(-(n - k))}\]
+		Tout ceci à un sens car \(0 \less k < n \less j\).
+		\[L_{k}(j) = \frac{j!}{k!(j - k)!} \times \frac{\frac{(j - (k + 1))!}{(j - (n + 1))!}}{(-1)^{n - k}(n - k)!}\]
+		\[= \dbinom{j}{k}(-1)^{n - k}\frac{(j - (k + 1))!}{(j - (n + 1))!\underbrace{(\left[j - (k + 1)\right] - \left[j - (n + 1)\right])!}_{(n - k)!}}\]
+		\[ = (-1)^{n - k}\dbinom{j}{k}\dbinom{j - (k + 1)}{j - (n + 1)} \in \m{Z}\]
+		Donc \(L_{k}(j) \in \m{Z}\) et \(\sum_{k = 0}^{n}\alpha_{k}L_{k}(j) \in \m{Z}\). Par conséquent \(\forall k \in \m{N}, d \mid P(k)\).
+	\paragraph{Énoncé - Exercice 6.5}
+		Soit \(P \in \m{R}\left[X\right]\) unitaire de degré \(n \more 1\). Montrer qu'il existe \(k \in \llbracket 0, n \rrbracket\) tel que \(\left|P(k)\right| \more \frac{n!}{2^n}\)
+	\paragraph{Résolution}
+		Supposons : \(\forall k \in \llbracket 0, n \rrbracket\), \(\left|P(k)\right| \less \frac{n!}{2^n}\)
+		\[P(k) = \sum_{k = 0}^nP(k)L_k \text{ où } L_k = \prod_{\substack{i = 0\\ i \ne k}}^n\frac{X - i}{k - i}\]
+		\begin{description}
+			\item[EF :] \((L_0, ..., L_n)\) est une base de \(\m{R}_n\left[X\right]\)\\
+			\(P \in \m{R}_n\left[X\right]\) donc \(\exists (\alpha_0, ..., \alpha_n) \in \m{R}^{n + 1}\), \(P = \sum_{k = 0}^n\alpha_k L_k\)\\
+			\(P(j) = \sum_{k = 0}^n\alpha_k \underbrace{L_k(j)}_{\delta_{jk}} = \alpha_j L_j{j} = \alpha_j\)\\
+			\(P = \sum_{k = 0}^n P(k)L_k\)\\
+			\textbf{FEF}
+		\end{description}
+		\[P(k) = \sum_{k = 0}^nP(k)L_k \text{ où } L_k = \prod_{\substack{i = 0\\ i \ne k}}^n\frac{X - i}{k - i}\]
+		\(Cd(L_k) = \prod_{\substack{i = 0\\ i \ne k}}^n\frac{1}{k - i}\)\\
+		\(L_k = Cd(L_k)X^n + R_k\) avec \(deg(R_k) \less n - 1\)\\
+		\[P = (\sum_{k = 0}^n P(k) Cd(L_k))X^n + \underbrace{\sum_{k = 0}^nP(k)R_k}_{= R}\]
+		\(deg(R) \less n - 1\) et \(Cd(P) = \sum_{k = 0}^nP(k)Cd(L_k) \underset{\underset{\text{car unitaire}}{\uparrow}}{=} 1\)\\
+		\[1 = \sum_{k = 0}^nP(k)\prod_{\substack{i = 0\\ i \ne k}}^n\frac{1}{k - i}\]
+		\[\prod_{\substack{i = 0\\ i \ne k}}^n\frac{1}{k - i} = \frac{1}{k} \times \frac{1}{k - 1} \times ... \times \frac{1}{k - (k - 1)} \times \frac{1}{k - (k + 1)} \times ... \times \frac{1}{k - n}\]
+		\[= \frac{1}{k!} \times (\frac{-1}{1} \times \frac{-1}{2} \times ... \times \frac{-1}{n - k})\]
+		\[= \frac{(-1)^{n - k}}{k!(n-k)!} = \binom{k}{n}(-1)^{n - k}\frac{1}{n!}\]
+		\[1 = \sum_{k = 0}^nP(k)\binom{k}{n}(-1)^{n - k}\frac{1}{n!}\]
+		\[n! = \sum_{k = 0}^nP(k)\binom{k}{n}(-1)^{n - k} \less \left| \sum_{k = 0}^nP(k)\binom{k}{n}(-1)^{n - k} \right|\]
+		\[\less \sum_{k = 0}^n\left|P(k)\right|\binom{k}{n}\]
+		\[\text{Inégalité stricte dans l'énoncé :} <  \sum_{k = 0}^n\frac{n!}{2^n}\binom{k}{n}\]
+		\[n! < \frac{n!}{2^n}\sum_{k = 0}^n \binom{k}{n}1^k 1^{n - k}\]
+		\[n! < \frac{n!}{2^n}2^n\]
+		\[n! < n!\]
+		C'est absurde.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

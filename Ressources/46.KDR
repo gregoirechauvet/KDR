@@ -1,0 +1,79 @@
+\section{$(46)$ Périodicité et équations différentielles - Exercices 4.1 et 4.2.}
+	\paragraph{Énoncé - Exercice 4.1}
+		Soit \(f : \m{R} \rightarrow \m{R}\) une application périodique.
+		\begin{enumerate}
+			\item On suppose que \(f\) admet une limite finie en \(+\infty\). Montrer que \(f\) est constante.
+			\item On suppose que \(f\) est continue et que \(f\) admet deux périodes strictement positives \(T_{1}\) et \(T_{2}\) telles que \(\frac{T_{1}}{T_{2}} \in \m{R} \setminus \m{Q}\). Montrer que \(f\) est constante.
+		\end{enumerate}
+
+	\paragraph{Résolution}
+		\begin{enumerate}
+		\item On suppose que \(\lim_{+\infty} f = L\) avec \(L \in \m{R}\).
+		\(f\) est périodique donc elle admet une période \(T > 0\).\\
+		Soit \(a \in \m{R}\), montrons que \(f(a) = L\).\\
+		Pour \(n \in \m{N}\), posons \(a_{n} = a + nT\)\\
+		\(T > 0\) donc \(\lim a_{n} = +\infty\)\\
+		\(\lim_{+\infty} f = L\) et \(\lim a_{n} = +\infty\) donc \(\lim f(a_{n}) = L\).\\
+		\(f(a_{n}) = f(a + \underbrace{nT}_{\in P(f)}) = f(a)\) donc \(\lim f(a_{n}) = f(a)\)
+		Par unicité de la limite \(f(a) = L\). Cela pour tout \(a \in \m{R}\). Ainsi f est constante.\\
+		\item On se place dans les hypothèses du 2.\\
+		\(P(f)\) est un sous groupe de \((\m{R}, +)\).\\
+		\(P(f)\) est dense dans \(\m{R}\) ou bien \(\exists a \in \m{R}^{+}, P(f) = a\m{Z}\).\\
+		\(P(f)\) est dense :
+		\begin{description}
+			\item[EF :] Supposons que \(P(f)\) ne soit pas dense dans \(\m{R}\).\\
+			\(\exists a \in \m{R}^{+}, P(f) = a\m{Z}\)\\
+			\(T_{1} \in P(f)\) donc \(T_{1} = ak_{1}\) avec \(k_{1} \in \m{Z}\).\\
+			\(T_{2} \in P(f)\) donc \(T_{2} = ak_{2}\) avec \(k_{2} \in \m{Z}\).\\
+			\(\frac{T_{1}}{T_{2}} = \frac{k_{1}}{k_{2}} \in \m{Q}\). Ce qui n'est pas. Donc \(P(f)\) est dense.\\
+			\textbf{FEF}
+		\end{description}
+		%\begin{tabbing}
+		%En effet : \= \\
+		%	\> Supposons que \(P(f)\) ne soit pas dense dans \(\m{R}\).\\
+		%	\> \(\exists a \in \m{R}^{+}, P(f) = a\m{Z}\)\\
+		%	\> \(T_{1} \in P(f)\) donc \(T_{1} = ak_{1}\) avec \(k_{1} \in \m{Z}\).\\
+		%	\> \(T_{2} \in P(f)\) donc \(T_{2} = ak_{2}\) avec \(k_{2} \in \m{Z}\).\\
+		%	\> \(\frac{T_{1}}{T_{2}} = \frac{k_{1}}{k_{2}} \in \m{Q}\). Ce qui n'est pas. Donc \(P(f)\)est dense.
+		%\end{tabbing}
+		Soit \(x \in \m{R}, \exists (T_{n}) \in P(f)^{\m{N}}, x = \lim_{n \to +\infty} T_{n}\) \((P(f) \text{ est dense dans } \m{R})\).\\
+		\(f(x) = f(\lim T_{n}) = \lim f(T_{n})\) car \(f\) est continue sur \(\m{R}\) donc au point \(l = \lim T_{n}\)
+		\[f(T_{n}) = f(0 + T_{n}) = f(0)\]
+		\[\lim f(T_{n}) = f(0)\]
+		\(f(x) = f(0)\), cela pour tout \(x\). Donc \(f\) est constante.
+		\end{enumerate}
+
+	\paragraph{Énoncé - Exercice 4.2}
+		Soit \(f : \m{R} \rightarrow \m{R}\) continue et non constante. On lui associe l'équation différentielle linéraire d'ordre 2 \((L) : y'' + 2y' + 2y = f\).
+		\begin{enumerate}
+			\item Résoudre dans \(\mathcal{C}^{2}(\m{R}, \m{R})\) l'équation différentielle \(y'' + 2y' + 2y = 0\).
+			\item Montrer que \((L)\) ne peut admettre dans \(\mathcal{C}^{2}(\m{R}, \m{R})\) deux solutions périodiques distinctes.
+		\end{enumerate}
+
+	\paragraph{Résolution}
+		\((H) : y'' + 2y' + 2y = 0\)\\
+		\(P = X^{2} + 2X + 2 = (X + 1)^{2} + 1 = (X + 1)^{2} - i^{2} = (X + 1 - i)(X + 1 + i)\)\\
+		Les racines de P dans \(\m{C}\) sont \(- 1 - i\) et \( - 1 + i\).\\
+		\[S_{\m{R} \rightarrow \m{R}}(H) = \left\{e_{-1}(\alpha \cos(\omega t) + \beta \sin(\omega t ))), \alpha \in \m{R}, \beta \in \m{R}\}\]
+		Prenons \(\omega = 1\), \[S_{\m{R} \rightarrow \m{R}}(H) = \left\{e_{-1}(\alpha \cos + \beta \sin)), \alpha \in \m{R}, \beta \in \m{R}\}\]
+		\\
+		Supposons qu'il existe \(y_{1}, y_{2}\) dans  \(\mathcal{C}^{2}(\m{R}, \m{R})\) solutions et \(y_{1}, y_{2}\) sont périodiques.
+		\[y_{1}'' + 2y_{1}' + 2y_{1} = f = y_{2}'' + 2y_{2}' + 2y_{2}\]
+		Montrons que \(y_{1} = y_{2}\)\\
+		Posons \(z = y_{1} - y_{2}\)
+		\[z'' + 2z' + 2z = 0\]
+		\(z \in S_{\m{R} \rightarrow \m{R}}(H)\) donc \(\exists (\alpha, \beta) \in \m{R}^{2}, z = (\alpha\cos + \beta\sin)\)\\
+		\(y_{1}\) est \(T_{1}\) périodique avec \(T_{1} > 0\).\\
+		\(y_{2}\) est \(T_{2}\) périodique avec \(T_{2} > 0\).\\
+		\(y_{1}''\), \(y_{1}'\) et \(y_{1}\) sont \(T_{1}\) périodiques donc \(f = y_{1}'' + 2y_{1} + 2y_{1}\) est \(T_{1}\) périodique.\\
+		De même \(f\) est \(T_{2}\) périodique.\\
+		D'après l'exo 1 - ci-dessus, \(\frac{T_{1}}{T_{2}} \in \m{Q}\)
+		\[\frac{T_{1}}{T_{2}} = \frac{p}{q} \text{ avec } p \in \m{N}^{*} \text{, } q \in \m{N}^{*}\]
+		\[T = qT_{1} = pT_{2}\]
+		\(y_{1}\) est \(T\) périodique car \(T_{1}\) périodique.\\
+		\(y_{2}\) est \(T\) périodique car \(T_{2}\) périodique.\\
+		\(z = y_{1} - y_{2}\) est \(T\) périodique - Exo 4.1, ci-dessus.
+		\[\left| z \right| \less \underbrace{(\left| \alpha \right| + \left| \beta \right|)e_{-1}}_{\underset{+\infty}{\rightarrow} 0}\]
+		\(\lim_{+\infty} z = 0\)\\
+		\(z\) est \(T\) périodique. D'après 4.1, \(z\) est constante.\\
+		\(\lim_{+\infty} z = 0\) donc \(z = 0_{\m{R}^{\m{R}}}\). Donc \(y_{1} = y_{2}\).

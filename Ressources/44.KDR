@@ -1,0 +1,67 @@
+\section{$(44)$ Produit mixte et produit vectoriel - Exercice 4.6.}
+	\paragraph{Énoncé}
+		Soit \(E\) un espace euclidien orienté de dimension trois et \((a, b, c) \in E^{3}\). On note \(\left[a, b, c\right]\) le produit mixte des trois vecteurs \(a\), \(b\), \(c\).
+		\begin{enumerate}
+			\item Montrer que \(\left| \left[a, b, c\right] \right| \less \left\|a\right\| \left\|b\right\| \left\|c\right\|\).
+			\item Caractériser la condition \(\left| \left[a, b, c\right] \right| = \left\|a\right\| \left\|b\right\| \left\|c\right\|\).
+		\end{enumerate}
+	\paragraph{Résolution}
+		\begin{enumerate}
+			\item \[\left| \left[a, b, c\right] \right| = \left| (a \wedge b \mid c) \right| \less \left\|a \wedge b \right\| \left\| c \right\| \text{ - Cauchy-Schwartz}\]
+			\begin{tabbing}
+				Remarque : \= \\
+				\> \(\left\| a \wedge b \right \|^{2} = \left\| a \right\|^{2} \left\| b \right\|^{2} - (a \mid b )\)
+			\end{tabbing}
+			\[\left\| a \wedge b \right \|^{2} = \left\| a \right\|^{2} \left\| b \right\|^{2} - (a \mid b ) \less \left\| a \right\|^{2} \left\| b \right\|^{2}\]
+			Donc : \[\left\| a \wedge b \right \| \less \left\| a \right\| \left\| b \right\|\]
+			D'où : \[\left| \left[a, b, c\right] \right| \less \left\|a\right\| \left\|b\right\| \left\|c\right\|\]
+			\item Supposons que \(\left| \left[a, b, c\right] \right| = \left\|a\right\| \left\|b\right\| \left\|c\right\|\)
+			\[\left| \left[a, b, c\right] \right| = \left| (a \wedge b \mid c) \right| \underset{\text{Cauchy-Swartz}}{\less} \left\|a \wedge b \right\| \left\| c \right\| \less \left\|a\right\| \left\|b\right\| \left\|c\right\|\]
+			On a donc : \[\left| \left[a, b, c\right] \right| = \left| (a \wedge b \mid c) \right| = \left\|a \wedge b \right\| \left\| c \right\| = \left\|a\right\| \left\|b\right\| \left\|c\right\|\]
+			D'après le cas d'égalité de Cauchy Schwartz \((a, b, c)\) est liée.
+			\[\exists \lambda \in \m{R}, a \wedge b = \lambda c \text{ ou } c = 0_{E}\]
+			\begin{itemize}
+				\item Supposons \(c \ne 0_{E}\)
+				\[a \wedge b = \lambda c \text{ avec } \lambda \in \m{R}\]
+				\[\left\|a \wedge b \right\| \left\| c \right\| = \left\|a\right\| \left\|b\right\| \left\|c\right\|\]
+				\[\left\|a \wedge b \right\| = \left\|a\right\| \left\|b\right\|\]
+				\[\left\|a \wedge b \right\|^{2} = \left\|a\right\|^{2} \left\|b\right\|^{2}\]
+				Alors : \[(a \mid b )^{2} = 0\]
+				\[(a \mid b ) = 0\]
+				\begin{itemize}
+					\item Premier cas : \(\lambda \ne 0\)
+					\[c = \frac{1}{\lambda} a \wedge b\]
+					\[(c \mid a ) = \frac{1}{\lambda}(a \wedge b\mid a) = 0\]
+					\[(c \mid b ) = \frac{1}{\lambda}(a \wedge b\mid b) = 0\]
+					Or : \[(a \mid b ) = 0\]
+					Donc \((a, b, c)\) est une famille orthogonale.
+					\item Second cas : \(\lambda = 0\)
+					\[a \wedge b = 0\]
+					\[\underbrace{\left\| a \wedge b \right\|^{2}}_{= 0} = \left\|a\right\|^{2} \left\|b\right\|^{2} - \underbrace{(a \mid b)^{2}}_{= 0}\]
+					Alors : \[\left\|a\right\| = 0 \text{ ou } \left\|b\right\| = 0\]
+					\[a = 0_{E} \text{ ou } b = 0_{E}\]
+				\end{itemize}
+				\item Supposons \(c = 0_{E}\).\\
+				\(c\) est nul.
+			\end{itemize}
+			En conclusion : \(a\), \(b\) ou \(c\) est nul ou la famille \((a, b, c)\) est orthogonale.
+		\paragraph{Réciproque}
+			Supposons \(a\), \(b\) ou \(c\) nul ou \((a, b, c)\) orthogonale.
+			\begin{itemize}
+				\item Si \(a = 0\), \(b = 0\) ou \(c = 0\) l'égalité est bien vraie.
+				\item Supposons \((a, b, c)\) orthogonale - \(a \ne 0_{E}\), \(b \ne 0_{E}\) et \(c \ne 0_{E}\).
+				\[\left|\left[a, b, c\right]\right| = \left|(a \wedge b \mid c)\right|\]
+				Dès lors \((a, b, c)\) est libre.
+				\(dim E = 3\). Donc \((a, b, c)\) est une base orthogonale.\\
+				Posons \(e_{1} = \frac{a}{\left\|a\right\|}\), \(e_{2} = \frac{b}{\left\|b\right\|}\), \(e_{3} = \frac{c}{\left\|c\right\|}\).
+				\(B = (e_{1}, e_{2}, e_{3})\) est une base orthonormale de E.
+				\[a \wedge b = \alpha e_{1} + \beta e_{2} + \gamma e_{3}\]
+				Avec : \[\alpha = (a \wedge b \mid e_{1} ) = \frac{1}{\left\|a\right\|}(a \wedge b \mid a ) = 0\]
+				De même : \[\beta = 0\]
+				Donc : \[a \wedge b = \gamma e_{3} = \gamma \frac{c}{\left\|c\right\|}\]
+				Alors \((a \wedge b, c)\) est liée.
+				\[\left|\left[a, b, c\right]\right| = \left|(a \wedge b \mid c)\right| = \left\|a \wedge b\right\| \left\|c\right\|\]
+				\((a \mid b) = 0\) donc \(\left\|a \wedge b\right\| = \left\|a\right\| \left\|b\right\|\) et on a bien l'égalité souhaitée.
+			\end{itemize}
+			En conclusion : \[\left| \left[a, b, c\right] \right| = \left\|a\right\| \left\|b\right\| \left\|c\right\| \Leftrightarrow \text{ - } a = 0_{E} \text{ ou } b = 0_{E} \text{ ou } c = 0_{E} \text{ - ou }(a, b, c) \text{ est liée.}\]
+		\end{enumerate}

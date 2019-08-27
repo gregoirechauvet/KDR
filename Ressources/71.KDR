@@ -1,0 +1,157 @@
+\section{$(71)$ Intégrabilité d'une fonction - Exercice 7.1.}
+	\paragraph{Énoncé}
+		Dans chacun des cas étudier l'intégrabilité de \(f\) sur \(I\).
+	\paragraph{Résolution}
+		\begin{enumerate}
+			\item \(f(t) = \frac{1}{t^4 + \cos^2(t)}\), \(I =\left[0, +\infty\right[\)\\
+			\(\forall t \in \m{R}^+\), \(t^4 + \cos^2(t) > 0\) car \(t^4\) et \(\cos^2(t)\) sont positives et ne s'annulent pas en même temps.\\
+			\(f \in \mathcal{C}^0(\left[0, +\infty\right[)\) et \(f \more 0\)\\
+			\[\left|f(t)\right| = f(t) \underset{+\infty}{\sim} \frac{1}{t^4}\]
+			\(4 > 1\) donc \(f \in L^1(\left[1, +\infty\right[)\) puis \(f \in L^1(\left[0, +\infty\right[)\)
+			\\
+			\item \(f(t) = \frac{\sqrt{t}}{e^t + (\ln(t))^2}\), \(I =\left]0, +\infty\right[\)\\
+			\(f \in \mathcal{C}^0(\left]0, +\infty\right[)\) car \(\forall t \in \m{R}^{+*}\), \(e^t + (\ln(t))^2 > 0\) et \(f \more 0\)
+			\begin{itemize}
+				\item[\textbullet] \(\left|f(t)\right| = f(t) \underset{+\infty}{\sim} \frac{\sqrt{t}}{e^t}\) car \((\ln(t))^2 = \underset{+\infty}{o}(e^t)\)
+				\[\frac{\sqrt{t}}{e^t} = \underset{+\infty}{o}(\frac{1}{t^{12}}) \text{ car } \lim_{t \to +\infty} t^{12}\frac{\sqrt{t}}{e^t} = 0\]
+				\(12 > 1\) donc \(t \mapsto \frac{\sqrt{t}}{e^t}\) est intégrable puis \(f \in L^1(\left[1, +\infty\right[)\)
+				\item[\textbullet] \(\left|f(t)\right| = f(t) \underset{0^+}{\sim}\frac{\sqrt{t}}{(\ln(t))^2}\) car \(e^t = \underset{0^+}{o}((\ln(t))^2)\)\\
+				\(f(t) \underset{0^+}{\sim} \frac{1}{t^{-\frac{1}{2}}(\ln(t))^2}\) c'est Bertrand, mais on le montre.\\
+				\[\frac{\sqrt{t}}{(ln(t))^2} = o(\frac{1}{t^{\frac{1}{12}}}) \text{ et } \frac{1}{12} < 1\]\\
+				\(t \mapsto \frac{\sqrt{t}}{(\ln(t))^2} \in L^1(\left]0, 1\right])\), \(f \in L^1(\left]0, 1\right])\)
+			\end{itemize}
+			D'où \(f \in L^1(\left]0, +\infty\right[)\)
+			\\
+			\item \(f(t) = \frac{1}{t^{\left\lfloor t \right\rfloor}}\), \(I = \left[1, +\infty\right[\)\\
+			\(f(t) = \frac{1}{e^{\left\lfloor t \right\rfloor \ln(t)}}\)
+			\(f \in M^0(\left[1, +\infty\right[)\) et \(f \more 0\)\\
+			Ici on ne peut pas montrer l'intégrabilité en trouvant un équivalent.\\
+			\(\forall t \in \left[12, +\infty\right[\) :
+			\[\left\lfloor t \right\rfloor \more 12\]
+			\[\left\lfloor t \right\rfloor \ln(t) \more 12 \ln(t)\]
+			\[e^{\left\lfloor t \right\rfloor \ln(t)} \more e^{12 \ln(t)}\]
+			\[0 \less f(t) \less \frac{1}{t^{12}}\]
+			\(12 > 1\) donc \(f \in L^1(\left[12, +\infty\right[)\) d'où \(f \in L^1(\left[1, +\infty\right[)\)
+			\\
+			\item \(f(t) = \frac{1}{t^2}e^{\frac{1}{t}}\), \(I = \left[1, +\infty\right[\)\\
+			\(f \in \mathcal{C}^0(\left[1, +\infty\right[)\), \(f \more 0\)
+			\[\left|f(t)\right| = f(t) \underset{+\infty}{\sim} \frac{1}{t^2} \text{ car } \lim_{+\infty} e^{\frac{1}{t}} = 1\]
+			\(2 > 1\) donc \(f \in L^1(\left[1, +\infty\right[)\)
+			\\
+			\item \(f(t) = \frac{\ln(t)}{t^3}\), \(I = \left]0, 1\right]\)\\
+			\(f \in \mathcal{C}^0(\left]0, 1\right])\) et \(\left|f(t)\right| = \frac{\left|\ln(t)\right|}{t^3}\) - Bertrand
+			\[t^2\left|f(t)\right| = \frac{\left|\ln(t)\right|}{t} \underset{+\infty}{\longrightarrow} +\infty\]
+			donc \(\exists \varepsilon > 0, \forall t \in \left]0, \varepsilon\right], t^2\left|f(t)\right| \more 1\)\\
+			\[\forall t \in \left]0, \varepsilon\right], \left|f(t)\right| \more \frac{1}{t^2} > 0\]
+			\(2 > 1\) donc \((t \mapsto \frac{1}{t^2}) \notin L^1(\left]0, 1\right])\)\\
+			d'où \(f \notin L^1(\left]0, 1\right])\)
+			\\
+			\item \(f(t) = \frac{\ln(t)}{t^2 + 1}\), I = \(\left[1, +\infty\right[\)\\
+			\(f \in \mathcal{C}^0(\left[1, +\infty\right[)\)\\
+			\[\left|f(t)\right| = \frac{\ln(t)}{t^2 + 1} \underset{+\infty}{\sim} \frac{\ln(t)}{t^2}\]
+			\[\frac{\ln(t)}{t^2} = \underset{+\infty}{o}(\frac{1}{t^{\frac{3}{2}}})\]
+			\(\frac{3}{2} > 1\) donc \((t \mapsto \frac{\ln(t)}{t^2}) \in L^1(\left[1, +\infty\right[)\)\\
+			d'où \(f \in L^1(\left[1, +\infty\right[)\)\\
+			\\
+			\item \(f(t) = \frac{1}{Arccos(1 - t)}\), \(I = \left]0, 1\right]\)\\
+			\(Arccos\) est définie sur \(\left[-1, 1\right]\) et dérivable sur \(\left]-1, 1\right[\) avec \(Arccos'(x)  = \frac{-1}{\sqrt{x^2 - 1}}\)\\
+			\(\forall t \in \left]0, 1\right], 1 - t \in \left[0, 1\right[\)\\
+			\(Arccos(1 - t)\) est défini et n'est pas nul : \(f \in \mathcal{C}^0(\left]0, 1\right])\), \(f \more 0\)\\
+			\[\left|f(t)\right| = \frac{1}{Arccos(1 - t)} \underset{0^+}{\sim} \frac{1}{\sqrt{2(1 - (1 - t))}} \underset{0^+}{\sim} \frac{1}{\sqrt{2}\sqrt{t}} \underset{0^+}{\sim} \frac{1}{\sqrt{2}} \times \frac{1}{t^{\frac{1}{2}}}\]
+			car \(Arccos(u) \underset{1^-}{\sim} \sqrt{2(1 - u)}\) et \(\frac{1}{2} < 1\).\\
+			d'où \(f \in L^1(\left]0, 1\right])\)\\
+			\\
+			\item \(f(t) = e^{-t\cos(t)}\), \(I = \left[0, +\infty\right[\)\\
+			\(f \in \mathcal{C}^1(\m{R}^+)\), \(f \more 0\)\\
+			\(\left|f(t)\right| = e^{-t\cos(t)}\) L'équivalent est impossible...\\
+			\(\cos(t)\) n'est pas de signe fixe : on peut passer par les séries - comme pour \(\frac{\sin(t)}{t}\)\\
+			\begin{description}
+				\item[PAEA :] Pour \(t \in \left[\frac{\pi}{2}, \frac{3\pi}{2}\right]\)
+				\[-1 \less \cos(t) \less 0\]
+				\[0 \less -\cos(t) \less 1\]
+				\[0 \less -t\cos(t) \less t\]
+				\[1 \less e^{-t\cos(t)}\]
+				\(f \notin L^1(\left[0, +\infty\right[)\)\\
+				\textbf{FPAEA}
+			\end{description}
+			Posons \(x_n = \frac{\pi}{2} + 2n\pi\).	\((x_n)\) est croissante et \(\lim_{+\infty} x_n = +\infty\). De plus \(f \more 0\)
+			\[f \in L^1(\left[\frac{\pi}{2}, +\infty\right[) \Leftrightarrow \sum \int_{x_n}^{x_{n + 1}} f \text{ converge}\]
+			Posons \(a_n = \int_{x_n}^{x_{n + 1}}f \more 0\)\\
+			\[a_n = \int_{\frac{\pi}{2} + 2n\pi}^{\frac{\pi}{2} + 2n\pi + 2\pi}f \more \int_{\frac{\pi}{2} + 2n\pi}^{\frac{\pi}{2} + 2n\pi + \pi}f \text{ car } f \more 0\]
+			Soit \(t \in \left[\frac{\pi}{2} + 2n\pi, \frac{\pi}{2} + 2n\pi + \pi\right]\)
+			\[-1 \less \cos(t) \less 0\]
+			\[0 \less -\cos(t) \less 1\]
+			\[f(t) \more 1\]
+			\[a_n \more \int_{x_n}^{x_n + \pi}f \more \int_{x_n}^{x_n + \pi}1 \more \pi > 0\]
+			\(\sum \pi\) diverge donc \(\sum a_n\) diverge.\\
+			On a donc \(f \notin L^1(\left[\frac{\pi}{2}, +\infty\right[)\)\\
+			d'où \(f \notin L^1(\left[0, +\infty\right[)\)\\
+			\\
+			\item \(f(t) = \frac{\sqrt{t}\sin(\frac{1}{t^2})}{\ln(1 + t)}\), \(I =\left]0, +\infty\right[\)
+			\(f \in \mathcal{C}^0(\m{R}^{+*})\)
+			\begin{enumerate}
+				\item[\textbullet] \(\left|f(t)\right| = \frac{\sqrt{t}\left|\sin(\frac{1}{t^2})\right|}{\ln(1 + t)} \underset{+\infty}{\sim} \frac{\sqrt{t}\left|\frac{1}{t^2}\right|}{\ln(t)} \underset{+\infty}{\sim} \frac{1}{t^{\frac{3}{2}}(\ln(t))^1}\)
+				\[\frac{1}{t^{\frac{3}{2}}\ln(t)} = \underset{+\infty}{o}(\frac{1}{t^{\frac{3}{2}} - t^{\frac{1}{12}}})\]
+				\(\frac{3}{2} - \frac{1}{12} > 1\) donc\((t \mapsto \frac{1}{t^{\frac{3}{2}}\ln(t)}) \in L^1(\left[1, +\infty\right[)\)\\
+				\(f \in L^1(\left[1, +\infty\right[)\)\\
+				\item[\textbullet] \(\left|f(t)\right| \underset{0^+}{\sim} \frac{\sqrt{t}\left|\sin(\frac{1}{t^2})\right|}{t} \underset{0^+}{\sim} \frac{\left|\sin(\frac{1}{t^2})\right|}{\sqrt{t}}\)\\
+				\[0 \less \frac{\left|\sin(\frac{1}{t^2})\right|}{\sqrt{t}} \less \frac{1}{t^\frac{1}{2}}\]
+				\(\frac{1}{2} < 1\) donc \((t \mapsto \frac{\left|\sin(\frac{1}{t^2})\right|}{\sqrt{t}}) \in L^1(\left]0, 1\right])\) et \(f \in L^1(\left]0, 1\right])\)
+			\end{enumerate}
+			D'où \(f \in L^1(\left]0, +\infty\right[)\)\\
+			\\
+			\item \(f(t) = \frac{\ln(t)}{t^2 - 1}\), \(I =\left]0, +\infty\right[\)\\
+			\(f\) est continue sur \(\left]0, 1\right[ \bigcup \left]1, +\infty\right[\).\\
+			\(f\) est-elle continue par morceaux sur \(\left]0, +\infty\right[\) ?
+			\[f(t) = \frac{\ln(t)}{(t - 1)(t + 1)} \underset{1}{\sim} \frac{t - 1}{(t - 1)(t - 2)} \underset{1}{\sim} \frac{1}{t + 1} \underset{1}{\sim} \frac{1}{2}\]
+			\(\lim_{1, \ne} f = \frac{1}{2}\). Posons \(f(1) = \frac{1}{2}\).\\
+			\(\lim_1 f = \frac{1}{2} = f(1)\). \(f\) est continue au point \(1\). \(f \in \mathcal{C}^0(\left]0, +\infty\right[)\).\\
+			\(\left| f(t) \right| \underset{0^+}{\sim} \left| \ln(t) \right|\). Or \(\left| \ln \right| \in L^1(\left]0, 1\right])\). Donc \(f \in L^1(\left]0, 1\right])\).\\
+			\(\left| f(t) \right| \underset{+\infty}{\sim} \frac{\ln(t)}{t^2} = o(\frac{1}{t^\frac{3}{2}})\) et \(\frac{3}{2} > 1\). Donc \(f \in L^1(\left[1, +\infty\right[)\)\\
+			\\
+			\item \(f(t) = \frac{e^{-\alpha t}}{t}\), \(I =\left]0, +\infty\right[\)\\
+			\(f \in \mathcal{C}^0(\left]0, +\infty\right[)\).
+			\begin{itemize}
+				\item[\textbullet] \(\left| f(t) \right| \underset{0^+}{\sim} \frac{1}{t} \left| \ln(\frac{t}{1 - e^{-t}}) \right| \underset{0^+}{\sim} \frac{1}{t} \left| \ln(\frac{te^t}{e^t - 1}) \right|\)
+				\[\frac{te^t}{e^t - 1} \underset{0^+}{\sim} \frac{t \times 1}{t} \underset{0^+}{\sim} 1 \text{ et } \ln(u) \underset{1}{\sim} u - 1\]
+				C'est-à-dire :
+				\[\ln(\frac{te^t}{e^t - 1}) \underset{0^+}{\sim} \frac{te^t}{e^t - 1} - 1 = \frac{te^t - e^t + 1}{e^t - 1} \underset{0^+}{\sim} \frac{te^t - e^t + 1}{t} = \frac{N(t)}{t}\]
+				\(N(t) = t(1 + t + o(t)) - (1 + t + \frac{t^2}{2} + o(t^2)) + 1 = \frac{t^2}{2} + o(t^2) \underset{0^+}{\sim} \frac{t^2}{2}\)\\
+				\[\ln(\frac{te^t}{e^t - 1}) \underset{0^+}{\sim} \frac{t^2}{2t} \underset{0^+}{\sim} \frac{t}{2}\]
+				\(\left| f(t) \right| \underset{0^+}{\sim} \frac{1}{2}\). Or \((t \mapsto \frac{1}{2}) \in L^1(\left]0, 1\right])\)\\
+				\(f \in L^1(\left]0, 1\right])\)\\
+				\item[\textbullet] \(\left| f(t) \right| = \frac{e^{-\alpha t}}{t} \left| \ln(\frac{te^t}{e^t - 1}) \right|\)
+				\[\frac{te^t}{e^t - 1} \underset{+\infty}{\sim} \frac{te^t}{e^t} \underset{+\infty}{\sim} t\]
+				Or \(+\infty \ne 1\) : \(\ln(\frac{te^t}{e^t - 1}) \underset{0^+}{\sim} \ln(t)\) donc \(\left| f(t) \right| \underset{+\infty}{\sim} \frac{\left| \ln(t) \right|}{t} e^{-\alpha t}\).\\
+				\begin{itemize}
+					\item Si \(\alpha > 0\), alors \(\left| f(t) \right| = o(\frac{1}{t^{12}})\) et \(12 > 1\).\\
+					\(f \in L^1(\left[1, +\infty\right[)\).\\
+					\item Si \(\alpha < 0\), alors \(\lim_{+\infty} \left| f(t) \right| = +\infty\)\\
+					Et \(\exists A > 0 ~ | ~ \forall t \in \left[A, +\infty\right[, \left| f(t) \right| \more 1\).\\
+					\((t \mapsto 1) \notin L^1(\left[1, +\infty\right[)\), alors \(f \notin L^1(\left[1, +\infty\right[)\)\\
+					\item Si \(\alpha = 0\) alors \(\left| f(t) \right| \underset{+\infty}{\sim} \frac{1}{t(\ln(t))^{-1}}\)
+					Par Bertrand : \(f \notin L^1(\left[1, +\infty\right[)\)
+				\end{itemize}
+			\end{itemize}
+			\[f \in L^1(\left]0, +\infty\right[) \Leftrightarrow \alpha > 0\]
+			\\
+			\item \(f(t) = (\sqrt[3]{t + 1} - \sqrt[3]{t})^{\sqrt{t}}\), \(I =\left[0, +\infty\right[\)
+			\(f(t) = e^{\sqrt{t}\ln(\sqrt[3]{t + 1} - \sqrt[3]{t})}\). \(f \in \mathcal{C}^0(\left[0, +\infty\right[)\).\\
+			On veut un équivalent : développement asymptotique !\\
+			\[\sqrt[3]{t + 1} - \sqrt[3]{t} = \sqrt[3]{t}(\sqrt[3]{\frac{t + 1}{t}} - 1) \text{ pour } t > 0\]
+			\[= \sqrt[3]{t}((\frac{t + 1}{t})^\frac{1}{3} - 1) = \sqrt[3]{t}(1 + \frac{1}{3} \times \frac{1}{t} + o(\frac{1}{t}) - 1)\]
+			\[= \frac{1}{3t^\frac{2}{3}} + o(\frac{1}{t^\frac{2}{3}})\]
+			\\
+			\[\ln(\sqrt[3]{t + 1} - \sqrt[3]{t}) = \ln(\frac{1}{3t^\frac{2}{3}} + o(\frac{1}{t^\frac{2}{3}}))\]
+			\[= \ln(\frac{1}{3t^\frac{2}{3}}(1 + o(1))) = \ln(\frac{1}{3t^\frac{2}{3}}) + \ln(1 + o(1))\]
+			\[= -\ln(3) - \frac{2}{3}\ln(t) + o(1)\]
+			\\
+			\[\sqrt{t}\ln(\sqrt[3]{t + 1} - \sqrt[3]{t}) = -\frac{2}{3}\sqrt{t}\ln(t) - \sqrt{t}\ln(3) + o(\sqrt{t})\]
+			\[f(t) = e^{-\frac{2}{3}\sqrt{t}\ln(t) - \sqrt{t}\ln(3) + o(\sqrt{t})}\]
+			\[t^{12}f(t) = e^{12\ln(t)}f(t) = e^{-\frac{2}{3}\sqrt{t}\ln(t) - \sqrt{t}\ln(3) + 12\ln(t) + o(\sqrt{t})}\]
+			\[= e^{-\frac{2}{3}\sqrt{t}\ln(t) + o(\sqrt{t}\ln(t))} = e^{u(t)}\]
+			\(u(t) \underset{+\infty}{\sim} - \frac{2}{3}\sqrt{t}\ln(t)\). Et \(\lim_{+\infty} u = -\infty\).\\
+			Donc \(\lim_{t \to +\infty} t^{12}f(t) = 0\).\\
+			\(\left|f(t)\right| = f(t) = o(\frac{1}{t^{12}})\) et \(12 > 1\).\\
+			Donc \(f \in L^1\left[0, +\infty\right[\).
+		\end{enumerate}

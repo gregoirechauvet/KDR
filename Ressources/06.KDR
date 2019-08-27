@@ -1,0 +1,36 @@
+\section{Convergence de $(u_n)$ définie par $u_0 = 1$ et $\forall n \in \m{N}$, $u_{n + 1} = u_n + \frac{1}{2^n u_n}$. Convergence de $(f(\frac{1}{n}))$ avec $f : \left]0, 1\right] \rightarrow \m{R}$, dérivable sur $\left]0, 1\right]$ et vérifiant $\forall t \in \left]0, 1\right], \left|f'(t)\right| \less 1$.}
+	\paragraph{Énoncé}
+	\begin{enumerate}
+		\item Convergence de \((u_n)\) définie par \(u_0 = 1\) et \(\forall n \in \m{N}\), \(u_{n + 1} = u_n + \frac{1}{2^n u_n}\).
+		\item Convergence de \((f(\frac{1}{n}))\) avec \(f : \left]0, 1\right] \rightarrow \m{R}\), dérivable sur \(\left]0, 1\right]\) et vérifiant \(\forall t \in \left]0, 1\right], \left|f'(t)\right| \less 1\)
+	\end{enumerate}
+
+	\paragraph{Résolution}
+		\begin{enumerate}
+			\item \(u_0 = 1\) et \(\forall n \in \m{N}\), \(u_{n + 1} = u_n\) + \(\frac{1}{2^n \times u_n}\)\\
+			\(\forall n\in\m{N}\) , \(u_n \more 1\) :
+			\begin{description}
+				\item[EF :] \(u_0 = 1 > 0\)\\
+				Supposons \(u_n \more 1\) ; \(u_{n + 1} = u_n + \frac{1}{2^n\times u_n}\) existe et \(u_{n + 1} \more 1\).\\
+				\textbf{FEF}
+			\end{description}
+			\(\forall n \in \m{N}\), \(u_{n + 1} - u_n  = \frac{1}{2^n\times u_n} \less \frac{1}{2^n}\)\\
+			Soit \(\varepsilon > 0\),
+			\[\left| u_{n + p} - u_n \right| = \left|\sum_{k = n}^{n + p - 1} u_{k + 1} - u_k \right| \less \sum_{k = n}^{n + p - 1}\left|u_{k + 1} - u_k\right|\]
+			\[\less \sum_{k = n}^{n + p - 1}\frac{1}{2^k} \less (\frac{1}{2})^n \times \frac{1 - (\frac{1}{2})^p}{\frac{1}{2}}\]
+			\[\less (\frac{1}{2})^n\times 2 \less \frac{1}{2^{n - 1}} \underset{n \rightarrow +\infty}{\longrightarrow} 0\]
+			\(\exists N \in \m{N} ~ | ~ \forall n \more N, \forall p \in \m{N}, \left|u_{n + p} - u_n\right| \less \varepsilon \text{ }(N \text{ est indépendant de } p)\).\\
+			Donc \((u_n)\) est de Cauchy dans \(\m{K}\) et \(\m{K}\) est complet donc \((u_n)\) converge dans \(\m{K}\).\\
+			\item \(\forall n \more 1, u_n = f(\frac{1}{n})\)\\
+			\(f : \left]0, 1\right] \rightarrow \m{R}\), dérivable sur \(\left]0, 1\right]\) et vérifiant \(\forall t\in \left]0, 1\right], \left|f'(t)\right| \less 1\).\\
+			\(f\) est \(1\)-lipschitzienne sur \(\left]0, 1\right]\).\\
+			Pour \(n \more 1\), \((\frac{1}{n}, \frac{1}{n + 1}) \in \left]0, 1\right]^2\)
+			\[\left|f(\frac{1}{n + 1}) - \frac{1}{n}\right| \less \left| \frac{1}{n + 1} - \frac{1}{n} \right| \less \frac{1}{n} - \frac{1}{n + 1}\]
+			\[\left| u_{n + p} - u_n \right| = \left| \sum_{k = n}^{n + p - 1} u_{k + 1} - u_k \right| \less \sum_{k = n}^{n + p - 1} \left| u_{k + 1} - u_k \right|\]
+			\[\less \sum_{n}^{n + p - 1} \frac{1}{k} - \frac{1}{k + 1} = \frac{1}{n} - \frac{1}{n + p} \less \frac{1}{n} \underset{n \rightarrow +\infty}{\longrightarrow} 0\]
+			Soit \(\varepsilon > 0\).\\
+			\(\exists N \in \m{N}, \forall n \more N, \frac{1}{n} \less \varepsilon\)\\
+			Si on suppose \(n \more N\) alors \(\forall p \in \m{N}, \left|u_{n + p} - u_n\right| \less \frac{1}{n} \less \varepsilon\)\\
+			Ainsi \(\forall \varepsilon > 0, \exists N \in \m{N}, \forall p \in \m{N} \left| u_{n + p} - u_n \right| \less \varepsilon\)\\
+			\((u_n)\) est de Cauchy dans \(\m{R}\) donc elle converge dans \(\m{R}\).\\
+		\end{enumerate}

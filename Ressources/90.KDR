@@ -1,0 +1,34 @@
+\section{$(90)$ Détermination de l'ensemble de convergence de la série entière $\displaystyle{\sum a_n t^{n}}$ où $(a_n)$ est la suite définie par $a_{0} = 1$ et $\forall n \in \m{N}, a_{n + 1} = \sin(a_n)$. Détermination de la somme de la série entière $\displaystyle{\sum_{n \more 1} H_{n} t^{n}}$ où $H_{n} =  1 + \frac{1}{2} + ... + \frac{1}{n}$.}
+	\paragraph{Énoncé}
+		\begin{enumerate}
+			\item Détermination de l'ensemble de convergence de la série entière \(\sum a_n t^{n}\) où \((a_n)\) est la suite définie par \(a_{0} = 1\) et \(\forall n \in \m{N}, a_{n + 1} = \sin(a_n)\).
+			\item Détermination de la somme de la série entière \(\sum_{n \more 1} H_{n} t^{n}\) où \(H_{n} =  1 + \frac{1}{2} + ... + \frac{1}{n}\).
+		\end{enumerate}
+
+	\paragraph{Résolution}
+		\begin{enumerate}
+			\item On a déjà d'après la KDR 9 : \(\lim a_n = 0\), \(a_n > 0\), \((a_n)\) décroissante et \(a_n \sim \sqrt{\frac{3}{n}}\).
+			\[\left|\frac{a_{n + 1}}{a_n}\right| = \frac{\left|\sin(a_n)\right|}{a_n} \sim \frac{a_n}{a_n} \sim 1\]
+			Donc \(R_a = \frac{1}{1} = 1\).\\
+			\\
+			\(\left]-1, 1\right[ \subset E_a \subset \left[-1, 1\right]\)\\
+			D'après le C.S.A. comme \(\lim a_n = 0\) et \((a_n)\) décroissante, \(\sum a_n (-1)^{n}\) converge. \\
+			\(\sum a_n 1^{n}\) diverge - car \(a_n \sim \sqrt{\frac{3}{n}}\) et  \(\sum \frac{1}{n^{1/2}}\) diverge comme \(\frac{1}{2} < 1\).\\
+			Donc \(E_a = \left[-1, 1\right[\).\\
+			\item \[\left|\frac{H_{n + 1}}{H_n}\right| = \frac{H_n + \frac{1}{n + 1}}{H_n} = 1 + \frac{1}{(n + 1)H_n} \underset{+\infty}{\longrightarrow} 1 \text{ car } H_n \more 1\]
+			Donc \(R_H = \frac{1}{1} = 1\) et \(\left]-1, 1\right[ \subset E_H \subset \left[-1, 1\right]\).\\
+			\\
+			\(\sum H_n 1^{n}\) diverge \((\text{ car } \lim H_n = +\infty \neq 0)\)\\
+			\(\sum H_n (-1)^{n}\) diverge - car \(\lim \left|H_n (-1)^{n}\right| = + \infty \neq 0\)\\
+			\\
+			Donc \(E_H = \left[-1, 1\right[\)\\
+			Posons, \(\forall t \in E_H\), \(S(t) = \sum_{n = 1}^{ + \infty} H_n t^{n}\)\\
+			\\
+			or, \(H_n = \sum_{k = 1}^{n} \frac{1}{k} \times 1 =  \sum_{k = 1}^{n} a_k b_{n-k} \)\\
+			avec \(a_0 = 0\) et \(\forall k  \more 1, a_k = \frac{1}{k}\)\\
+			et \(\forall k \in \m{N}, b_k = 1\)\\
+			\\
+			Donc \(S(t) = \sum_{n = 1}^{+\infty} \underbrace{(\sum_{k = 1}^{n} a_k b_{n-k}) t^{n}}_{ = 0 \text{ pour } n = 0} = \sum_{n = 0}^{ + \infty} \underbrace{(\sum_{k = 1}^{n} a_k b_{n - k})}_{ = c_n} t^{n}\)\\
+			On applique la formule du produit de Cauchy comme \(\left|t\right| < min(Ra, Rb) = 1\).\\
+			\(S(t) = (\sum_{n = 0}^{ + \infty} a_n t^n) (\sum_{n = 0}^{+\infty} b_n t^{n}) = (\sum_{n = 1}^{+\infty} \frac{t^n}{n}) (\sum_{n = 0}^{+\infty} t^{n}) = (-ln(1 - t)) (\frac{1}{1-t}) = \frac{-ln(1 - t)}{1 - t}\)
+		\end{enumerate}

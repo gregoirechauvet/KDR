@@ -1,0 +1,31 @@
+\section{$(61)$ Calcul de $A^n$.}
+	\paragraph{Énoncé}
+		Calcul de \(A^n\) pour \(A = 
+		\begin{bmatrix}
+		   2 & -1 & 2 \\
+		   5 & -3 & 3 \\
+		   -1 & 0 & -2 
+		\end{bmatrix}
+		\) et \(n \in \m{N}\).
+	\paragraph{Résolution}
+		Cayley-Hamilton : \(\chi_A(A) = 0\)\\
+		On effectue la division euclidienne de \(X^n\) par \(\chi_A\).\\
+		\(X^n = \chi_AQ + R \text{ avec } deg(R) \less 2\)
+		\[A^n = \chi_A(A)Q(A) + R(A) = R(A)\]
+		\(R = \alpha X^2 + \beta X + \gamma\), \((\alpha, \beta, \gamma) \in \m{R}^3\)\\
+		De même \((-1)^n = \underbrace{\chi_A(-1)}_{= 0 \text{ car } -1 \text{ racine}}Q(-1) + R(-1)\)
+		\[\chi_A(-1) = \alpha - \beta + \gamma\]
+		\(-1\) est racine triple : \(\chi_A(-1) = \chi_A'(-1) = \chi_A''(-1) = 0\) et \(\chi_A^{(3)}(-1) \ne 0\)\\
+		Pour \(n \more 2\) :\\
+		\(nX^{n - 1} = \chi_A'Q + \chi_AQ' + R'\)
+		\[n(-1)^{n - 1} = -2\alpha + \beta\]
+		\(n(n - 1)X^{n - 2} = \chi_A''Q + \chi_A'Q' + \chi_A'Q' + \chi_AQ'' + R''\)
+		\[n(n - 1)(-1)^{n - 2} = 2\alpha\]
+		Alors :
+		\[\alpha = \frac{(-1)^n}{2}n(n - 1)\]
+		\[\beta = (-1)^nn(n - 2)\]
+		\[\gamma = \frac{(-1)^n}{2}(n - 1)(n - 2)\]
+		\[A^n = \frac{(-1)^n}{2}n(n - 1)A^2 + (-1)^nn(n - 2)A + \frac{(-1)^n}{2}(n - 1)(n - 2)I \text{ pour } n \more 2\]
+		On verifie que la formule marche également pour tout \(n \in \m{N}\).
+
+

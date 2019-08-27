@@ -1,0 +1,35 @@
+\section{L'irrationnel $e$.}
+	\paragraph{Énoncé}
+		Soient \((u_n)_{n \more 1}\) et \((v_n)_{n \more 1}\) les suites définies par : \(u_n = \sum_{k = 0}^n \frac{1}{k!}\) et \(v_n = u_n + \frac{1}{nn!}\).
+		\begin{enumerate}
+			\item \(((u_n)_{n \more 1}, (v_n)_{n \more 1})\) est un couple de suite adjacentes. On pose par définition : \(e = \lim u_n\).
+			\item Le réel \(e\) est irrationnel.
+		\end{enumerate}
+
+	\paragraph{Démonstration}
+		Soient \(u_n\) et \(v_n\) les suites définies par \(u_n = \sum_{k = 0}^{n}\frac{1}{k!}\) et \(v_n = u_n + \frac{1}{nn!}\).
+		\begin{itemize}
+			\item \(u_{n + 1} - u_n = \frac{1}{(n + 1)!} > 0\) donc \(u_n\) est strictement croissante.
+			\item \(v_{n+1} - v_n = \frac{-1}{n(n + 1)(n + 1)!} < 0\) donc  \(v_n\) est strictement décroissante.
+			\item \(v_n - u_n = \frac{1}{nn!}\)\\
+			\(lim(v_n - u_n) = 0\) donc \(((u_n), (v_n))\) est un couple de suites adjacentes.
+			\item \(\forall n \in \m{N}, u_n \less e \less v_n\)\\
+			Supposons \(e \in \m{Q}\).\\
+			\(\exists p \in \m{Z}\) et \(\exists q \in \m{N}^* ~ | ~ e = \frac{p}{q}\)\\
+			\(u_{0} = 1 \less e\) donc \(e > 0\) et \(p \in \m{N}^*\)
+			\[u_n \less e \less v_n\]
+			En fait \(\forall n \in \m{N}\), \(u_n < e < v_n\) :
+			\begin{description}
+				\item[EF :] Supposons \(\exists p \in \m{N}\) | \(u_{p} \more e\) mais \(u_{p} \less e\).\\
+				Donc \(u_p = e\) et \(e = u_p < u_{p + 1}\) car \((u_n)\) est strictement croissante.\\
+				\(e < u_{p + 1}\). C'est donc absurde.\\
+				De même avec \(v_n\).\\
+				\textbf{FEF}
+			\end{description}
+			En particulier pour \(q\) :
+			\[u_q < e < v_q\]
+			\[u_q < \frac{p}{q} < u_q + \frac{1}{qq!}\]
+			\[\underbrace{qq! u_q}_{\in \m{N}} < \underbrace{pq!}_{\in \m{N}} < \underbrace{1 + qq! u_q}_{\in \m{N}}\]
+			C'est absurde.\\
+			Ainsi \(e\) est irrationnel.
+		\end{itemize}

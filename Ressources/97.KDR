@@ -1,0 +1,54 @@
+\section{$(97)$ Espace de Banach.}
+	\paragraph{Énoncé}
+		\((\ell^2(\m{K}), \left\| \ \right\|_2)\) est un espace de Banach, \(\m{K}\left[X\right], \left\| \ \right\|_\infty\) n'est pas un espace de Banach.
+
+	\paragraph{Démonstration}
+		\(\ell^2(\m{K}) = (u_n) \in \m{K}^n ~ | ~ \sum \left|u_n\right|^2\) converge.\\
+		\(\ell^2(\m{K})\) est un \(\m{K}\)-espace vectoriel.\\
+		Pour \(u = (u_n)\) et \(v = (v_n)\) dans \(\ell^2(\m{K})\), on pose \((u|v) = \sum_{n = 0}^{ +\infty} \overline{u_n}v_n\) et on note \(\left\| \ \right\|_2\) sa norme associée.\\
+		Dès lors, \((\ell^2(\m{K}), \left\| \ \right\|_2)\) est un espace vectoriel normé.\\
+		\\
+		Montrons que \((\ell^2(\m{K}), \left\| \ \right\|_2)\) est complet :\\
+		Soit \((X_n)\) une suite d'éléments de \(\ell^2(\m{K})\), supposons que \((X_n)\) soit de Cauchy dans \(\ell^2(\m{K})\).\\
+		Pour tout \(n \in \m{N}\), \(X_n \in \ell^2(\m{K})\) donc \(X_n = (x_k^{(n)})_{k \in \m{N}}\).
+		\[\forall \varepsilon > 0, \exists N \in \m{N}, \forall n \more N, \forall p \in \m{N}, \left\| X_{n + p} - X_n \right\|_2 \less \varepsilon\]
+		Car \((X_n)\) est de Cauchy .
+		\[\forall \varepsilon > 0, \exists N \in \m{N}, \forall n \more N, \forall p \in \m{N}, \sum_{k = 0}^{ +\infty} \left|x_k^{(n + p)} - x_k^{(n)}\right|^2 = \left\| X_{n + p} - X_n \right\|_2^2 \less \varepsilon^2\] 
+		\[(*)\ \ \forall \varepsilon > 0, \exists N \in \m{N}, \forall n \more N, \forall p \in \m{N}, \forall m \in \m{N}, \sum_{k = 0}^{m} \left|x_k^{(n + p)} - x_k^{(n)}\right|^2 \less \varepsilon^2\]
+		Car si \(a_k \more 0\) et \(\sum a_k\) converge alors \(\sum_{k = 0}^m a_k \less \sum_{k = 0}^{ +\infty} a_k\).
+		\[\forall \varepsilon > 0, \exists N \in \m{N}, \forall n \more N, \forall p \in \m{N}, \forall k \in \m{N}, \left|x_k^{(n + p)} - x_k^{(n)}\right| \less \varepsilon\]
+		Car \(0 \less a_n \less \sum_{k = 0}^{ +\infty} a_k\).\\
+		Fixons \(k\) dans \(\m{N}\) :
+		\(\forall \varepsilon > 0, \exists N \in \m{N}, \forall n \more N, \forall p \in \m{N}, \left|x_k^{(n + p)} - x_k^{(n)}\right| \less \varepsilon\) donc \((x_k^{(n)})_{n \in \m{N}}\) est de Cauchy dans \((\m{K}, \left| \ \right|)\), qui est un espace de Banach, donc \((x_k^{(n)})_{n \in \m{N}}\) converge dans \((\m{K}, \left| \ \right|)\).\\
+		Posons \(x_k\) sa limite : \(x_k = \underset{n \to +\infty}{lim} a_k^{(n)}\)\\
+		On dispose donc de \(X = (x_k)_{k \in \m{N}}\) qui est une suite d'éléments de \(\m{K}\).\\
+		Faisons tendre \(p\) vers \( +\infty\) dans \((*)\) : 
+		\[\forall \varepsilon > 0, \exists N \in \m{N}, \forall n \more N, \forall m \in \m{N}, \sum_{k = 0}^{m} \left|x_k - x_k^{(n)}\right|^2 \less \varepsilon^2\]
+		Puis en faisant tendre \(m\) vers \( +\infty\) - la série \(\sum \left|x_k - x_k^{(n)}\right|^2\) est à termes positifs majorée donc converge :
+		\[\forall \varepsilon > 0, \exists N \in \m{N}, \forall n \more N, \sum_{k = 0}^{ +\infty} |x_k - x_k^{(n)}|^2 \less \varepsilon^2\]
+		i.e. \(\forall \varepsilon > 0, \exists N \in \m{N}, \forall n \more N , \left\| X - X_n \right\|_2^2 \less \varepsilon\) \((**)\)\\
+		Vérifions que \(X \in \ell^2(\m{K})\) :\\
+		D'après \((**)\), \(\exists N_0 \in \m{N}, \forall n \more N_0, \left\|X - X_n\right\|_2 \less 12\)
+		\[\left\| X \right\|_2 = \left\| (X - X_{N_0}) + X_{N_0} \right\|_2 \less \left\| X - X_{N_0} \right\|_2 + \left\| X_{N_0} \right\|_2 \less 12 + \underbrace{\left\| X_{N_0} \right\|_2}_{< +\infty \text{ car } X_{N_0} \in \ell^2(\m{K})} < +\infty\] donc \(X \in \ell^2(\m{K})\) puis d'après \((**)\), \(\lim_{n \to +\infty} \left\| X - X_n \right\|_2 = 0\)\\
+		\((X_n)_{n \in \m{N}}\) converge dans \(\ell^2(\m{K})\). Toute suite de Cauchy de \(\ell^2(\m{K})\) converge dans \(\ell^2(\m{K})\).\\
+		\\
+		Soit \(P_n = \sum_{k = 0}^n \frac{X^k}{k!}\)\\
+		\(\left\| P_{n + p} - P_n \right\|_\infty = \left\| \sum_{k = n + 1}^{n + p} \frac{X^k}{k!} \right\|_\infty = max(\frac{1}{(n + 1)!}, \frac{1}{(n + 2)!}, ..., \frac{1}{(n + p)!}) = \frac{1}{(n + 1)!}\) indépendant de p.\\
+		Soit \(\varepsilon > 0\), \(\lim_{n \to +\infty} \frac{1}{(n + 1)!} = 0\) donc \(\exists N \in \m{N} | \forall n \more N, \frac{1}{(n + 1)!} \less \varepsilon\)\\
+		Ainsi \(\exists N \in \m{N}, \forall n \more N, \forall p \in \m{N}, \left\| P_{n + p} - P_n \right\|_\infty \less \varepsilon\)\\
+		\((P_n)\) est de Cauchy dans \((\m{K}[X], \left\| \ \right\|_\infty)\)\\
+		Supposons que \((P_n)\) converge dans \((\m{K}[X], \left\| \ \right\|_\infty)\), i.e. \(\exists P \in \m{K}[X] | \lim_{n \to +\infty} \left\| P_n - P \right\|_\infty = 0\)\\
+		\(P\neq 0\):
+		En effet, si \(P = 0\), \(\lim_{n \to +\infty} \left\| P_n \right\|_\infty = \left\| \sum_{k = 0}^{ +\infty} \frac{1}{n!} \right\|_\infty = 1 \neq 0\)\\
+		Absurde car \(1 \neq 0\).\\
+		\(d = \deg P \in \m{N}\)\\
+		\(P = a_dX^d + ... + a_1X + a_0\) avec \(a_k \in \m{K}\) et \(a_d \neq 0\)\\
+		\[\left\| P_n - P \right\|_\infty = \left\| \sum_{k = 0}^n \frac{X^k}{k!} - \sum_{k = 0}^d a_k X^k \right\|_\infty = \left\| \sum_{k = 0}^d (\frac{1}{k!} - a_k)X^k + \sum_{k = d + 1}^n \frac{1}{k!}X^k \right\|_\infty, \text{ pour n } \more d + 1\]
+		Supposons \(n\more d + 1\): 
+		\[\forall k \in \llbracket 0, d \rrbracket, \left|\frac{1}{k!} - a_k\right| \less \left\| P_n - P \right\|_\infty\]
+		Par passage à la limite quand \(n \to +\infty\),
+		\[\forall k \in \llbracket 0, d \rrbracket, \left|\frac{1}{k!} - a_k\right| \less 0\]
+		\[\forall k \in \llbracket 0, d \rrbracket, \frac{1}{k!} = a_k\]
+		Ainsi
+		\[\left\| P_n-P \right\|_\infty = \left\| \sum_{k = d + 1}^n \frac{1}{k!}X^k \right\|_\infty = \frac{1}{(d + 1)!} \underset{n \to +\infty}{\to} \frac{1}{(d + 1)!} \neq 0, \text{ Absurde}\]
+		\((P_n)\) n'est pas convergente dans \((\m{K}[X], \left\| \ \right\|_\infty)\).\\

@@ -1,0 +1,48 @@
+\section{Convergence d'une suite d'entiers et $\displaystyle{A \in \mathscr{P}(\m{R})}$, $\displaystyle{\exists (a_{n}) \in \m{R}^{N}, Sup(A) = \lim_{n \to +\infty}a_{n}}$.}
+	\paragraph{Énoncé}
+		Une suite d'entiers relatifs est convergente dans \(\m{R}\) si et seulement si elle est stationnaire.
+
+	\paragraph{Démonstration}
+		Soit \((p_{n}) \in \m{Z}^{\m{N}}\)\\
+		Supposons que \((p_{n})\) converge dans \(\m{R}\) vers \(a \in \m{R}\)\\
+		Posons \(u_{n} = \left| p_{n+1} - p_{n} \right|\)\\
+		\(\lim u_{n} = \left| a - a \right| = 0\)\\
+		On a \(0 < \frac{1}{12}\) donc \(\exists N \in \m{N} | \forall n \more N, 0 \less u_{n} \less \frac{1}{12}\)\\
+		\(\forall n \more N, \underbrace{\left| p_{n+1} - p_{n} \right|}_{\in \m{N}} \less \frac{1}{12}\) donc \(\left| p_{n+1} - p_{n} \right| = 0\)\\
+		Ainsi, \(\forall n \more N, p_{n+1} = p_{n} = p_{N}\)\\
+		\((p_{n})\) est stationnaire.
+
+	\paragraph{Énoncé}
+		Si une partie A de \(\m{R}\) admet une borne supérieure - resp. une borne inférieure - dans \(\m{R}\) alors il existe une suite d'éléments de A qui tend vers Sup A - resp. vers Inf A.
+
+	\paragraph{Démonstration}
+		Soit A \(\in \mathscr{P}(\m{R})\)\\
+		Supposons que Sup A existe dans \(\m{R}\)\\
+		A \(\ne \varnothing\) :
+		\begin{description}
+		\item[EF :] Supposons A \(= \varnothing\). Dès lors, \(\text{Maj}_{\m{R}} \text{A} = \m{R}\) :
+			\begin{description}
+				\item[EF :] Soit \(x \in \m{R}\),\\
+				Supposons \(\exists a \in \varnothing ~ | ~ a > x\).\\
+				\(a \in \varnothing\), c'est absurde.\\
+				Donc \(\forall a \in \varnothing, a \less x\).\\
+				\(x\) est un majorant de \(\varnothing\).\\
+				\textbf{FEF}
+			\end{description}
+			Comme \(\m{R}\) n'admet pas de plus petit élément, Sup A n'existe pas. Ce qui est en désaccord avec le choix de A pour la 	démonstration.
+			Ainsi A \(\ne \varnothing\)\\
+			\textbf{FEF}
+		\end{description}
+		Soit \(n \in \m{N}\)\\
+		\(\text{Sup A} - \frac{1}{n+1} < \underbrace{\text{Sup A}}_{\text{PPDM de A}}\)
+		Donc \(\text{Sup A} - \frac{1}{n+1}\) n'est pas un majorant de A.\\
+		Ainsi, \(\exists a_{n} \in A | \text{Sup A} - \frac{1}{n+1} < a_{n}\) \\
+		Pour tout \(n \in \m{N}\) on dispose du réel \(a_{n}\)\\
+		On a donc une suite \((a_{n})\) vérifiant :
+		\[\left\{
+    	\begin{array}{l}
+    	    \forall n \in \m{N}, a_{n} \in A\\
+    	    \text{Sup A} - \frac{1}{n+1} < a_{n} \less \text{Sup A}
+    	\end{array}
+		\right.\]
+		Par encadrement, \(\lim\limits_{\substack{n \to + \infty}} a_{n} = \text{Sup A}\).

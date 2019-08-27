@@ -1,0 +1,27 @@
+\section{Suite harmonique et constante d'Euler.}
+	\paragraph{Énoncé}
+\[H_{n} = \frac{1}{1} + ... + \frac{1}{n} = \sum_{k = 1}^{n}\frac{1}{k} = \sum_{k = 1}^{n}f(k) \text{ avec } f(t) = \frac{1}{t}\]
+\[\forall{k} \more 1, f( k + 1) \less \int_{k}^{k + 1} \less f(k)\]
+D'après \((2)\) :
+\[\sum_{k = 1}^{n}\int_{k}^{k + 1} \less \sum_{k = 1}^{n}f(k)\]
+\[\int_{k}^{n + 1}f \less H_{n}\]
+D'après \((1)\) :
+\[f(2) + ... + f(n) \less \sum_{k = 2}^{n - 1}\]
+\[H_{n} - f(1) \less \int_{1}^{n}f \]
+En résumé :
+\[\int_{1}^{n+1}f \less H_{n} \less f(1) + \int_{1}^{n}f\]
+\[\int_{1}^{n}f = \int_{1}^{n}\frac{1}{t} = [\ln t]_{1}^{n} = \ln n\]
+\[\ln(n + 1) \less H_{n} \less 1 + \ln n\]
+Pour \(n \more 1\) posons \(\gamma = H_{n} - \ln n\)\\
+Point1 : \(\ln(n + 1) - \ln n \less H_{n} + (-\ln n) \less 1\)\\
+\(0 \less \gamma_{n} \less 1\)   \((\gamma_{n})_{n + 1}\) est bornée.\\
+Point2 : \(\gamma_{n + 1} - \gamma_{n} - (H_{n + 1} - \ln(n + 1)) - (H{n} - \ln n) = \frac{1}{n + 1} - \underbrace{(\ln(n + 1)-ln)}_{ = [\ln t]_{n}^{n + 1} = \int_{n}^{n + 1}\frac{1}{t}dt}\)\\
+\(= \frac{1}{n + 1} - \int_{n}^{n + 1}dt \less 0\) car :
+
+\paragraph{Démonstration}
+Développement asymptotique de la suite harmonique.
+
+Pour \(n \more 1 \text{ posons }H_{n} = 1 + \frac{1}{2} + ... + \frac{1}{n} et u{n} = H_{n} - \ln n \)
+Point1 : La suite \((u_{n})_{n \more 1}\) est de même nature que la série \( \sum_{n \more 2}u_{n} - u{n - 1}\).
+\(u_{n} - u_{n - 1} = \frac{1}{n} - \ln n + \ln(n - 1) = \frac{1}{n} + \ln(1 - \frac{1}{n}) = \frac{1}{n} + ( - \frac{1}{n} - \frac{1}{2n^{2}} + o(\frac{1}{n^{2}})) = \)\\ %\frac{1}{2n^2 + o(\frac{1}{n^2})}
+\(u_{n} - u_{n - 1}\sim \frac{-1}{2n^{2}} ; \frac{-1}{2n^{2}} < 0\text{ et } \sum_{n \more 1}\)

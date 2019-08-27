@@ -1,0 +1,23 @@
+\section{$(18)$ Critère spécial des séries alternées.}
+	\paragraph{Énoncé}
+		Si \((\alpha_n)\) est une suite réelle décroissante qui tend vers \(0\), alors la série \(\sum (-1)^n \alpha_n\) est convergente et si on note \(A_n\) la somme partielle d'ordre \(n\), \(R_n\) le reste d'ordre \(n\) et \(A\) la somme de cette série alors pour tout \(n \in \m{N}\) on a :\\
+		\(A_{2n + 1} \less A \less A_{2n}\), \(\left| R_n \right| \less \alpha_{n + 1}\) et \(R_n\) est du signe de \((-1)^{n + 1}\).
+	
+	\paragraph{Résolution}
+		Soit \(A_n = \sum_{k = 0}^n (-1)^k \alpha_k\).\\
+		Montrons que \(((A_{2p+1}), (A_{2p}))\) est un couple de suites adjacentes :\\
+		Posons \(u_{p} = A_{2p+1} \) et \( v_{p} = A_{2p}\).
+		\begin{itemize}
+			\item[\textbullet] \(u_{p + 1} - u_p = A_{2p + 3} - A_{2p + 1} = (-1)^{2p + 3} \alpha_{2p + 3} + (-1)^{2p + 2} \alpha_{2p + 2} = \alpha_{2p + 2} - \alpha_{2p + 3} \more 0\)
+			\item[\textbullet] \( v_{p + 1} - v_p = A_{2p + 2} - A_{2p} = (-1)^{2p + 2} \alpha_{2p + 2} + (-1)^{2p + 1}\alpha_{2p + 1} = \alpha_{2p + 2} - \alpha_{2p + 1} \less 0 \)
+			\item[\textbullet] \(u_n - v_n = A_{2n + 1} - A_{2n} = -\alpha_{2n + 1} \underset{\infty}{\rightarrow} 0 \)
+		\end{itemize}
+		Ainsi les suites \((A_{2n+1})\) et \((A_{2n})\) convergent vers un même réel \(A\) et \(\forall n \in \m{N}, A_{2n + 1} \less A \less A_{2n}\)\\
+		Soit \(R_n = A-A_{n} = \sum_{k = n + 1}^{+\infty} (-1)^k \alpha_k\)\\
+		Montrons que \(\left|R_n\right| \less \alpha_{n + 1} \) et \( signe(R_n) = signe((-1)^{n + 1})\) :
+		\begin{itemize}
+			\item[\textbullet] \(A_{2n + 1} + (-A_{2n}) \less A + (-A_{2n}) \less A_{2n} + (-A_{2n}) \Rightarrow (-1)^{2n + 1}\alpha_{2n + 1} \less R_{2n} \less 0 \Rightarrow -\alpha_{2n + 1} \less R_{2n} \less 0 \less \alpha_{2n + 1}\)\\
+			D'où \(\left|R_{2n}\right| \less \alpha_{2n + 1}\) et \(R_{2n}\) négatif, i.e. du signe de \((-1)^{2n + 1}\).
+			\item[\textbullet] \(A_{2n + 3} + (-A_{2n + 1}) \less A + (-A_{2n + 1}) \less A_{2n + 2} + (-A_{2n + 1}) \Rightarrow -\alpha_{2n + 3} + \alpha_{2n + 2} \less R_{2n + 1} \less \alpha_{2n + 2} \Rightarrow -\alpha_{2n + 2} \less 0 \less R_{2n + 1} \less \alpha_{2n + 2}\)\\
+			D'où \(\left|R_{2n + 1}\right| \less \alpha_{2n + 2} \) et \(R_{2n + 2}\) positif, i.e. du signe de \((-1)^{2n + 2}\).
+		\end{itemize}

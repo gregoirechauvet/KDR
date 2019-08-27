@@ -1,0 +1,63 @@
+\section{$(99)$ Applications linéaires continues.}
+	\paragraph{Énoncé}
+		On se place dans le \(\m{K}\)-espace vecrightarrowriel normé \((\ell^2(\m{K}), \left\| \ \right\|_2)\).\\
+		Pour rightarrowut \(n \in \m{N}\), on considère \(\pi_n : \ell^2(\m{K}) \rightarrow \m{K}\) définie par \(\pi_n(u) = u_n\), avec \(u = (u_k)_{k \in \m{N}}\).\\
+		\(\pi_n\) est une application continue de \((\ell^2(\m{K}), \left\| \ \right\|_2)\) dans \((\m{K}, \left\| \ \right\|)\) dont la norme subordonnée vaut 1.
+	
+	\paragraph{Démonstration}
+		Fisons \(n \in \m{N}\), \(\pi_n : \underset{u \mapsto u_n}{\ell^2(\m{K}) \rightarrow \m{K}}\)\\
+		\(\pi_n\) est linéaire :
+		\begin{description}
+			\item[EF :] \(\pi_n (\alpha u + \beta v) = (\alpha u + \beta v)_n = \alpha u_n + \beta v_n = \alpha \pi_n(u) + \beta \pi_n(v)\)\\
+			Soit \(u = (u_k) \in \ell^2(\m{K})\) : \(\left|\pi_n(u)\right| = \left|u_n\right| = \sqrt{\left|u_n\right|^2}\)\\
+			or \(\left|u_n\right|^2 \less \sum_{k = 0}^{+\infty} \left|u_k\right|^2\)\\
+			\(\left|\pi_n(u)\right| \less \sqrt{\sum_{k = 0}^{+\infty} \left|u_k\right|^2} = \left\| u \right\|_2\)
+			\(\forall u \in \ell^2(\m{K}), \left|\pi_n(u)\right| \less 1 \left\| u \right\|_2\)\\
+			\textbf{FEF}
+		\end{description}
+		Comme \(\pi_n\) est linéaire, \(\pi_n\) est continue  et \(\left|\left|\left| \pi_n \right|\right|\right| \less 1\)\\
+		\\
+		Posons \(u = (\delta_{kn})_{k \in \m{N}}\)
+		\[\sum_{k = 0}^{+\infty} \left|u_k\right|^2 = \sum_{k = 0}^{+\infty} \left|\delta_{kn}\right|^2 = \left|\delta_{nn}\right|^2 = 1\]
+		\(u \in \ell^2(\m{K})\) et \(\left\| u \right\|_2 = 1\)\\
+		\(\left|\pi_n(u)\right| = \left|\delta_{nn}\right| = 1\)\\
+		\(\pi_n \in \ell_c(\ell^2(\m{K}), \m{K})\), \(\forall v \in \ell^2(\m{K}), \left|\pi_n(v)\right| \less \left|\left|\left|\pi_n\right|\right|\right| \left\| v \right\|_2\)\\
+		Soit pour \(u\), \(1 \less |||\pi_n|||\)\\
+		Donc \(\left|\left|\left|\pi_n\right|\right|\right| = 1\)
+
+	\paragraph{Énoncé}
+		Sur le \(\m{R}\)-espace vecrightarrowriel \(E = \mathcal{C}^0(\left[0, 1\right],\m{R})\) on dispose des normes \(\left\| \ \right\|_1\) et \(\left\| \ \right\|_\infty\) définies par : \(\left\| f \right\|_1 = \int_0^1 \left|f\right|\) et \(\left\| f \right\|_\infty =  \underset{t \in \left[0, 1\right]}{Sup} \left|f(t)\right|\). Soit \(T : E \rightarrow E\) défine par \(\forall x \in \left[0, 1\right]\), \(\forall f \in E\), \(T(f)(x) = \int_0^x tf(t)dt\).\\
+		\(T\) est une application linéaire continue de \((E, \left\| \ \right\|_\infty )\) dans \((E, \left\| \ \right\|_1 )\) dont la norme subordonnée vaut \(\frac{1}{6}\).\\
+		\(T\) est une application linéaire continue de \((E, \left\| \ \right\|_1 )\) dans \((E, \left\| \ \right\|_\infty )\) dont la norme subordonnée vaut \(1\).
+
+	\paragraph{Démonstration} 
+		\(T(f) : \left[0, 1\right] \rightarrow \m{R}\)\\
+		\(T(f)\) est l'unique primitive de \(Id_{\left[0, 1\right]} \times f\) qui s'annule en \(0\), car \(Id_{\left[0, 1\right]} \times f\) est continue sur \(\left[0, 1\right]\).\\
+		\(T(f)\) est alors dérivable sur \(\left[0, 1\right]\) et \(T(f)' = Id \times f\).\\
+		\(T(f)\) est donc continue sur \(\left[0, 1\right]\).\\
+		\(T\) est donc bien une application de \(E\) dans \(E\).\\
+		Par linéarité de l'intégrale, \(T\) est linéaire.\\
+		Ainsi, on a bien \(T \in \ell(E)\).\\
+		\\
+		On considère \(T\) de \((E, \left\| \ \right\|_\infty)\) dans \((E, \left\| \ \right\|_1)\).\\
+		Soit \(f \in E\).
+		\[\left\| T(f)(x) \right\|_1 = \int_0^1 \left|T(f)(x)\right|dx \less \int_0^1 \left|\int_0^x tf(t)dt\right|dx\]
+		\[\less \int_0^1 (\int_0^x t\left|f(t)\right|dt)dx \less \int_0^1 (\int_0^x t \left\| f \right\|_\infty dt)dx\]
+		\[\less \left\| f \right\|_\infty \int_0^1 \frac{x^2}{2}dx \less \frac{1}{6}\] 
+		Comme \(T\) est linéaire, \(T\) est continue de \((E, \left\| \ \right\|_\infty)\) dans \((E, \left\| \ \right\|_1)\) et \(\left|\left|\left|T\right|\right|\right|_{\infty, 1} \less \frac{1}{6}\).\\
+		Cherchons une application \(g\) de \(E\) telle que \(\left\| T(f)(g) \right\|_1 = \frac{1}{6}\) et \(\left\| g \right\|_\infty = 1\).\\
+		Dès lors, on aurait : \(\underbrace{\left\| T(g) \right\|_1}_{\frac{1}{6}} \less \left|\left|\left|T\right|\right|\right|_{\infty,1} \underbrace{\left\| g \right\|_\infty}_{1}\) puis \(\left|\left|\left|T\right|\right|\right|_{\infty,1} = \frac{1}{6}\).\\
+		Prenons l'application constante égale à \(1\) : \(\left\| 1 \right\|_\infty  = 1\)\\
+		\(T(1) = \int_0^x tdt = \frac{x^2}{2}\) puis \(\left\| T(1) \right\|_1 = \int_0^1 \frac{x^2}{2}dx = \frac{1}{6}\)\\
+		\\
+		On considère \(T\) de \((E, \left\| \ \right\|_1)\) dans \((E, \left\| \ \right\|_\infty)\).\\
+		Soit \(f \in E\).
+		\[\left|T(f)(x)\right| = \left|\int_0^x tf(t)dt\right| \less \int_0^x \underbrace{t\left|f(t)\right|}_{\more 0}dt \underset{\underset{x \less 1}{\uparrow}}{\less} \int_0^1 t\left|f(t)\right|dt \less \int_0^1 \left|f\right| \less 1 \times \left\| f \right\|_1\] 
+		Cela pour rightarrowut \(x \in \left[0, 1\right]\), d'où \(\left\| T(f) \right\|_\infty \less 1 \times \left\| f \right\|_1\)\\
+		Comme \(T\) est linéaire, \(T\) est continue de \((E, \left\| \ \right\|_1)\) dans \((E, \left\| \ \right\|_\infty)\) et \(\left|\left|\left|T\right|\right|\right|_{1,\infty} \less 1\)\\
+		Cherchons une suite \((g_n)\) d'applications de \(E\) telle que \(\left\| T(f)(g_n) \right\|_\infty \underset{n \rightarrow +\infty}{\longrightarrow} 1\) et \(\left\| g_n \right\|_1 \underset{n \rightarrow +\infty}{\longrightarrow} 1\)\\
+		Dès lors, on aurait \(\underbrace{\left\| T(g_n) \right\|_\infty}_{\underset{n \rightarrow +\infty}{\longrightarrow} 1} \less \left|\left|\left|T\right|\right|\right|_{1,\infty} \underbrace{\left\| g_n \right\|_1}_{\underset{n \rightarrow +\infty}{\longrightarrow} 1}\)  soit par passage à la limite quand \(n\) tend vers l'infini, \(1 \less \left|\left|\left|T\right|\right|\right|_{1,\infty}\)
+		puis \(\left|\left|\left|T\right|\right|\right| = 1\).\\
+		Prenons \(g_n = (t \mapsto nt^n)\) :\\
+		\(\left\| g_n \right\|_1 = \int_0^1 nt^ndt = \frac{n}{n + 1} \rightarrow 1\)\\
+		\(T(g_n) = \int_0^x nt^{n + 1}dt = n\frac{x^{n + 2}}{n + 2}\) puis \(\Vert T(g_n) \Vert_\infty = \frac{n}{n + 2} \rightarrow 1\)\\ 

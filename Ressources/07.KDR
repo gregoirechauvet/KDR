@@ -1,0 +1,39 @@
+\section{Théorème du point fixe.}
+	\paragraph{Énoncé}
+		Soit \(f : D \subset \m{R} \rightarrow \m{R}\). On suppose que \(A\) est une partie fermée et non vide de \(\m{R}\), que \(A\) est stable par \(f\) et que \(f\) est contractante sur \(A\).\\
+		L'application \(f\) admet un unique point fixe \(l\) dans \(A\).
+
+	\paragraph{Démonstration}
+		\(f\) est contractante sur \(A\) : \(\exists k \in \left[0, 1\right[, \forall (x, y) \in A^2, \left| f(x) - f(y) \right| \less k\left|x - y\right|\)\\
+		On recherche un \(l\) tel que \(f(l) = l\)\\
+		Soit \(a \in A\), car \(A \ne \varnothing\), soit \((a_n)\) la suite définie par \(a_0 = a\) et \(\forall n \in \m{N}, a_{n + 1} = f(a_n)\)\\
+		Cette suite est bien définie et \(\forall n \in \m{N}, a_n \in A\) car \(A\) est stable par \(f\) - récurrence...\\
+		\((a_n)\) converge :
+		\begin{description}
+			\item[EF :] \[\left| a_{n + 1} - a_n\right| = \left| f(a_n) - f(a_{n - 1}) \right| \less k\left| a_n - a_{n - 1} \right|\]
+			\[\less k^2 \left| a_{n - 1} - a_{n - 2} \right|\]
+			\[...\]
+			\[\less k^n \left| a_1 - a_0 \right|\]
+			\[\left| a_{n + p} - a_n \right| = \left| \sum_{i = n}^{n + p - 1} a_{i + 1} - a_i \right| \less \sum_{i = n}^{n + p - 1} \left| a_{i + 1} - a_i \right|\]
+			\[\less \left| a_1 - a_0 \right| k^n (1 + k + ... + k^n) \less \left| a_1 - a_0 \right| k^n \frac{1 - k^p}{1 - k}\]
+			\[\less \frac{\left| a_1 - a_0 \right|}{1 - k}k^n \text{ car } 0 \less k < 1\]
+			Soit \(\varepsilon > 0\)\\
+			\(\lim_{n \to +\infty} \frac{\left| a_1 - a_0 \right|}{1 - k}k^n = 0\)\\
+			\(\exists \underset{\underset{\text{indépendant de p}}{\uparrow}}{N} \in \m{N}, \forall n \more N, \frac{\left| a_1 - a_0 \right|}{1 - k}k^n \less \varepsilon\)\\
+			Ainsi : \[\forall \varepsilon > 0, \exists N \in \m{N}, \forall n \more N, \forall p \in \m{N}, \left| a_{n + p} - a_n \right| \less \varepsilon\]
+			\((a_n)\) est de Cauchy dans \(\m{R}\) et donc converge dans \(\m{R}\), car \(\m{R}\) est complet.\\
+			\textbf{FEF}
+		\end{description}
+		Posons \(l = \lim a_n\), \(\lim a_{n + 1} = l\)\\
+		\(f\) est continue sur \(A\) car lipschitzienne sur \(A\).\\
+		\(A\) est fermé, \((a_n)\) est une suite d'éléments de \(A\) qui tend vers \(l\), donc \(l \in A\).\\
+		\(f\) est continue sur \(A\), donc en \(l\) : \(\lim a_n = l\), \(\lim f(a_n) = f(l)\)\\
+		\(\forall n \in \m{N}, f(a_n) = a_{n + 1}\)\\
+		Par passage à la limite : \(l = f(l)\) et \(l \in A\) : \(l\) est un point fixe dans \(A\).\\
+		\\
+		Supposons \(L \in A\) et \(f(L) = L\).
+		\[\left| \underbrace{f(L)}_{= L} - \underbrace{f(l)}_{= l} \right| \less k \left| L - l \right|\]
+		\[\left| L - l\right| \less k \left| L - l\right|\]
+		\[\left| L - l \right| \underbrace{(1 - k)}_{> 0} \less 0\]
+		Ainsi \(\left| L - l \right| \less 0\) puis \(L = l\)\\
+		Alors le point fixe \(l\) est unique.

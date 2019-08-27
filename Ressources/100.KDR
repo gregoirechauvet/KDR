@@ -1,0 +1,33 @@
+\section{$(100)$ Calcul de la dérivée $n^\text{ième}$ d'une application.}
+	\paragraph{Énoncé}
+		Pour \(n \more 1\), déterminer \(f_n^{(n)}\) où \(f_n : \mathbb{R}^{ + *} \to \mathbb{R}\) est définie par : \(f_n(x) = x^{n - 1}\ln(x)\).
+
+	\paragraph{Démonstration}
+		Posons \(\forall k \in \mathbb{Z}, p_k : \mathbb{R}^{ + *} \to \mathbb{R}\)\\
+		Alors \(f_n = p_{n - 1}\ln \in \mathcal{C}^\infty\) comme produit de fonction \(\mathcal{C}^\infty\).
+		\[f_n^{(n)} = \sum_{k = 0}^n \dbinom{n}{k} p_{n - 1}^{(k)}\ln^{(n - k)}\]
+		\[\left\{
+		\begin{array}{l l l l l}
+			p_{n - 1}(x) & = & x^{n - 1}\\
+			p_{n - 1}'(x) & = & (n - 1)x^{n - 2} & = & (n - 1)p_{n - 2}(x)\\
+			p_{n - 1}"(x) & = & (n - 1)(n - 2)x^{n - 3} & = & (n - 1)(n - 2)p_{n - 3}(x)
+		\end{array}
+		\right.\]
+		Donc pour \(0 \less k \less n - 1\), \(p_{n - 1}^{(k)} = (n - 1)(n - 2)\cdots(n - k) p_{n - (k + 1)} = \frac{(n - 1)!}{(n - (k + 1))!}p_{(n - (k + 1))}\) et \(p_{n - 1}^{(n)} = 0\)
+		\[\left\{
+		\begin{array}{l l l l l}
+			ln'(x) & = & x^{-1} & = & p_{-1}(x)\\
+			ln''(x) & = & - x^{ - 2} & = & - p_{ - 2}(x)\\
+			ln^{(3)}(x) & = & (-1)(-2)x^{ - 3} & = & (-1)(-2)p_{ - 3}(x)
+		\end{array}
+		\right.\]
+		Donc pour \(k \more 1\), \(ln^{(k)} = (-1)(-2) \cdots ( - (k - 1))p_{ - k} = (-1)^{k - 1} (n - k - 1)! p_{ - k}\)\\
+		Ainsi :
+		\[f_n^{(n)} = \sum_{k = 0}^{n - 1} \dbinom{n}{k} (\frac{(n - 1)!}{(n - (k + 1))!}p_{n - (k + 1)}) ((-1)^{n - k - 1} 
+		(n - (k + 1))! x^{ - (n - k)})  +  \dbinom{0}{n} 0 \ln\]
+		\[= \sum_{k = 0}^{n - 1} \dbinom{n}{k}(-1)^{n - k - 1} \frac{(n - 1)!}{(n - (k + 1))!}(n - (k + 1))!p_{(n - (k + 1)) + ( - n + k)}\]
+		\[= \sum_{k = 0}^{n - 1} \dbinom{n}{k} (-1)^{n_k} (n - 1)!p_{-1}\]
+		\[= (n - 1)!p_{-1} \sum_{k = 0}^{n - 1} \dbinom{n}{k} (-1)^{n - k - 1}\]
+		\[= - (n - 1)!p_{-1} \underbrace{\sum_{k = 0}^{n} \dbinom{n}{k} 1^k (-1)^{n - k}}_{ = (1 + (-1))^n} - \dbinom{n}{n} 1^n(-1)^{n - n}\]
+		\[= 0^n  +  (n - 1)! p_{-1}\]
+		Dès lors, \(\forall x > 0, \forall n \more 1, f_n^{(n)}(x) = \frac{(n - 1)!}{x}\)\\ 

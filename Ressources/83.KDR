@@ -1,0 +1,39 @@
+\section{$(83)$ Théorème de la double limite.}
+	\paragraph{Énoncé}
+		Si \(f_n\) admet une limite en \(a\) suivant \(A\) pour tout \(n \in \m{N}\) et si \((f_n)\) converge uniformément sur \(A\) vers \(f\) alors \(f\) admet une limite en \(a\) suivant \(A\) et on a : \(\lim_{a, A} f = \lim_{n \to +\infty}(\lim_{a, A} f_n)\)
+	
+	\paragraph{Démonstration}
+		Soit \(f : A \subset E \rightarrow \m{K}\), \(f_n : D \subset E \rightarrow \m{K}\), \(A\subset D\) et \(a\in \overline A \)\\
+		On suppose que:
+		\begin{itemize}
+			\item \(\forall n \in \m{N}, l_n = \lim_{a, A} f_n\) existe dans \(\m{K}\)
+			\item \((f_n)\) converge uniformément sur \(A\) vers \(f\).
+		\end{itemize}
+		\paragraph{Première étape :}
+		Montrer que la suite \((l_n)\) converge dans \(\m{K}\).\\
+		Montrons que \((l_n)\) est de Cauchy.\\
+		\((f_n)\) converge uniformément sur \(A\) vers \(f\), donc d'après le critère de Cauchy uniforme :
+		\[\forall \varepsilon > 0, \exists N \in \m{N}, \forall p \in \m{N}, \forall x \in A, \left| f_{n + p}(x) - f_n(x) \right| \less \varepsilon \]
+		\[\forall \varepsilon > 0, \exists N \in \m{N}, \forall p \in \m{N}, \forall x \in A, \left| l_{n + p} - l_n \right| \less \varepsilon \]
+		Par Passage à la limite lorsque \(x \rightarrow a\), \(a \in A\), \((l_n)\) est de Cauchy.\\
+		\(\m{K}\) complet donc \((l_n)\) converge dans \(\m{K}\).\\
+		Posons \(l = \lim_{n \to +\infty} l_n\).\\
+		\paragraph{Deuxième étape :}
+		\[\left|f(x) - l\right| = \left|(f(x) - f_n(x)) + (f_n(x) - l_n) + (l_n - l)\right|\]
+		\[\less \left|f(x) - f_n(x)\right| + \left|f_n(x) - l_n\right| + \left|l_n - l\right|\]
+		\[\less \underbrace{\left\|f_n - f \right\|_{\infty}^{A} + |l_n - l|}_{= u_n} + \left|f(x) - l_n\right|\]
+		\[\lim_{n \to +\infty} u_n = 0\]
+		On revient à la caractérisation des limites avec les \(\varepsilon\).\\
+		Soit \(\varepsilon > 0\).
+		\[\exists N \in \m{N}, \forall n \more N, 0 \less u_n \less \frac{\varepsilon}{12}\]
+		Supposons \(n \more N\).
+		\[\lim_{t \to 0} f_n(t) = l_n\]
+		\[\exists \alpha > 0, \forall t \in A, \left\|t - a\right\| \less \alpha \Rightarrow |f_n(t) - l_n| \less \frac{\varepsilon}{12}\]
+		Supposons \(\left\|x - a\right\| \less \alpha\).\\
+		Comme \(x \in A\), il vient \(\left|f_n(x) - l_n\right| \less \frac{\varepsilon}{12}\).\\
+		Notons que \(\alpha\) est indépendant de \(x\).\\
+		\[\left|f(x) - l\right| \less \frac{\varepsilon}{12} + \left|f_n(x) - l_n\right|\]
+		\[\less \frac{\varepsilon}{12} + \frac{\varepsilon}{12} \less \varepsilon\]
+		\[\forall \varepsilon, \exists \alpha > 0, \forall x \in A, \left\|x - a\right\| \less \alpha \Rightarrow \left|f(x) - l\right|\less \varepsilon\]
+		\[\lim_{a,A} f = l\]
+		\[\lim_{x \to a , x \in A}(\lim_{n \to +\infty} f_n(x)) \underset{\underset{\substack{\text{ car } (f_n ) \text{ converge}\\\text{simplement sur } A \text{ vers } f}}{\uparrow}}{=} \lim_{x \to a, x \in A} f = \lim_{a,A} f = \lim_{n \to +\infty} l_n = \lim_{n \to +\infty}(\lim_{x \to a, x \in A} f_n(x))\]

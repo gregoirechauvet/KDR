@@ -1,0 +1,150 @@
+\section{$(79)$ Intégrale de Gauss - Exercices 7.12, 7.13 et 7.26.}
+	\paragraph{Énoncé - Exercice 7.12}
+		L'objectif de cet exercice est de calculer \(I = \int_0^{+\infty}e^{-t^2}dt\). On adopte les notations suivantes : \(I_n = \int_0^1 (1 - t^2)^n dt\), \(J_n = \int_0^{+\infty}\frac{1}{(1 + t^2)^n} dt\) et \(W_n = \int_0^\frac{\pi}{2} \sin^n(t) dt\).
+		\begin{enumerate}
+			\item Montrer que : \(\forall n \more 1\), \(I_n \less \frac{I}{\sqrt{n}} \less J_n\).
+			\item Relier les intégrales \(I_n\) et \(J_{n + 1}\) à la suite \((W_p)\).
+			\item Montrer que : \(I = \frac{\sqrt{\pi}}{2}\).
+		\end{enumerate}
+
+	\paragraph{Résolution}
+		\((t \mapsto \sin^n(t))\) est continue sur le segment \(\left[0, \frac{\pi}{2}\right]\) donc \(W_n\) existe.\\
+		\((t \mapsto e^{-t^2}) \in \mathcal{C}^0(\m{R}^*, \m{R})\), \(\left|e^{-t^2}\right| = e^{-t^2} = \underset{+\infty}{o}(\frac{1}{t^{12}})\) donc \((t \mapsto e^{-t^2}) \in L^1(\left[1, +\infty\right[)\).\\
+		\((t \mapsto e^{-t^2}) \in L^1(\left[0, \infty\right[)\) : \(I\) existe.\\
+		\((t \mapsto (1 - t^2)^n)\) est continue sur le segment \(\left[0, 1\right]\) donc \(I_n\) existe.\\
+		Soit \(f_n = \frac{1}{(1 + t^2)^n}\), \(f_n \in \mathcal{C}^0(\m{R}^*, \m{R})\) et \(\left| f_n(t) \right| \underset{+\infty}{\sim} \frac{1}{t^{2n}}\).\\
+		Pour \(n \more 1\), \(2n > 1\) et \(f_n \in L^1(\left[1, +\infty\right[)\). De plus \(f_n\) est continue sur \(\left[0, 1\right]\), donc \(f_n \in L^1(\left[0, 1\right])\).\\
+		\(f_n \in L^1(\left[0, +\infty\right[)\), ainsi \(J_n\) existe pour \(n \more 1\).\\
+		\begin{enumerate}
+			\item \(I = \int_{\left[0, +\infty\right[}e^{-t^2}dt\)\\
+			\(\forall u \in \m{R}\), \(e^u \more 1 + u \text{ }(\text{Inégalité de convexité})\)\\
+			\(\forall t \in \m{R}\), \(e^{-t^2} \more 1 - t^2\). \(\forall t \in \left[0, 1\right], e^{-t^2} \more 1 - t^2 \more 0\).\\
+			\(\forall t \in \left[0, 1\right], (1 - t^2)^n \less e^{-nt^2}\) car \((x \mapsto x^n)\) croît sur \(\m{R}^+\).
+			\[I_n = \int_0^1 (1 - t^2)^n dt \less \int_0^1 e^{-nt^2} dt \underset{\underset{\substack{t = \frac{1}{\sqrt{n}} u\\ dt = \frac{1}{\sqrt{n}} du}}{\uparrow}}{=} \int_0^{\sqrt{n}} e^{-n\frac{1}{n}u^2} \frac{1}{\sqrt{n}} du = \frac{1}{\sqrt{n}}\int_0^{\sqrt{n}}e^{-u^2}du\]
+			Donc \(I_n \less \frac{I}{\sqrt{n}}\) car \(\int_{\sqrt{n}}^{+\infty} e^{-t^2} dt \more 0\).\\
+			\\
+			\[J_n = \int_{\left[0, +\infty\right[}\frac{1}{(1 + t^2)^n} dt\]
+			\(\forall t \in \m{R}\), \(e^{t^2} \more 1 + t^2 > 0\)\\
+			\(\forall t \in \m{R}\), \(\frac{1}{1 + t^2} \more e^{-t^2} > 0\)\\
+			\(\forall t \in \m{R}^+\), \(\frac{1}{(1 + t^2)^n} \more e^{-nt^2} > 0\)
+			\[\int_{\left[0, +\infty\right[} \frac{1}{(1 + t^2)^n} dt \more \int_{\left[0, +\infty\right[} e^{-nt^2} dt \text{ }(\text{Tout est intégrable})\]
+			\((u \mapsto \frac{1}{\sqrt{n}}u)\) est une bijection de classe \(\mathcal{C}^1\) de \(\m{R}^+\) sur \(\m{R}^+\) :
+			\[\int_{\left[0, +\infty\right[} e^{-nt^2} dt \underset{\underset{t = \frac{1}{\sqrt{n}}u}{\uparrow}}{=} \int_{\left[0, +\infty\right[} e^{n(\frac{1}{\sqrt{n}} u)^2} \left| \frac{1}{\sqrt{n}} \right| dt = \frac{1}{\sqrt{n}} \int_{\left[0, +\infty\right[} e^{-u^2} du = \frac{I}{\sqrt{n}}\]
+			Donc \(\frac{I}{\sqrt{n}} \less J_n\).\\
+			En conclusion :
+			\[\forall n \more 1, I_n \less \frac{I}{\sqrt{n}} \less J_n\]
+			\item \(I_n = \int_0^1 (1 - t^2)^n dt\).\\
+			Changement de variable : \(t = \cos(u)\), \(dt = -\sin(u) du\).
+			\[I_n = \int_\frac{\pi}{2}^0 (1 - \cos^2(u))^n(-(\sin(u)))du = \int_0^\frac{\pi}{2} \sin^{2n + 1}(u) du\]
+			\[I_n = W_{2n + 1}\]
+			\[J_n = \int_{\left[0, +\infty\right[} \frac{1}{(1 + t^2)^n} dt \underset{\underset{\substack{t = \tan(u)\\ dt = (1 + \tan^2(u)) du}}{\uparrow}}{=} \int_{\left[0, \frac{\pi}{2}\right[} \frac{1}{(1 + \tan^2(u))^n} (1 + \tan^2(u)) du\]
+			car \((u \mapsto \tan(u))\) est une bijection de classe \(\mathcal{C}^1\) de \(\left[0, \frac{\pi}{2}\right[\) sur \(\m{R}^+\).
+			\[J_n = \int_{\left[0, \frac{\pi}{2}\right[} (\frac{1}{1 + \tan^2(u)})^{n - 1} du = \int_{\left[0, \frac{\pi}{2}\right[} (\cos^2(u))^{n - 1} du\]
+			Changement de variable : \(u = \frac{\pi}{2} - v\) et \(du = - dv\).\\
+			\((v \mapsto \frac{\pi}{2} v)\) est une bijection \(\mathcal{C}^1\) de \(\left]0, \frac{\pi}{2}\right]\) sur \(\left[0, \frac{\pi}{2}\right[\)
+			\[J_n = \int_{\left]0, \frac{\pi}{2}\right]} (\sin^2(v))^{n - 1} \left| -1 \right| dv \int_{\left[0, \frac{\pi}{2}\right]} \sin^{2n - 2}(v) dv = W_{2n - 2}\]
+			Ainsi :
+			\[J_n = W_{2n - 2}\]
+			\item \(\sqrt{n}I_n \less I \less \sqrt{n}J_n\)\\
+			\(\underbrace{\sqrt{n}W_{2n + 1}}_{u_n} \less I \less \underbrace{\sqrt{n}W_{2n - 2}}_{v_n}\)
+			On sait que \(W_n \sim \sqrt{\frac{\pi}{2n}}\).
+			\[\sqrt{n}W_{2n + 1} \sim \sqrt{n} \sqrt{\frac{\pi}{2(2n + 1)}} \sim \sqrt{n} \frac{\sqrt{\pi}}{\sqrt{4n}} \sim \frac{\sqrt{\pi}}{2}\]
+			Alors \(\lim u_n = \frac{\sqrt{\pi}}{2}\).
+			\[\sqrt{n} W_{2n - 2} \sim \sqrt{n}\sqrt{\frac{\pi}{2(2n - 2)}} \sim \sqrt{n} \frac{\sqrt{\pi}}{\sqrt{4n}} \sim \frac{\sqrt{\pi}}{2}\]
+			Alors \(\lim v_n \frac{\sqrt{\pi}}{2}\).\\
+			Donc, par encadrement : \(I = \frac{\pi}{2}\).
+		\end{enumerate}
+
+	\paragraph{Énoncé - Exercice 7.13}
+		Étudier l'application \(f : \m{R} \longrightarrow \m{R}\) définie par : \(f(x) = e^{x^2}\int_x^{+\infty}e^{-t^2} dt\).
+
+	\paragraph{Résolution}
+		Soit \(x \in \m{R}\).\\
+		\((t \mapsto e^{-t^2})\) est continue sur \(\m{R}\) donc sur \(\left[x, +\infty\right[\).\\
+		\(e^{-t^2} = o(\frac{1}{t^{12}})\) et \(12 > 1\) donc \((t \mapsto e^{-t^2}) \in L^1(\left[x, +\infty\right[)\).\\
+		Alors \(\int_x^{+\infty} e^{-t^2} dt\) existe bien.\\
+		\(f\) est définie sur \(\m{R}\) et \(f(x) = e^{x^2} g(x)\) avec :
+		\[g(x) = \int_x^{+\infty} e^{-t^2} dt = \int_0^{+\infty} e^{-t^2} - \int_0^x e^{-t^2} dt = K - F(x)\]
+		\((t \mapsto e{-t^2})\) est continue sur \(\m{R}\) donc \(F\) est l'unique primitive de \((t \mapsto e^{-t^2})\) qui s'annule en \(0\). \(F\) est continue sur \(\m{R}\) et \(F'(x) = e^{-x^2}\).\\
+		\(g\) est de classe \(\mathcal{C}^1\) sur \(\m{R}\) et \(g'(x) = -e^{-x^2}\).\\
+		\(f\) est de classe \(\mathcal{C}^1\) et \(f'(x) = 2xe^{x^2} g(x) + e^{x^2}g'(x) = 2xe^{x^2}\int_x^{+\infty}e^{-t^2}dt - 1\).\\
+		\(f'(x) = 2xf(x) - 1\)
+		\[f'(x) = 2e^{x^2}\int_x^{+\infty} xe^{-t^2} dt - 1 \less 2e^{x^2}\int_x^{+\infty}te^{-t^2} dt - 1 \less 2e^{x^2} \left[\frac{e^{-t^2}}{-2}\right]_x^{+\infty} - 1\]
+		\[f'(x) \less 2e^{x^2}(0 + \frac{e^{-x^2}}{2}) - 1 \less 1 - 1 \less 0\]
+		Donc \(f\) est décroissante sur \(\m{R}\).\\
+		Soit \(\varphi\) définie telle que \(\varphi(t) = \frac{e^{-t^2}}{-2t}\). \(\varphi\) est de classe \(\mathcal{C}^1\) sur \(\left]0, +\infty\right[\).
+		\[\varphi'(t) = \frac{1}{2t^2}e^{-t^2} + \frac{1}{-2t}(-2te^{-t^2})\]
+		\[\varphi'(t) = (1 + \frac{1}{2t^2})e^{-t^2} \underset{+\infty}{\sim} e^{-t^2}\]
+		\((t \mapsto e^{-t^2}) \in L^1(\left[0, +\infty\right[)\) et \(\varphi\) est positive.\\
+		Ainsi :
+		\[\int_x^{+\infty} e^{-t^2} dt \underset{+\infty}{\sim} \int_x^{+\infty} \varphi'(t) dt\]
+		\[\int_x^{+\infty} \varphi' = \left[\varphi\right]_x^{+\infty} = \lim_{+\infty} \varphi - \varphi(x) = \frac{e^{-x^2}}{2x}\]
+		\[\int_x^{+\infty} e^{-t^2} dt \underset{+\infty}{\sim} \frac{e^{-x^2}}{2x}\]
+		\[f(x) \underset{+\infty}{\sim}  \frac{1}{2x}\]
+		Ainsi \(\lim_{+\infty} f = 0\).\\
+		\((t \longmapsto e^{-t^2}) \in L^1(\m{R})\) et \(\sqrt{\pi} = \int_{m{R}} e^{-t^2} dt\)
+		\[\int_x^{+\infty} e^{-t^2} dt - \int_{-\infty}^{+\infty} e^{-t^2} dt = \int_{-\infty}^x e^{-t^2} dt\]
+		Or \((t \longmapsto e^{-t^2}) \in L^1(\left]-\infty, 0\right])\) alors \(\int_{\left]-\infty, 0\right]} e^{-t^2} dt = \lim_{x \to +\infty} \int_x^0 e^{-t^2} dt\)
+		Ainsi :
+		\[\int_{-\infty}^0 e^{-t^2} dt - \int_x^0 e^{-t^2} dt \underset{x \rightarrow -\infty}{\longrightarrow} 0\]
+		\(f(x) = e^{x^2} \int_x^{+\infty} e^{-t^2} dt \underset{x \rightarrow -\infty}{\longrightarrow} +\infty\).\\
+		\(f\) est décroissante sur \(\m{R}\). \(f'(0) = -1\).\\
+		Alors \(f(0) = \int_0^{+\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}\)
+
+	\paragraph{Énoncé - Exercice 7.26}
+		Pour \(x \in \m{R}\) on pose : \(F(x) = \int_0^1 \frac{e^{-x^2(1 + t^2)}}{1 + t^2} dt\).
+		\begin{enumerate}
+			\item Montrer que \(F\) est dérivable sur \(\m{R}\) puis déterminer \(\lim_{+\infty} F\).
+			\item Donner les valeurs des intégrales : \(\int_0^{+\infty}e^{-t^2} dt\) et \(\int_{-\infty}^{+\infty} e^{-t^2} dt\).
+		\end{enumerate}
+
+	\paragraph{Résolution}
+		\begin{enumerate}
+			\item \(F(x) = \int_0^1 \frac{e^{-x^2(1 + t^2)}}{1 + t^2} dt\)
+			\begin{equation*}
+    				f :
+    				\begin{array}{l l l}
+    					\m{R} \times \left[0, 1\right] & \longrightarrow & \m{R}\\
+						(x, t) & \longmapsto & \frac{e^{-x^2(1 + t^2)}}{1 + t^2}
+    				\end{array}
+				\end{equation*}
+			Soit \(x \in \m{R}\).\\
+			\(f(x, \cdot)\) est continue sur le segment \(\left[0, 1\right]\). \(f(x, \cdot) \in L^1(\left[0, 1\right])\).\\
+			\(F(x)\) existe. \(F\) est définie sur \(\m{R}\).\\
+			Soit \((x, t) \in \m{R} \times \left[0, 1\right]\).
+			\begin{itemize}
+				\item[\textbullet] \(f(x, \cdot)\) est dérivable sur \(\m{R}\).
+				\[f(\cdot, t)'(x) = \frac{\partial f}{\partial x}(x, t) = 2xe^{-x^2(1 + t^2)}\]
+				\item[\textbullet] \(\frac{\partial f}{\partial x}(x, \cdot) \in M^0(\left[0, 1\right], \m{R})\).
+				\item[\textbullet] Soit \((x, t) \in \m{R} \times \left[0, 1\right]\)
+				\[\left| \frac{\partial f}{\partial x}(x, t) \right| = 2 \left| x \right| \underbrace{e^{-x^2(1 + t^2)}}_{\less 1} \less 2 \left| x \right|\]
+			\end{itemize}
+			Fixons \(A\) dans \(\m{R}^{*+}\).
+			\[\forall x \in \left[-A, A\right], \forall t \in \left[0, 1\right], \left| \frac{\partial f}{\partial x}(x, t) \right| \less 2A\]
+			\(t \mapsto 2A\) est indépendante de \(x\) et est intégrable sur \(\left[0, 1\right]\) car continue sur le segment \(\left[0, 1\right]\).\\
+			Par théorème : \(F\) est dérivable sur \(\left[-A, A\right]\), cela pour tout \(A > 0\). Comme la dérivabilité est une propriété locale, \(F\) est dérivable sur \(\m{R}\) et
+			\[\forall x \in \m{R}, F'(x) = \int_0^1 \frac{\partial f}{\partial x}(x, t) dt = -2x \int_0^1 e^{-x^2(1 + t^2)} dt\]
+			\\
+			Montrons que \(\lim_{+\infty} F = 0\).
+			\[\left| F(x) \right| = \left| \int_0^1 \frac{e^{-x^2(1 + t^2)}}{1 + t^2} dt \right| \less  \int_0^1 \left| \frac{e^{-x^2(1 + t^2)}}{1 + t^2} \right| dt \less  \int_0^1 \frac{e^{-x^2(1 + t^2)}}{1 + t^2} dt\]
+			\(\forall x \in \left[0, 1\right]\) :
+			\[1 + t^2 \more 1\]
+			\[-x^2(1 + t^2) \less -x^2\]
+			\[e^{-x^2(1 + t^2)} \less e^{-x^2}\]
+			\[\frac{e^{-x^2(1 + t^2)}}{1 + t^2} \less \frac{e^{-x^2}}{1 + t^2} \less e^{-x^2}\]
+			\[\int_0^1 \frac{e^{-x^2(1 + t^2)}}{1 + t^2} dt \less \int_0^1 e^{-x^2} dt \less e^{-x^2}\]
+			Or \(\lim_{x \to +\infty} e^{-x^2} = 0\), donc \(\lim_{+\infty} F = 0\).\\*
+			\item Soit \(x \in \m{R}\), \(F'(x) = -2xe^{-x^2} \int_0^1 e^{-x^2 t^2} dt\)
+			\[F'(x) = -2xe^{-x^2} \int_0^1 e^{-x^2 t^2} dt \underset{\substack{u = xt\\ du = xdt}}{=} -2e^{-x^2} \int_0^x e^{-u^2} dt\]
+			Pour \(x\) dans \(\m{R}\), posons \(G(x) = (\int_0^x e^{-u^2} du)^2\).\\
+			\((x \mapsto \int_0^x e^{-u^2} du)\) est l'unique primitive de \((u \mapsto e^{-u^2})\) sur \(\m{R}\) qui s'annule en \(0\). Cette application est dérivable sur \(\m{R}\) et a pour dérivée \((x \mapsto e^{-x^2})\).\\
+			\(G\) est dérivable sur \(\m{R}\) et \(G'(x) = 2(\int_0^x e^{-u^2} du) e^{-x^2}\).\\
+			\(F'(x) + G'(x) = 0\) pour tout \(x \in \m{R}\).\\
+			\((F + G)'(x) = 0\) et \(\m{R}\) est un intervalle donc \(F + G\) est constante égale à \((F + G)(0)\).
+			\[(F + G)(0) = F(0) + G(0) = \int_0^1 \frac{1}{1 + t^2} dt = \frac{\pi}{4}\]
+			Ainsi \(\forall x \in \m{R}\), \(F(x) + G(x) = \frac{\pi}{4}\).\\
+			\((t \mapsto e^{-t^2}) \in L^1(\m{R}^+)\) donc \(I = \int_{\left[0, +\infty\right[} e^{-t^2} dt = \lim_{x \to +\infty} \int_0^x e^{-t^2} dt\).
+			\[I^2 = \lim_{x \to +\infty} (\int_0^x e^{-t^2} dt)^2 = \lim_{x \to +\infty} G(x)\]
+			Par passage à la limite quand \(x\) tend vers \(+\infty\) : \(I^2 = \frac{\pi}{2}\). \(\left| I \right| = \frac{\sqrt{\pi}}{2}\) puis :
+			\[I = \frac{\pi}{2}\]
+		\end{enumerate}

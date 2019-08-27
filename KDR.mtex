@@ -1,0 +1,177 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{soulutf8}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{ulem}
+\usepackage{stmaryrd}
+
+\newcommand{\m}[1]{\mathbb{#1}}
+\newcommand{\less}{\leqslant}
+\newcommand{\more}{\geqslant}
+%\newcommand{\dis}[1]{\displaystyle{#1}}
+
+%\includeonly{Ressources/38}
+
+\title{KDR}
+\author{Classe de MP3}
+\date{Année 2012 - 2013}
+
+\begin{document}
+	\setstretch{1.5}
+	\maketitle
+	\tableofcontents
+	\newpage
+	\include{Ressources/01}
+	\include{Ressources/02}
+	\include{Ressources/03}
+	\include{Ressources/04}
+	\include{Ressources/05}
+	\include{Ressources/06}
+	\include{Ressources/07}
+	\include{Ressources/08}
+	\include{Ressources/09}
+	\include{Ressources/10}
+	\include{Ressources/11}
+	\include{Ressources/12}
+	\include{Ressources/13}
+	\include{Ressources/14}
+	\include{Ressources/15}
+	\include{Ressources/16}
+	\include{Ressources/17}
+	\include{Ressources/18}
+	\include{Ressources/19}
+	\include{Ressources/20}
+	\include{Ressources/21}
+	\include{Ressources/22}
+	\include{Ressources/23}
+	\include{Ressources/24}
+	\include{Ressources/25}
+	\include{Ressources/26}
+	\include{Ressources/27}
+	\include{Ressources/28}
+	\include{Ressources/29}
+	\include{Ressources/30}
+	\include{Ressources/31}
+	\include{Ressources/32}
+	\include{Ressources/33}
+	\include{Ressources/34}
+	\include{Ressources/35}
+	\include{Ressources/36}
+	\include{Ressources/37}
+	%\include{Ressources/38}
+	\include{Ressources/39}
+	\include{Ressources/40}
+	\include{Ressources/41}
+	\include{Ressources/42}
+	\include{Ressources/43}
+	\include{Ressources/44}
+	\include{Ressources/45}
+	\include{Ressources/46}
+	\include{Ressources/47}
+	\include{Ressources/48}
+	\include{Ressources/49}
+	\include{Ressources/50}
+	\include{Ressources/51}
+	\include{Ressources/52}
+	\include{Ressources/53}
+	\include{Ressources/54}
+	\include{Ressources/55}
+	\include{Ressources/56}
+	\include{Ressources/57}
+	\include{Ressources/58}
+	\include{Ressources/59}
+	\include{Ressources/60}
+	\include{Ressources/61}
+	\include{Ressources/62}
+	\include{Ressources/63}
+	\include{Ressources/64}
+	\include{Ressources/65}
+	\include{Ressources/66}
+	\include{Ressources/67}
+	\include{Ressources/68}
+	\include{Ressources/69}
+	\include{Ressources/70}
+	\include{Ressources/71}
+	\include{Ressources/72}
+	\include{Ressources/73}
+	\include{Ressources/74}
+	\include{Ressources/75}
+	\include{Ressources/76}
+	\include{Ressources/77}
+	\include{Ressources/78}
+	\include{Ressources/79}
+	\include{Ressources/80}
+	\include{Ressources/81}
+	\include{Ressources/82}
+	\include{Ressources/83}
+	\include{Ressources/84}
+	\include{Ressources/85}
+	\include{Ressources/86}
+	\include{Ressources/87}
+	\include{Ressources/88}
+	\include{Ressources/89}
+	\include{Ressources/90}
+	\include{Ressources/91}
+	\include{Ressources/92}
+	\include{Ressources/93}
+	\include{Ressources/94}
+	\include{Ressources/95}
+	\include{Ressources/96}
+	\include{Ressources/97}
+	\include{Ressources/98}
+	\include{Ressources/99}
+	\include{Ressources/100}
+	\include{Ressources/101}
+	\include{Ressources/102}
+	\include{Ressources/103}
+	\include{Ressources/104}
+	\include{Ressources/105}
+	\include{Ressources/106}
+	\include{Ressources/107}
+	\include{Ressources/108}
+	\include{Ressources/109}
+	\include{Ressources/110}
+	\include{Ressources/111}
+	\include{Ressources/112}
+	\include{Ressources/113}
+	\include{Ressources/114}
+	\include{Ressources/115}
+	\include{Ressources/116}
+	\include{Ressources/117}
+	\include{Ressources/118}
+	\include{Ressources/119}
+	\include{Ressources/120}
+	\include{Ressources/121}
+	\include{Ressources/122}
+	\include{Ressources/123}
+	\include{Ressources/124}
+	\include{Ressources/125}
+	\include{Ressources/126}
+	\include{Ressources/127}
+	\include{Ressources/128}
+	\include{Ressources/129}
+
+
+
+	\section*{Crédits}
+	\begin{description}
+	\item Pierre-Alexandre : KDR 18, 48, 49, 94, 95, 96, 97, 98, 99 et 100.
+	\item Jimmy : KDR 23, 32, 68 et 83.
+	\item Rémi : KDR 17.
+	\item David : KDR 38.
+	\item Julien Descorps : KDR 90.
+	\item Aurélien : KDR 03 et 06.
+	\item Guillaume : KDR 24 et 34.
+	\item Sylvain : KDR 02.
+	\item Grégoire : KDR 01, 04, 05, 07, 11, 34, 37, 44, 45, 46, 47, 50, 51, 59, 61, 71, 72, 73 et 79.
+	\end{description}
+\end{document}

@@ -1,0 +1,90 @@
+\section{$(34)$ Une équation fonctionnelle qui se ramène à une équation différentielle - Exercice 4.3.}
+	\paragraph{Énoncé}
+		Déterminer toutes les applications \(f : \m{R} \rightarrow \m{R}\) de classe \(\mathcal{C}^{2}\)  qui vérifient :\\
+		\(\forall x \in \m{R}, f''(x) + f(-x) = e^{x}\)
+
+	\paragraph{Résolution}
+		Soit \(f \in \m{R}^{\m{R}}\).\\
+		Supposons \(f\) de classe \(\mathcal{C}^{2}\) sur \(\m{R}\) et telle que : \(\forall x \in \m{R}, f''(x) + f(-x) = e^{x}\)\\
+		Soit \(f'' + \widetilde{f} = e_1\) avec \(e_1 : x \rightarrow e^{x}\)
+		On a : \(\m{R}^{\m{R}} = P(\m{R}, \m{R}) \oplus I(\m{R}, \m{R})\)\\
+		\(\exists! (g, h) \in P(\m{R}, \m{R}) \times I(\m{R}, \m{R}) \ | \ f = g + h\)
+		\[g = \frac{1}{2}(f + \widetilde{f})\]
+		\(g\) est \(\mathcal{C}^{2}\) sur \(\m{R}\) car \(f\) et \(\widetilde{f}\) le sont.\\
+		De même \(h\) est \(\mathcal{C}^{2}\) sur \(\m{R}\).
+		\[(g + h)'' + \widetilde{g + h} = e_1\]
+		\[g'' + h'' + \widetilde{g} + \widetilde{h} = e_1\]
+		\(\widetilde{g} = g\) et \(\widetilde{h} = -h\) car \(g\) est paire et \(h\) est impaire.
+		\[g'' + g + h'' - h = ch + sh\]
+		\(g\) est paire donc \(g'\) est impaire puis \(g''\) est paire. Alors \(g'' + g\) est paire.\\
+		De même \(h'' - h\) est impaire.
+		\[\underbrace{(g'' + g)}_{\in P(\m{R}, \m{R})} + \underbrace{(h'' - h)}_{\in I(\m{R}, \m{R})} = \underbrace{ch}_{P(\m{R}, \m{R})} + \underbrace{sh}_{I(\m{R}, \m{R})}\]
+		Par unicité de la décomposition - \(\m{R}^{\m{R}} = P(\m{R}, \m{R}) \oplus I(\m{R}, \m{R})\) :
+		\[\left\{
+    		\begin{array}{l l l l l}
+    			g'' & + & g & = & ch\\
+    			h'' & - & h & = & sh
+    		\end{array}
+		\right.\]
+		\[
+			\begin{array}{l l}
+    			\begin{array}{l l l l l l l}
+    				(H_{1}) & y'' & + & y & = & 0\\
+    				(H_{2}) & y'' & - & y & = & 0
+    			\end{array} &
+    			\begin{array}{l l l l l l l}
+    				(L_{1}) & y'' & + & y & = & ch\\
+    				(L_{2}) & y'' & - & y & = & sh
+    			\end{array}
+    		\end{array}
+		\]
+		Solution de \(\m{R}\) dans \(\m{R}\) de \((H_{1})\) :
+		\[S_{\m{R} \rightarrow \m{R}}(H_{1}) = \left\{\alpha\cos + \beta\sin, (\alpha, \beta) \in \m{R}^{2}\right\}\]
+		\[= \m{R}\cos + \m{R}\sin\]
+		\[= \mbox{Vect}(\cos, \sin)\]
+		\[S_{\m{R} \rightarrow \m{R}}(H_{2}) = \mbox{Vect}(ch, sh)\]
+		On constate que \(\frac{1}{2}ch\) est une solution de \((L_{1})\).
+		Ainsi \[S_{\m{R} \rightarrow \m{R}}(L_{1}) = \underbrace{\underbrace{\frac{1}{2}ch}_{\text{point de }\m{R}^{\m{R}}} + \underbrace{\m{R}\cos + \m{R}\sin}_{\text{\text{Sous espace vectoriel de }}\m{R}^{\m{R}}}}_{\text{Sous espace affine de }\m{R}^{\m{R}}}\]
+		On remarque que :\\
+		\((L_{2}) \ : \ y'' - y = \frac{1}{2}(e_1 - e_{-1}) = \frac{1}{2}e_1 - \frac{1}{2}e_{-1}\)
+		\[
+			\begin{array}{l l l l l l l}
+				(L_{3}) & y'' & - & y & = & \frac{1}{2}e_1\\
+				(L_{4}) & y'' & - & y & = & -\frac{1}{2}e_{-1}
+			\end{array}
+		\]
+		
+		\textbf{Rappel du cours de MPSI :} Si l'on est en présence d'une équation différentielle de la forme \((L) : y'' + ay' + by = Qe_{\alpha}\) où \(Q\) est une fonction polynôme et \(e_{\alpha}\) est la fonction qui à \(t\) associe \(e^{\alpha t}\), on s'intéresse au polynôme caractéristique \(P = X^2 + aX + b\). Trois cas sont envisageables :
+		\begin{itemize}
+			\item Si \(P(\alpha) \neq 0\) alors on cherche une solution de \((L)\) sous la forme \(Re_{\alpha}\) avec \(degR = degQ\)
+			\item Si \(\alpha\) est racine simple de \((L)\), alors on cherche une solution de \((L)\) de la forme \(XRe_{\alpha}\) avec \(degR = degQ\)
+			\item Si \(\alpha\) est racine double de \((L)\), alors on cherche une solution de \((L)\) de la forme \(X^{2}Re_{\alpha}\) avec \(degR = degQ\)
+		\end{itemize}
+		Application pour \((L_3)\) : \(1\) est racine simple de son polynôme caractéristique et ici \(Q = \frac{1}{2} \rightarrow degQ = 0\).\\
+		Donc :
+		\[\left\{
+		\begin{array}{l l l}
+			y & = & \lambda Id_{\m{R}} e_1\\
+			y' & = & \lambda(e_1 - Id_{\m{R}} e_1)\\
+			y'' & = & \lambda(2e_1 + Id_{\m{R}} e_1)
+		\end{array}
+		\right.\]
+		On a donc \(y''-y = 2\lambda e_1\). Pour que \(y\) soit solution de \((L_{3})\) on prend \(\lambda = \frac{1}{4}\).\\
+		Posons \(y = \frac{1}{4}Id_{\m{R}} e_1\). On constate que \(y''-y = \frac{1}{2}e_1\) donc \(\frac{1}{4}Id_{\m{R}} e_1\in S_{\m{R}\rightarrow \m{R}}(L_{3})\).\\
+		\\
+		De même pour \((L_{4})\), avec \(-1\) racine simple, on pose \(y = \frac{1}{4}Id_{\m{R}} e_{-1}\).\\
+		On constate que \(y''-y = -\frac{1}{2}e_{-1} \Rightarrow \frac{1}{4}Id_{\m{R}} e_{-1} \in S_{\m{R}\rightarrow \m{R}}(L_{4})\).\\
+		\\
+		Par superposition : \(\frac{1}{4} Id_{\m{R}} (e_1 + e{-1}) = \frac{1}{2} Id_{\m{R}} ch \in S_{\m{R}\rightarrow \m{R}}(L_{2})\).\\
+		Donc \(S_{\m{R}\rightarrow \m{R}}(L_{2}) = \frac{1}{2} Id_{\m{R}} ch + (\m{R} ch + \m{R} sh)\)
+		\[g''+g = ch \rightarrow g \in S_{\m{R} \rightarrow \m{R}}(L_{1}) \Rightarrow \exists (\alpha, \beta) \in \m{R}^{2} ~ | ~ g = \frac{1}{2} ch + \alpha \cos + \beta \sin\]
+		\[h''-h = sh \rightarrow h\in S_{\m{R}\rightarrow \m{R}}(L_{2}) \Rightarrow \exists (\gamma,\delta) \in \m{R}^{2} ~ | ~ h = \frac{1}{2}Id_{\m{R}} ch + \gamma ch + \delta sh\]
+		\(g\) est paire donc \(\beta = 0\). Pour cela, il faut calculer \(\widetilde{g}\) en utilisant les parité de \(ch\), \(cos\) et \(sin\) puis utiliser le fait que \(\widetilde{g} - g = 0\). Il vient \(-2\beta \sin = 0\) cela pour tout \(t \in \m{R}\) en particulier pour \(t = \frac{\pi}{2}\) on obtient \(\beta = 0\).\\
+		\(h\) est impaire donc \(\gamma = 0\) \((\text{Même raisonnement})\)\\
+		Au final : \(f = g + h = \frac{1}{2} ch (1 + Id_{\m{R}}) + \alpha \cos + \delta \sin\) avec \((\alpha, \delta) \in \m{R}^{2}\)\\
+		\\
+		Réciproquement, supposons \(\exists (a,b) \in \m{R} ~ | ~ f = \underbrace{\frac{1}{2} ch (1 + Id_{\m{R}})}_{bob} + a\cos + b\sin\)\\
+		Par parité :
+		\[f'' + \widetilde{f} = bob'' + a\cos'' + b sh'' + \widetilde{bob} + a \widetilde{\cos} + b \widetilde{sh} = bob'' + \widetilde{bob} \]
+		Après calcul on obtient \(bob'' + \widetilde{bob} = ch + sh = e_1 \).\\
+		Les applications cherchées sont donc les \(\left\{\frac{1}{2} ch (1+Id_{\m{R}}) + a\cos + b sh ~ | ~ (a,b) \in \m{R}^{2}\right\}\).

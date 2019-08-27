@@ -1,0 +1,25 @@
+\section{$(17)$ Formule de Stirling.}
+	\paragraph{Énoncé}
+		\[n! \sim \sqrt{2n\pi}(\frac{n}{e})^n\]
+
+	\paragraph{Démonstration}
+		Il s'agit de montrer que \(n! \sim C \times n^{n + \frac{1}{2}} \times e^{-n}\)\\
+		Posons \(U_n = n^{n + \frac{1}{2}}e^{-n}\frac{1}{n!}\) et montrons que \(V_{n} = \ln(\frac{U_{n+1}}{U_{n}}) = (n + \frac{1}{2}) \times ln(1+\frac{1}{n})-1\) est le terme général d'une série convergente.\\
+		En faisant un développement limité en \(0\) a l'ordre \(3\) de \(\ln(1 + x)\) on obtient :
+		\[V_{n} = (n + \frac{1}{2}) \times (\frac{1}{n} - \frac{1}{n^2} + \frac{1}{n^{3}}) + o(\frac{1}{n^{3}}) - 1 = \frac{1}{12 \times n^2} + o(\frac{1}{n^2})\]
+		D'ou :
+		\[\sum_{k = 1}^{n}V_{n}=\sum_{k=1}^{n}(\ln(U_{n + 1}) - \ln(U_n)) \text{ converge.}\]
+		Puis \((\ln(U_n))\) converge vers \(L\) disons, et \((U_n)\) converge aussi vers \(C = exp(L)\). On a donc l'equivalence souhaitée.\\
+		Déterminons la constante \(C\) :\\
+		En posant \(W_n = \int_{0}^{\frac{\pi}{2}} \sin(t)^n dt\), il vient \(W_{n + 2} = \frac{n + 1}{n + 2} \times W_{n}\) et on sait que \(W_n \underset{(1)}{\sim} \sqrt{\frac{\pi}{2n}}\)\\
+		On a alors : 
+		\[W_{2p} = \frac{2p - 1}{2p - 2} W_{2p - 2} = ... = \frac{(2p)!}{2^{2p} (p)^2} W_{0}\]
+		Or \(W_0 = \frac{\pi}{2}\).
+		\[W_{2p} = \frac{(2p)!}{2^{2p} (p)^2} \times \frac{\pi}{2} \sim \frac{C(\frac{2p}{e})^{2p}\sqrt{2p}}{2^{2p}\mathcal{C}^2(\frac{p}{e})^{2p}p} \times \frac{\pi}{2}\]
+		\[W_{2p} \underset{(2)}{\sim} \frac{\pi}{C\sqrt{2p}}\]
+		Des équivalences \((1)\) et \((2)\) on déduit que : 
+		\[\sqrt{\frac{\pi}{4p}} \sim \frac{\pi}{C\sqrt{2p}}\] 
+		D'où :
+		\[\frac{\pi}{C\sqrt{2}} = \frac{\sqrt{\pi}}{2} \text{ puis } C = \sqrt{2\pi}\]
+		D'où la formule de Stirling :
+		\[n! \sim \sqrt{2n\pi}(\frac{n}{e})^{n}\]

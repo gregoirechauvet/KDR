@@ -1,0 +1,41 @@
+\section{$(37)$ Intégrale et inégalité - Exercices 4.19 et 4.21.}
+	\paragraph{Énoncé - Exercice 4.19}
+		Soient \(f \in \mathcal{C}^{0}(\left[0,1\right],\m{R})\) et \(\varphi \in \m{R}^{\m{R}}\) convexe sur \(\m{R}\).\\
+		Montrer que \(\varphi(\int_{0}^{1}f) \less \int_{0}^{1}\varphi\circ f\).
+
+	\paragraph{Résolution}
+		\(f \in \mathcal{C}^{0}(\left[0,1\right],\m{R})\) et \(\varphi : \m{R} \rightarrow \m{R}\)\\
+		\(f \in \mathcal{C}^{0}(\left[0,1\right],\m{R})\) donc \(\int_{0}^{1}f = \lim_{n \to +\infty} \frac{1}{n}\sum_{k = 1}^{n}f(\frac{k}{n})\) - Somme de Riemann\\
+		\\
+		Remarque : \(I\) intervalle de \(\m{R}\) et \(f : I \rightarrow \m{R}\).\\
+		Si \(f\) est convexe sur \(I\) alors \(f\) est continue sur \(\overset{\circ}{I}\).\\\\
+		\(\overset{\circ}{\m{R}} = \m{R}\) et \(\varphi\) est convexe sur \(\m{R}\) donc continue sur \(\m{R}\).\\
+		\[\varphi(\int_{0}^{1}f) = \varphi(\lim_{n \to +\infty} \frac{1}{n}\sum_{k = 1}^{n}f(\frac{k}{n})) = \lim_{n \to +\infty}\varphi( \frac{1}{n}\sum_{k = 1}^{n}f(\frac{k}{n}))\]
+		Et \(\varphi(\sum_{k = 1}^{n}\frac{1}{n}f(\frac{k}{n})) \less \sum_{k = 1}^{n}\frac{1}{n}\varphi(f(\frac{k}{n}))\) par convexité de \(\varphi\).\\
+		\(\varphi \circ f \in \mathcal{C}^{0}(\left[0,1\right],\m{R})\) en tant que composée.\\
+		Donc :
+		\[\lim_{n \to +\infty}\frac{1}{n}\sum_{k = 1}^{n}(\varphi \circ f)(\frac{k}{n}) = \int_{0}^{1}\varphi\circ f\]
+		Par passage à la limite :
+		\[\varphi(\int_{0}^{1}f) \less \int_{0}^{1}\varphi\circ f\]
+
+	\paragraph{Énoncé - Exercice 4.21}
+		Soit \(f \in \mathcal{C}^{0}(\left[a,b\right],\m{R})\) vérifiant \(f(a) = 0\) et \(0 \less f' \less 1\).\\
+		Montrer que : \(\int_{a}^{b}f^{3} \less (\int_{a}^{b}f)^{2}\)
+
+	\paragraph{Résolution}
+		\(f \in  \mathcal{C}^1(\left[a, b\right], \m{R})\) ; \(f(a) = 0\) et \(0 \less f' \less 1\)\\
+		Soit \(F : \left[a, b\right] \longrightarrow \m{R}\) definie par \(F(x) = \int_a^x f^3 - (\int_a^x f)^2\).\\
+		\(f^3\) est continue sur \(\left[a, b\right]\) ; donc on peut considérer une primitive \(F_3\) de \(f^3\) sur \(\left[a, b\right]\).\\
+		\(f\) est continue sur \(\left[a, b\right]\) ; donc on peut considérer une primitive \(F_1\) de \(f\) sur \(\left[a, b\right]\).
+		\[F(x) = F_3(x) - F_3(a) - (F_1(x) - F_1(a))^2\]
+		\(F\) est dérivable sur \(\left[a, b\right]\).
+		\[F'(x) = f^3(x) - 2(F_1(x) - F_1(a))f(x)\]
+		\[F'(x) = f(x)(f(x)^2 - 2(F_1(x)-  F_1(a)))\]
+		\(f\) est croissante sur \(\left[a, b\right]\) car \(f' \more 0\).\\
+		\(F'(x) = f(x)g(x)\), \(g(x) = f(x)^2 - 2(F_1(x) - F_1(a))\)\\
+		\(g\) est dérivable sur \(\left[a, b\right]\) car \(f\) et \(F_1\) le sont.
+		\[g'(x) = 2f(x)f'(x) - 2f(x)\]
+		\[= \underbrace{2f(x)}_{\more 0}\underbrace{(f'(x) - 1)}_{\less 0}\]
+		\(g\) est décroissante et \(g(a) = 0\). Alors \(g \less 0\).\\
+		Donc \(F' = fg \less 0\)\\
+		\(\forall x \in \left[a, b\right], F(x) \less 0\) et plus spécialement \(F(b) \less 0\).

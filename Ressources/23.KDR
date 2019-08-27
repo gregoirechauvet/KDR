@@ -1,0 +1,54 @@
+\section{$(23)$ Si $B$ est une base orthonormale de l'espace euclidien $E$ et si $u$ est un endomorphisme de $E$ alors $u \in O(E) \Leftrightarrow M_B(u) \in O_n(\m{R})$. Si $A = (a)_{ij} \in O_n(\m{R})$ alors $\displaystyle{\sum_{i = 1}^n \sum_{j = 1}^n a_{ij} \less n}$.}
+	\paragraph{Énoncé}
+		Soit \(u\) un endormophisme de \(E\).\\
+		\(u \in O(E) \Leftrightarrow M_B(u) \in O_n(\m{R})\).
+
+	\paragraph{Démonstration}
+		\(A = M_{B}(u) \in O_n(\m{R}) \Leftrightarrow A {}^t \! A = I_n \Leftrightarrow \forall (i,j) \in {\llbracket1, n\rrbracket}^{2}, (u(e_i) | u(e_j)) = \delta_{ij}\)
+		\begin{itemize}
+			\item Supposons \(M_{B}(u) \in O_n(\m{R})\).
+			\[\forall (i,j) \in \llbracket1, n\rrbracket^{2}, (u(e_i) | u(e_j)) = \delta_{ij} (*)\]
+			\((u(e_1), ..., u(e_n))\) est orthonormale \((\text{donc libre dans un espace vectoriel de dimension n})\), ainsi \(B' = (u(e_1), ..., u(e_n))\) est une base orthonormale de \(E\).\\
+			L'image \(B'\) de \(B\) par \(u\) est une base donc \(u\) est bijectif.\\
+			Soit \((x,y)\) dans \(E\) :
+			\[\left\{
+			\begin{array}{l l l l l l l l}
+				x & = & \displaystyle{\sum_{k = 1}^n x_k e_k} & \text{avec} & x_k & = & e_k^* (x)\\
+				y & = & \displaystyle{\sum_{k = 1}^n y_k e_k} & \text{avec} & y_k & = & e_k^* (y)
+			\end{array}
+			\right.\]
+			\(B\) est une Base OrthoNormale \((\text{une B.O.N.})\) donc \((x | y) = \sum_{k = 1}^n x_k y_k\).
+			\[u(x) = \sum_{k = 1}^n x_k u(e_k) \text{ car } u \text{ est linéraire}\]
+			Ainsi \(x_k = u(e_k)^*(u(x))\), \(k\)-ième coordonnée de \(u(x)\) dans \(B'\) et de même \(y_k = u(e_k)^*(u(x))\).\\
+			\(B'\) est une B.O.N. donc \((u(x)|u(y)) \underset{\underset{\text{B' B.O.N.}}{\uparrow}}{=} \sum_{k = 1}^n{x_k y_k} = (x|y)\)\\
+			Ainsi \(u\) conserve le produit scalaire, \(u \in O(E)\).\\
+			\item Supposons \(u \in O(E)\)\\
+			Comme \(u\) conserve le produit scalaire, \(\forall (i,j) \in \llbracket1, n\rrbracket^{2}\) :
+			\[(u(e_i)|u(e_j)) = (e_i|e_j) = \delta_{ij}\]
+			D'après la définition de \(A \in O_n(\m{R})\) :
+			\[A = M_{B}(u) \in O_n(\m{R})\]
+		\end{itemize}
+
+	\paragraph{Énoncé}
+		Si \(A = (a)_{ij} \in O_n(\m{R})\) alors \(\sum_{i = 1}^n \sum_{j = 1}^n a_{ij} \less n\).
+
+	\paragraph{Démonstration}
+		Soit \(A = (a_{ij}) \in O_n(\m{R})\).\\
+		Soit \(u\) l'endomorphisme canoniquement associe à \(A\).
+		\[u : \m{R}^n \rightarrow \m{R}^n : M_{\varepsilon}(u) = A\]
+		Où \(\varepsilon = (\varepsilon_1, ..., \varepsilon_n)\) est la base canonique de \(\m{R}^n\).
+		\[S = \sum_{i = 1}^n \sum_{j = 1}^n a_{ij} = \sum_{i = 1}^n \sum_{j = 1}^n \varepsilon_i^{*} (u(\varepsilon_j))\]
+		On muni \(\m{R}^n\) de son produit scalaire usuel. Dès lors \(\varepsilon\) est une base orthonormale de \(\m{R}^n\).\\
+		\[S = \sum_{i = 1}^n \sum_{j = 1}^n (u(\varepsilon_j) | \varepsilon_i)\]
+		\[= \sum_{i = 1}^n{(\sum_{j = 1}^n u(\varepsilon_j) | \varepsilon_i)}\]
+		\[= (\sum_{j = 1}^n u(\varepsilon_j) | \sum_{i = 1}^n \varepsilon_i)\]
+		\[= (u(\sum_{j = 1}^n \varepsilon_j) | \sum_{i = 1}^n \varepsilon_i)\]
+		\[= (u(x) | x)\]
+		avec \(x = \varepsilon_1 + ... + \varepsilon_n\)\\
+		\textbf{Idée : Penser à Cauchy-Schwartz !}
+		\[S \less \left|(u(x)|x)\right| \less \left\| u(x) \right\| \left\| x \right\|\]
+		\(A = M_{\varepsilon}(u)\), \(\varepsilon\) est une B.O.N. et \(A \in O_n(\m{R})\) donc \(u\in O(\m{R}^n)\).
+		\[\left\| u(x) \right\| = \sqrt{(u(x) | u(x))} = \sqrt{(x|x)} = \left\| x \right\|\]
+		Donc \(S \less { \left\| x \right\|}^{2}\).\\
+		De plus \(x = \sum_{k = 1}^n{\varepsilon_k}\) alors \(\left\| x \right\| = 1 + ... + 1 = n\).
+		\[S \less n\]

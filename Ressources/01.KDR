@@ -1,0 +1,44 @@
+\section{Approximation décimale d'un réel.}
+	\paragraph{Énoncé}
+		Soit \(x \in \m{R}\). Pour tout \(n\) dans \(\m{N}\) on pose :
+		\(x_{n} = \frac{\left\lfloor 10^{n}x\right\rfloor}{10^{n}}\) et \(y_{n} = x_{n} + \frac{1}{10^{n}}\).
+		\begin{itemize}
+			\item \((x_{n})\) est une suite croissante qui converge vers \(x\).
+			\item \((y_{n})\) est une suite décroissante qui converge vers \(x\).
+		\end{itemize}
+
+	\paragraph{Démonstration}
+		\(\forall x \in \m{R}, \left\lfloor x \right\rfloor \less x < \left\lfloor x \right\rfloor + 1\)\\
+		Soit \(x \in \m{R}\). Posons \(p_{n} = \left\lfloor 10^{n}x\right\rfloor\), \(x_{n} = \frac{p_{n}}{10^{n}}\), \(y_{n} = \frac{p_{n} + 1}{10^{n}}\).\\
+		On a, par définition de la partie entière :
+		\[\left\{
+		\begin{array}{l l l l l}
+			p_{n} & \less & 10^{n}x & < & p_{n} + 1\\
+			p_{n + 1} & \less & 10^{n + 1}x & < & p_{n + 1} + 1
+		\end{array}
+		\right.\]
+		\[\left\{
+		\begin{array}{l l l l l}
+			10p_{n} & \less & 10^{n + 1}x & < & 10p_{n} + 10\\
+			p_{n + 1} & \less & 10^{n + 1}x & < & p_{n + 1} + 1
+		\end{array}
+		\right.\]
+		\[\left\{
+		\begin{array}{l l l l l}
+			-10 p_{n} - 10 & < & -10^{n + 1}x & \less & -10p_{n}\\
+			p_{n + 1} & \less & 10^{n + 1}x & < & p_{n + 1} + 1
+		\end{array}
+		\right.\]
+		En sommant, on obtient :
+		\[p_{n + 1} - 10 p_{n} - 10 < 0 < p_{n + 1} + 1 - 10p_{n}\]
+		Or \((p_{n + 1} - 10 p_{n} - 10) \in \m{Z}\) et \((p_{n + 1} + 1 - 10p_{n}) \in \m{Z}\), alors :
+		\[p_{n + 1} - 10 p_{n} - 9 \less 0 \less p_{n + 1} - 10p_{n}\]
+		\(p_{n + 1} - 10p_{n} \more 0\) alors \(x_{n + 1} - x_{n} \more 0\) et \((x_{n})\) est croissante.\\
+		\(y_{n + 1} - y{n} = x_{n + 1} + \frac{1}{10^{n + 1}} - (x_{n} + \frac{1}{10^{n}}) = \frac{1}{10^{n + 1}}(p_{n + 1} - 10p_{n} - 9) \less 0\)\\
+		Donc \((y_{n})\) est décroissante.\\
+		On a, d'après la définition de la partie entière :
+		\[p_{n} \less 10^{n}x < p_{n} + 1\]
+		\[x_{n} \less x < x_{n} + \frac{1}{10^{n}}\]
+		\[x - \frac{1}{10^{n}} < x_{n} \less x\]
+		Alors, par encadrement \((x_{n})\) converge et \(\lim_{n \to +\infty} x_{n} = x\)\\
+		\(y_{n} = x_{n} + (\frac{1}{10})^{n} \rightarrow x + 0 = x\). Donc \(\lim_{n \to +\infty} y_{n} = x\)

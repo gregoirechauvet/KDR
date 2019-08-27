@@ -1,0 +1,109 @@
+\section{$(48)$ Topologie matricielle.}
+	\paragraph{Énoncé}
+		\(\mathcal{O}_n(\m{R})\) est un fermé borné de \(\mathcal{M}_n(\m{R})\).
+
+	\paragraph{Démonstration}
+		Soit 
+		\begin{equation*}
+			f :
+			\begin{array}{l l l}
+				\mathcal{M}_n(\m{R}) & \longrightarrow & \mathcal{M}_n(\m{R})\\
+				M & \longmapsto & M {}^t \! M
+			\end{array}
+		\end{equation*}
+		\(f\) est continue sur \(\mathcal{M}_n(\m{R})\) :
+		\begin{description}
+			\item[EF :]	
+			\begin{equation*}
+				f : 
+				\begin{array}{l l l l l}
+					\mathcal{M}_n(\m{R}) & \overset{g}{\longrightarrow} & \mathcal{M}_n(\m{R})\times \mathcal{M}_n(\m{R}) & \overset{h}{\longrightarrow} & \mathcal{M}_n(\m{R})\\
+					M & \longmapsto & (M,{}^t \! M) & \longmapsto & M{}^t \! M
+				\end{array}
+			\end{equation*}
+			\(g\) est linéaire et \(dim \ \mathcal{M}_n(\m{R}) < +\infty\) donc \(g\) est continue sur \(\mathcal{M}_n(\m{R})\).\\
+			\(h\), qui n'est autre que le produit matriciel, est continue car bilinéaire sur un espace vectoriel de dimension finie.\\
+			Donc \(f\) est continue en tant que composée.\\
+			\textbf{FEF}
+		\end{description}
+		\(\mathcal{O}_n(\m{R}) = \{ A\in GL_n(\m{R}) ~ | ~ A^{-1} ={{{}^t}}A \} = \{ A\in\mathcal{M}_n(\m{R}) ~ | ~ A{{{}^t}}A = I_{n} \} =\ ^{-1}f(\{I_{n}\})\) et \(\{I_{n} \}\) est un fermé de \(\mathcal{M}_n(\m{R})\)\\
+		Donc \(\mathcal{O}_n(\m{R})\) est un fermé en tant qu'image réciproque d'un fermé par une application continue.\\
+		\\
+		Soit \(A = (a_{ij}) \in \mathcal{O}_n(\m{R})\).\\
+		Soit \(a\) l'endomorphisme canoniquement associé à \(A\).\\
+		\(a : \m{R}^n \rightarrow \m{R}^n\) et \(M_{\varepsilon}(a) = A\) où \(\varepsilon\) est la base canonique de \(\m{R}^n\).\\
+		\(dim \ \mathcal{M}_n(\m{R}) < +\infty\) donc toutes les normes sont équivalentes...\\
+		On munit donc \(\m{R}^n\) de son produit scalaire usuel et on note \(\|.\|\) sa norme associé.\\
+		Dès lors, la base \(\varepsilon\) est orthonormale.\\
+		\(A \in \mathcal{O}_n(\m{R})\) donc \(a \in \mathcal{O}(\m{R}^n)\).\\
+		\(a\) conserve donc le produit scalaire et on a \(\|a(\varepsilon_j) \| = \sqrt{(a(\varepsilon_j)|a(\varepsilon_j))} = \sqrt{(\varepsilon_j|\varepsilon_j)} = \|\varepsilon_j\|\).\\
+		Comme \(a(\varepsilon_j) = \sum_{i = 1}^n a_{ij}\), \(\|a(\varepsilon_j)\|^2 = \sum_{i = 1}^n \left|a_{ij}\right|^2\) car \(\varepsilon\) est une Base Orthonormale.
+		\[\forall j \in \llbracket 1, n \rrbracket, \sum_{i = 1}^n \left|a_{ij}\right|^2 = 1\]
+		\[\forall (i,j) \in \llbracket 1, n \rrbracket^2, \left|a_{ij}\right| \less \left|a_{ij}\right|^{2} \less \sum_{i = 1}^n \left|a_{ij}\right|^{2} \less 1 \text{ puis } \|A\|_{\infty} \less 1\]
+		Ainsi \(\forall A \in \mathcal{O}_n(\m{R}), \|A\|_{\infty} \less 1\) : \(\mathcal{O}_n(\m{R})\) est bornée.\\
+		\\
+		Comme les compacts dans les espaces vectoriels normés de dimension finie sont les fermés bornés, \(\mathcal{O}_n(\m{R})\) est compact.\\
+
+	\paragraph{Énoncé}
+		\(GL_n(\m{K})\) est un ouvert dense dans \(\mathcal{M}_n(\m{K})\).
+
+	\paragraph{Démonstration}
+		\(GL_n(\m{K}) = \{A \in \mathcal{M}_n(\m{K}) ~ | ~ det A \neq 0 \} =\ ^{-1}det(\m{K} \setminus \{0\})\)\\
+		\(\{0\}\) est un fermé de \((\m{K}, |\ |)\), \(\m{K}\setminus\{0\}\) est un ouvert de \((\m{K}, |\ |)\).\\
+		Le déterminant est continu :
+		\begin{description}
+			\item[EF :] Soit \(M = (m_{ij}) \in \mathcal{M}_n(\m{K})\)\\
+			\(det(M) = \sum_{\sigma \in \mathcal{S}_n(\m{K})} \varepsilon(\sigma) m_{1\sigma(1)} \cdots m_{n\sigma(n)} = \sum_{\sigma \in \mathcal{S}_n(\m{K})} \varepsilon(\sigma) M_{1\sigma(1)}^{*} \cdots M_{n\sigma(n)}^{*}\)\\
+			Or les \(E_{ij}^{*}: \mathcal{M}_n(\m{K}) \rightarrow \m{K}\) sont continues comme formes linéaires sur un espace vectoriel de dimension finie.\\
+			Puis pour tout \(\sigma \in \mathcal{S}_n,\varepsilon(\sigma) M_{1\sigma(1)}^{*} \cdots M_{n\sigma(n)}^{*}\) est continue comme produit de fonctions continues.\\
+			Finalement, \(det\) est continu comme somme de fonctions continues.\\
+			\textbf{FEF}
+		\end{description}
+		Donc \(GL_n(\m{R})\) est un ouvert en tant qu'image réciproque d'un ouvert par une application continue.\\
+		\\
+		Soit \(A \in \mathcal{M}_n(\m{K})\).\\
+		Montrons q'il existe une suite d'élements de \(GL_n(\m{K})\) qui converge vers \(A\).\\
+		Posons \(A_k = A + \frac{1}{k + 1}\). On a \(\lim A_k = A\).
+		\[det(A_k) = det(\frac{1}{k + 1} + A)\]
+		\(\chi_{A} = det(XI_{n} - A)\). D'où \(det(A_k) = \chi_{-A}(\frac{1}{k + 1})\)\\
+		Par ailleurs, \(\chi_{-A} = (X - \lambda_1)(X - \lambda_2) \cdots (X-\lambda_n)\). Il suffit de considèrer \(A\) comme une matrice à valeurs dans \(\m{C}\), le polynôme \(\chi_{-A}\) y est alors scindé de degré n et on appelle \(\lambda_{i}\) ses n valeurs propres.\\
+		Posons \(r = \underset{ \Lambda \setminus \{0\}}{inf} (|\lambda|)\) où \(\Lambda = \{\lambda_1, \cdots, \lambda_n \}\).\\Éventuellement, si \(\Lambda \setminus \{0\} = \varnothing , r = +\infty\).
+		\[\forall t \in \m{R}^{*}, \left|t\right|< r \Rightarrow \forall i \in \llbracket 1, n \rrbracket, t \neq \lambda_i (*)\]
+		\(\lim \frac{1}{k + 1} = 0\) donc \(\exists N \in \m{N} ~ | ~ \forall k \more N, 0 < \frac{1}{k + 1} < r\).\\
+		D'après \((*)\) : \(\forall k \more N, \frac{1}{k + 1} \neq \lambda_i\) pour tout \(i\) dans \(\left|\left[1, n\right]\right|\).\\
+		Ainsi \(\forall k \more N, det(A_k) = \chi_{-A}(\frac{1}{k+1}) \neq 0 \text{ i.e. } A_k \in GL_n(\m{K})\)\\
+		\((A_k)\) est donc une suite d'élements de \(GL_n(\m{K})\) qui, de surcroît, converge vers \(A\).\\
+		\(\forall A \in \mathcal{M}_n(\m{K}), \exists (A_k) \in GL_n(\m{K})^{\m{N}} ~ | ~ \lim A_k = A\) : \(GL_n(\m{K})\) est dense dans \(\mathcal{M}_n(\m{K})\).
+
+	\paragraph{Énoncé}
+		L'application \((M \mapsto M^{-1})\) est continue sur \(GL_n(\m{K})\).
+
+	\paragraph{Démonstration}
+		\(\forall M \in GL_n(\m{K}), M^{-1} = \frac{1}{det(M)} \times {{{}^t}}com(M)\)\\
+		Or pour \(M = (m_{ij}) \in \mathcal{M}_n(\m{K})\), \(com(M) = (c_{ij})\) avec \(c_{ij} = (-1)^{i + j}det(M_{ij})\)\\
+		Pour tout \((i,j)\in \llbracket 1, n \rrbracket^{2}\), \((M \mapsto M_{ij})\) est linéaire donc continue car \(dim ~ \mathcal{M}_n(\m{K}) < +\infty\). De plus \(det\) est continu sur \(\mathcal{M}_n(\m{K})\).\\
+		Par composée \(\forall (i,j) \in \llbracket 1, n \rrbracket^2, (M \mapsto c_{ij})\) est continue sur \(\mathcal{M}_n(\m{K})\).\\
+		\(com(M) = \sum_{(i,j)\in \llbracket 1, n \rrbracket^2} c_{ij} E_{ij}\) d'où \((M \mapsto com(M))\) est continue sur \(\mathcal{M}_n(\m{K})\) par produit et somme d'applications continues.\\
+		La transposition est linéaire sur un espace vectoriel normé de dimension finie donc continu.\\
+		Le déterminant est continu et ne s'annule pas sur \(GL_n(\m{K})\).\\
+		Par composition et produit, \((M \mapsto M^{-1})\) est contiue sur \(GL_n(\m{K})\).
+
+	\paragraph{Théorème}
+		Soient \((E,\|\ \|_{E}),(F,\|\ \|_{F}),(G,\|\ \|_G)\), trois espaces vectoriels normés et \(B : E \times F \rightarrow G\) bilinéaire.\\
+		Si \(dim(E) < +\infty\) et si \(dim(F) < +\infty\) alors \(B\) est continue sur \(E \times F\).
+
+	\paragraph{Démonstration}
+		Soit \(B : E\times F \rightarrow G\) bilinéaire.\\
+		Supposons \(dim(E) < +\infty\) et \(dim(F) < +\infty\) , montrons que : \(\exists k \in \m{R}^{*} |\forall (x,y)\in E \times F, \| B(x,y)\|_G \less k\|x\|_{E}\|y\|_{F}\).\\
+		Dés lors, \(B\) étant bilinéaire, l'application est continue sur son ensemble de définition.\\
+		\\
+		Soit \((x,y) \in E \times F\).\\
+		\(p = dim(E)< +\infty\) donc on peut considèrer une base \(\mathcal{B}=(e_{1},\cdots,e_{p})\) est une base de \(E\).\\
+		\(q = dim(F)< +\infty\) donc on peut considèrer une base \(\mathcal{C}=(f_{1},\cdots,f_{q})\) est une base de \(F\).
+		\[x = \sum_{i = 1}^p e_{i}^{*} e_i  \text{ et } y = \sum_{j = 1}^q f_{j}^{*} f_{j}\]
+		Par bilinéarité :
+		\[B(x, y) = \sum_{i = 1}^p \sum_{j = 1}^q e_{i}^{*} f_{j}^{*} B(e_{i},f_{j})\]
+		\[\| B(x,y) \|_G \less \sum_{i = 1}^p \sum_{j = 1}^q \underbrace{\left|e_{i}^{*}\right|}_{\less N_{\infty,\mathcal{B}}} \underbrace{|f_{j}^{*}|}_{\less N_{\infty,\mathcal{C}}} \|B(e_{i},f_{j})\|_G \less N_{\infty,\mathcal{B}} N_{\infty,\mathcal{C}} \underbrace{\sum_{i=1}^{p} \sum_{j = 1}^q \|B(e_{i},f_{j})\|_G}_{M}\]
+		\(dim(E) < \infty\) donc toutes les normes y sont équivalentes ; en particulier \(N_{\infty,\mathcal{B}} \sim \|\ \|_{E}\).\\
+		C'est-à-dire : \(\exists \alpha > 0 | N_{\infty,\mathcal{B}} \less \alpha \|\ \|_{E}\) et \(\exists \beta > 0 | N_{\infty,\mathcal{C}} \less \beta \|\ \|_{F}\).\\
+		Dès lors, \(\| B(x,y)\|_G \less k \|x\|_{E}\|y\|_{F}\) avec \(k = M\alpha\beta\) indépendant de \(x\) et \(y\). C.Q.F.D.

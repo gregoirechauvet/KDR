@@ -1,0 +1,112 @@
+\section{$(72)$ Calculs d’intégrales - Exercices 7.2, 7.3, 7.4, 7.5, 7.6.}
+	\paragraph{Énoncé - Exercice 7.2}
+		Pour \((p, q) \in \m{N}^2\), calculer \(I_{p, q} = \int_0^1 t^p(\ln(t))^q dt\).
+
+	\paragraph{Résolution}
+		Soit \((p, q) \in \m{N}^2\), on pose \(I_{p, q} = \int_0^1 t^p(\ln(t))^q\).\\
+		\(f_{p, q} = t^p(\ln(t))^q\), \(f_{p, q} \in \mathcal{C}^0(\left]0, 1\right])\)\\
+		\(\left| f_{p, q}\right| = t^p(\ln(t))^q\).\\
+		\(t^\frac{1}{2} \left| f_{p, q}\right| = t^{p + \frac{1}{2}}\left| \ln(t) \right|^q \underset{t \rightarrow 0^+}{\longrightarrow} 0\)
+		\[\left| f_{p, q}(t)\right| = \underset{0^+}{o}(\frac{1}{t^\frac{1}{2}})\]
+		Or \(\frac{1}{2} < 1\) donc \(f_{p, q} \in L^1(\left]0, 1\right])\)\\
+		\(I_{p, q}\) existe.\\
+		\\
+		\(I_{p, q} = \int_0^1 t^p(\ln(t))^q dt = \lim_{\varepsilon \to 0^+} \int_\varepsilon^1 t^p(\ln(t))^q dt\).
+		Pour \(\varepsilon \in \left]0, 1\right]\), on fait des IPP.
+		\[\int_\varepsilon^1 t^p(\ln(t))^q dt = \left[\frac{t^{p + 1}}{p + 1}(\ln(t))^q\right]_\varepsilon^1 - \int_\varepsilon^1\frac{t^{p+ 1}}{p + 1}q(\ln(t))^{q - 1}\frac{1}{t} dt \text{ pour } q \more 1\]
+		Par passage à la limite \((\text{toutes les limites existent})\) : \(I_{p, q} = 0 - 0 - \frac{q}{p + 1}I_{p, q - 1}\)
+		\[I_{p, q} = - \frac{q}{p + 1}I_{p, q - 1} = - \frac{q}{p + 1} \times (- \frac{q - 1}{p + 1}I_{p, q - 2})\]
+		\[= \frac{-q}{p + 1} \times \frac{-(q - 1)}{p + 1} \times ... \times \frac{1}{p + 1}I_{p, 0}\]
+		\[= \frac{(-1)^q q!}{(p + 1)^q} \times \frac{1}{p + 1} = \frac{(-1)^q q!}{(p + 1)^{q + 1}}\]\\
+
+	\paragraph{Énoncé - Exercice 7.3}
+		Pour \(a > 0\), calculer \(I(a) = \int_0^{+\infty}\frac{\ln(t)}{t^2 + a^2} dt\)
+
+	\paragraph{Résolution}
+		\(f_a(t) = \frac{\ln(t)}{t^2 + a^2}\), \(f_a \in \mathcal{C}^0(\left]0, +\infty\right[)\) car \(\forall t \in \m{R}^{+*}\), \(t^2 + a^2 > 0\).
+		\[\left| f_a(t) \right| = \frac{\left| \ln(t) \right|}{t^2 + a^2} \underset{+\infty}{\sim} \frac{\left| \ln(t) \right|}{t^2} = \underset{0^+}{o}(\frac{1}{t^\frac{3}{2}})\]
+		\(\frac{3}{2} > 1\) donc \(f_a \in L^1(\left[1, +\infty\right[)\)
+		\[\left| f_a(t) \right| = \frac{\left| \ln(t) \right|}{t^2 + a^2} \underset{0^+}{\sim} \frac{\left| \ln(t) \right|}{a^2}\]
+		\(\left|\ln(t)\right| \in L^1(\left]0, 1\right])\), donc \(f_a \in L^1(\left]0, 1\right])\)\\
+		\(I_a\) existe donc.
+		\\
+		\(I(a) = \int_0^{+\infty}\frac{\ln(t)}{t^2 + a^2} dt\)
+		Changement de variable : \(t = \frac{1}{u}\)\\
+		\((u \mapsto \frac{1}{u})\) est une bijection de classe \(\mathcal{C}^1\) de \(\left]0, +\infty\right[\) sur \(\left]0, +\infty\right[\).\\
+		\(dt = \frac{-1}{u^2}du\)
+		\[I(a) = \int_{\left]0, +\infty\right[} \frac{\ln(\frac{1}{u})}{a^2 + (\frac{1}{u})^2} \times \left| \frac{-1}{u^2} \right| du =  - \int_{\left]0, +\infty\right[} \frac{\ln(u)}{1 + (au)^2} du\]
+		\(u = \frac{v}{a}\), \((v \mapsto \frac{v}{a})\) est une bijection \(\mathcal{C}^1\) de \(\left]0, +\infty\right[\) sur \(\left]0, +\infty\right[\) et \(du = \frac{1}{a}dv\).
+		\[I(a) = - \int_{\left]0, +\infty\right[} \frac{\ln(\frac{v}{a})}{1 + v^2} \left| \frac{1}{a} \right| dv = - \frac{1}{a} \int_0^{+\infty} \frac{\ln(\frac{1}{a}) + \ln(v)}{1 + v^2} dv\]
+		\[I(a) = - \frac{\ln(a)}{a} \int_0^{+\infty} \frac{1}{1 + v^2} dv - \frac{1}{a} \underbrace{\int_0^{+\infty}\frac{\ln(v)}{1 + v^2} dv}_{= 0 \text{ avec } v = \frac{1}{w}}\]
+		\[I(a) = \frac{\pi}{2}\frac{\ln(a)}{a}\]\\
+
+	\paragraph{Énoncé - Exercice 7.4}
+		Calculer \(I = \int_0^{+\infty}(\int_x^{+\infty}e^{-t^2}dt)dx\)
+
+	\paragraph{Résolution}
+		\(I = \int_0^{+\infty}(\int_x^{+\infty}e^{-t^2}dt)dx = \int_0^{+\infty} f(x) dx\) où \(f(x) = \int_x^{+\infty}e^{-t^2} dt\)\\
+		\((t \mapsto e^{-t^2}) \in \mathcal{C}^0(\m{R})\)\\
+		\(e^{-t^2} = \underset{+\infty}{o}(t^{-12})\) et \(12 > 1\) donc \((t \mapsto e^{-t^2}) \in L^1(\left[x, +\infty\right[)\)\\
+		donc \(f(x)\) existe pour tout \(x \in \m{R}\) et \(f(x) \more 0\).
+		\[f(x) = \int_x^{+\infty}e^{-t^2} dt = \int_0^{+\infty}e^{-t^2} dt - \int_0^x e^{-t^2} dt\]
+		Soit \(F\) la primitive de \((t \mapsto e^{-t^2})\) sur \(\m{R}\) qui s'annule en \(0\). \(((t \mapsto e^{-t^2}) \in \mathcal{C}^0(\m{R}, \m{R}))\)\\
+		\(f(x) = K - F(x)\) où \(K \in \m{R}\). \(F'(x) = e^{-x^2}\)\\
+		\(f \in M^0(\m{R}^+)\) et \(f \more 0\).\\
+		\(f \in L^1(\m{R}^+) \Leftrightarrow (I_n)\) est convergente, avec \(I_n = \int_{\left[0, n\right]} f\)\\
+		Nota bene : \((\left[0, n\right])_{n \more 1}\) est une suite exhaustive de \(\m{R}^+\).
+		\[I_n = \int_0^n f(x) dx = \left[ x f(x) \right]_0^n - \int_0^x x f'(x) dx\]
+		\[I_n = nf(n) + \int_0^x xe^{-x^2} dx\]
+		\[I_n = nf(n) - \frac{1}{2}\left[e^{-x^2}\right]_0^n = nf(n) - \underbrace{\frac{1}{2}e^{-n^2}}_{\underset{+\infty}{\rightarrow} 0} + \underbrace{\frac{1}{2}}_{\underset{+\infty}{\rightarrow} \frac{1}{2}}\]
+		\[\left| nf(n) \right| = nf(n) = n \int_n^{+\infty} e^{-x^2} dx = \int_n^{+\infty} ne^{-x^2} dx\]
+		\[n \less \int_n^{+\infty} xe^{-x^2} dx \text{ car } x \in \left[n, +\infty\right[\]
+		\[nf(n) \less 0 + \frac{e^{-n^2}}{2} \underset{+\infty}{\longrightarrow} 0\]
+		donc \(\lim_{n \to +\infty} nf(n) = 0\)\\
+		\(\lim_{+\infty} I_n = \frac{1}{2}\) puis \(f \in L^1(\m{R}^+)\) et \(\int_0^{+\infty}f = \lim I_n = \frac{1}{2}\)\\
+
+		\paragraph{Énoncé - Exercice 7.5}
+			Montrer que : \(\int_0^{+\infty} (\frac{1}{t} - \left\lfloor \frac{1}{t} \right\rfloor) dt = 1 - \gamma\)
+
+		\paragraph{Résolution}
+			\(f(t) = \frac{1}{t} - \left\lfloor \frac{1}{t} \right\rfloor\)\\
+			\((t \mapsto \frac{1}{t})\) est continue sur \(\left]0, 1\right]\). \(\left\lfloor \text{ } \right\rfloor\) est continue par morceaux sur \(\m{R}\).\\
+			\(f\) est continue par morceaux sur \(\left]0, 1\right]\) en tant que composée et différence.\\
+			\(\forall t \in \left]0, 1\right], 0 \less f(t) < 1\) alors \(\left| f(t) \right| \less 1\)\\
+			\((t \longrightarrow 1) \in L^1(\left[0, 1\right])\) donc \((t \longrightarrow 1) \in L^1(\left]0, 1\right])\)\\
+			Ainsi \(f \in L^1(\left]0, 1\right])\).\\
+			\(\int_{\left]0, 1\right]} f = \lim \int_{\left[\frac{1}{n + 1}, 1\right]} f\) car \(f \in L^1(\left]0, 1\right])\) et \((\left[\frac{1}{n + 1}, 1\right])_{n \more 1}\) est une suite exhaustive de \(\left]0, 1\right]\).\\
+			\[\int_{\left[\frac{1}{n + 1}, 1\right]} = \int_\frac{1}{n + 1}^1 f = \sum_{k = 1}^n \int_\frac{1}{k + 1}^\frac{1}{k} f\]
+			\[\int_\frac{1}{k + 1}^\frac{1}{k} f = \int_{\left[\frac{1}{k + 1}, \frac{1}{k}\right]} f = \int_{\left]\frac{1}{k + 1}, \frac{1}{k}\right[} f = \int_{\left]\frac{1}{k + 1}, \frac{1}{k}\right[} (\frac{1}{t} - k) dt\]
+			\[= \left[\ln(t)\right]_\frac{1}{k + 1}^\frac{1}{k} - k(\frac{1}{k} - \frac{1}{k + 1}) = \ln(\frac{1}{k}) - \ln(\frac{1}{k + 1}) - \frac{1}{k + 1}\]
+			\(\forall t \in \left]\frac{1}{k + 1}, \frac{1}{k}\right[, k < \frac{1}{t} < k + 1\) et \(\left\lfloor \frac{1}{t} \right\rfloor = k \text{ avec }k \in \llbracket 0, n \rrbracket\)\\
+			\[\int_\frac{1}{n + 1}^1 f = \sum_{k = 1}^n (\ln(\frac{1}{k}) - \ln(\frac{1}{k + 1})) - \sum_{k = 1}^n \frac{1}{k + 1}\]
+			\[= \ln(1) - \ln(\frac{1}{n + 1}) - (H_{n + 1} - 1)\]
+			\[= 1 - (H_{n + 1} - \ln(n + 1)) \underset{n \rightarrow +\infty}{\longrightarrow} 1 - \gamma\]
+			On a : \(\int_{\left]0, 1\right]} (\frac{1}{t} - \left\lfloor \frac{1}{t} \right\rfloor) dt = 1 - \gamma\)
+
+		\paragraph{Énoncé - Exercice 7.6}
+			Calculer \(\int_0^{+\infty} \frac{th(12x) - th(x)}{x} dx\)
+
+		\paragraph{Résolution}
+			\(f(x) = \frac{th(12x) - th(x)}{x}\)\\
+			\(f \in \mathcal{C}^0(\m{R}^{+*})\), \(th\) est croissante sur \(\m{R}\) donc \(f \more 0\) sur \(\m{R}^{+*}\).\\
+			\(\delta_n = \left[\frac{1}{n}, n\right]\), \(\delta_n \subset \delta_{n + 1}\) et \(\bigcup_{n = 1}^{+\infty}\delta_n = \left]0, +\infty\right[\)\\
+			\((S_n)_{n \more 1}\) est une suite exhaustive de \(\left]0, +\infty\right[\).
+			\[\int_{S_n}f = \int_\frac{1}{n}^n \frac{th(12x) - th(x)}{x} dx = \int_\frac{1}{n}^n \frac{th(12x)}{x} dx - \int_\frac{1}{n}^n \frac{th(x)}{x} dx\]
+			Changement de variable : \(\left\{
+    		\begin{array}{l l l}
+    			x & = & \frac{1}{12}t\\
+    			dx & = & \frac{1}{12}dt
+    		\end{array}
+			\right.\)\\
+			\[\int_{S_n}f = \int_\frac{12}{n}^{12n} \frac{th(t)}{\frac{1}{12}t} \frac{1}{12} dt - \int_\frac{1}{n}^n \frac{th(x)}{x} dx\]
+			\[= \int_\frac{12}{n}^{12n} \frac{th(t)}{t} dt + \int_\frac{1}{n}^{n} \frac{th(t)}{t} dt + \int_n^{12n} \frac{th(t)}{t} dt - \int_\frac{1}{n}^{n} \frac{th(x)}{x} dx\]
+			\[= \int_n^{12n} \frac{th(t)}{t} dt - \int_\frac{1}{n}^\frac{12}{n} \frac{th(t)}{t} dt\]
+			\(\forall t \in \left[n, 2n\right], th(n) \less th(t) \less th(12n)\)
+			\[th(n) \int_n^{12n} \frac{1}{t} dt \less \int_n^{12n} \frac{th(t)}{t} dt \less th(12n) \int_n^{12n} \frac{1}{t} dt\]
+			\[\underbrace{th(n) \ln(12)}_{\underset{n \rightarrow +\infty}{\longrightarrow} \ln(12)} \less \int_n^{12n} \frac{th(t)}{t} dt \less \underbrace{th(12n) \ln(12)}_{\underset{n \rightarrow +\infty}{\longrightarrow} \ln(12)}\]
+			Par encadrement : \(\lim_{n \to +\infty} \int_n^{12n} \frac{th(t)}{t} dt = \ln(12)\)\\
+			\(\forall t \in \left[\frac{1}{n}, \frac{12}{n}\right], \frac{th(\frac{1}{n})}{t} \less \frac{\ln(t)}{t} \less \frac{th(\frac{12}{n})}{t}\)\\
+			\[\underbrace{th(\frac{1}{n})\ln(12)}_{\underset{n \rightarrow +\infty}{\longrightarrow} 0} \less \int_\frac{1}{n}^\frac{12}{n} \frac{th(t)}{t} dt \less \underbrace{th(\frac{12}{n})\ln(12)}_{\underset{n \rightarrow +\infty}{\longrightarrow} 0}\]
+			Par encadrement : \(\lim_{n \to +\infty} \int_\frac{1}{n}^\frac{12}{n} \frac{th(t)}{t} dt = 0\)
+			\[I_n = \int_{S_n} f = \int_n^{12n} \frac{th(t)}{t} dt = \int_\frac{1}{n}^\frac{12}{n} \frac{th(t)}{t} dt \underset{n \rightarrow +\infty}{\longrightarrow} \ln(12)\]
+			Comme \((\delta_n)\) est une suite exhaustive de \(\left]0, +\infty\right[\) et que \(f \more 0\) il vient \(f \in L^1(\left]0, +\infty\right[)\) et \(\int_{\left]0, +\infty\right[} f = \ln(12)\)

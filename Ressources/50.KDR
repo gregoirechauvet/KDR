@@ -1,0 +1,70 @@
+\section{$(50)$ Projecteurs : la situation de la fin du paragraphe 4 du cours.}
+	\paragraph{Énoncé}
+		Soient \(E\) un \(K\)-espace vectoriel et \(p\), \(q\) des projecteurs de E.
+		\begin{enumerate}
+			\item Montrer que \(p + q\) est un projecteur si et seulement si \(p \circ q = 0\) et \(q \circ p = 0\).
+			\item On suppose que \(p \circ q = q \circ p\) et on pose : \(r = p + q - p \circ q\). Montrer que \(r\) est un projecteur puis établir les égalités : \(Ker(r) = Ker(p) \cap Ker(q)\) et \(Im(r) = Im(p) + (q)\)
+		\end{enumerate}
+
+	\paragraph{Démonstration}
+		\begin{enumerate}
+			\item \(p + q \in L(E)\) car \(L(E, +, \circ, .)\) est une \(K\)-algèbre\\
+			\[(p + q)^{2} = (p + q)\circ(p + q) = p^{2} + q \circ p + p \circ q + q^{2} = p + q \circ p + p \circ q + q\]
+			\[p + q \text{ est un projecteur} \Leftrightarrow p \circ q + q \circ p = 0\]
+			Supposons \(p \circ q + q \circ p = 0\).\\
+			Alors :
+			\[p \circ (p \circ q + q \circ p) = p \circ 0 = 0\]
+			Donc : \[p \circ q + p \circ q \circ p = 0\]
+			\[(p \circ q + q \circ p)\circ p = p \circ q \circ p + q \circ p = 0 \circ p = 0\]
+			Ainsi :
+			\[p \circ q - q \circ p = 0\]
+			Il vient :
+			\[2p \circ q = 0 = 2q \circ p\]
+			On suppose \(2_{K} \ne 0_{K}\).
+			Dès lors \(p \circ q = 0\) et \(q \circ p = 0\).\\
+			Si \(p \circ q = 0\) et \(q \circ p = 0\) alors \(p \circ q + q \circ p = 0\)\\
+			\[p + q \text{ projecteur de } E \Leftrightarrow p \circ q + q \circ p = 0 \Leftrightarrow p \circ q = 0 \text{ et } q \circ p = 0\]
+			\item On suppose \(p \circ q = q \circ p\)
+			\[r = p + q - p \circ q \in L(E) \text{ car } L(E) \text{est une K-algèbre}\]
+			\[r^2 = r \circ r = r \circ (p + q - p \circ q) = r \circ p + r \circ q - r \circ (p \circ q)\]
+			Calculons \(r \circ p\) :
+			\[r \circ p = p^2 + q \circ p - p \circ q \circ p = p + q \circ p - p \circ p \circ q\]
+			\[= p + p \circ q - p \circ q = p\]
+			De même : \(r \circ q = q\).\\
+			Calculons \(r \circ (p \circ q)\) :
+			\[r \circ (p \circ q) = (r \circ p) \circ q = p \circ q\]
+			Alors :
+			\[r^2 = p + q - p \circ q = r\]
+			Donc \(r\) est un projecteur.
+			Calculons \(p \circ r\) et \(q \circ r\)
+			\[p \circ r = p \circ (p + q - p \circ q) = p + p \circ q - p \circ q = p\]
+			De même \(q \circ r = q\).\\
+			Soit \(x \in Ker(r)\).
+			\[p(x) = (p \circ r)(x) = p(r(x)) = p(0_E) = 0_E\]
+			Alors \(x \in Ker(p)\).
+			\[q(x) = (q \circ r)(x) = q(r(x)) = q(0_E) = 0_E\]
+			Alors \(x \in Ker(q)\).
+			On a donc : \(x \in Ker(p) \cap Ker(q)\). Ainsi \(Ker(r) \subset Ker(p) \cap Ker(q)\).\\
+			\\
+			Soit \(x \in Ker(p) \cap Ker(q)\)\\
+			\(p(x) = q(x) = 0_E\)
+			\[r(x) = p(x) + q(x) - p(q(x)) = 0_E + 0_E - 0_E = 0_E\]
+			\(x \in Ker(r)\)\\
+			\(Ker(p) \cap Ker(q) \subset Ker(r)\)\\
+			Alors \(Ker(r) = Ker(p) \cap Ker(q)\)\\
+			\\
+			Soit \(y \in Im(r)\)\\
+			\[Im(r) = Ker(r - Id_E) = \left\{x \in E \text{ | } r(x) = x\right\}\]
+			\[r(y) = y = p(y) + q(y) - p(q(y)) = \underbrace{p(y - q(y))}_{\in Im(p)} + \underbrace{q(y)}_{\in Im(q)}\]
+			Ainsi \(Im(r) \subset Im(p) + Im(q)\).\\
+			Soit \(y \in Im(p) + Im(q)\)\\
+			\(y = a + b\) avec \(a \in Im(p)\) et \(b \in Im(q)\)\\
+			\(r(y) = r(a) + r(b)\)\\
+			\(p\) est un projecteur donc \(Im(p) = Ker(p - Id_E)\)\\
+			\(a \in Im(p)\) donc \(p(a) = a\). De même \(q(b) = b\)
+			\[r(y) = r(p(a)) + r(q(b)) = (r \circ p)(a) + (r \circ q)(b) \underset{\underset{\text{car } r \circ p = p \text{ et } r \circ q = q}{\uparrow}}{=} p(a) + q(b) = a + b = y\]
+			\(y \in Im(r)\).\\
+			Alors \(Im(p) + Im(q) \subset Im(r)\).\\
+			Et enfin : \(Im(r) = Im(p) + Im(q)\).\\
+
+		\end{enumerate}

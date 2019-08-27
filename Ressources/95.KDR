@@ -1,0 +1,44 @@
+\section{$(95)$ Égalité d'applications et coefficients de Fourier - Exercice 9.20.} 
+	\paragraph{Énoncé}
+		Soit \(f \in \mathcal{C}_{2\pi}^{0}(\m{R},\m{C})\).\\
+		Si la série de Fourier de \(f\) converge uniformément sur \(\m{R}\) alors elle converge vers \(f\).
+
+	\paragraph{Démonstration}
+		\(f_{0} = c_{0}(f)\) et \(\forall n \in \m{N}, f_{n} = c_{-n}(f) e_{-in} + c_{n}(f) e_{in}\).\\
+		\(\sum f_{n}\) est la série de Fourier de \(f\).\\
+		On suppose que \(\sum f_{n}\) converge uniformément sur \(\m{R}\).\\
+		Alors \(\sum f_{n}\) converge simplement sur \(\m{R}\) et on peut parler de \(g = \sum_{n = 0}^{ +\infty} f_{n}\)\\
+		\\
+		\(g \in \mathcal{C}_{2\pi}^{0}\):
+		\begin{enumerate}
+			\item \(\forall n \in \m{N}\) , \(f_{n}\) est \(2\pi\)-périodique et \(\sum f_{n}\) converge simplement sur \(\m{R}\) vers \(g\) donc \(g\) est \(2\pi\)-périodique.
+			\item \(\forall n \in \m{N}\) , \(f_{n}\) est continue sur \(\m{R}\) et \(\sum f_{n}\) converge uniformément sur \(\m{R}\) vers \(g\) donc par théorème \(g\) est continue sur \(\m{R}\).
+		\end{enumerate}
+		Ainsi, comme \((f,g) \in \mathcal{C}_{2\pi}^{0}(\m{R})^{2}\), on a :
+		\[f = g \Leftrightarrow \forall p \in \m{Z}, c_{p}(f) = c_{p}(g)\]
+		\[c_{p}(g) = \frac{1}{2\pi} \int_{-\pi}^{\pi} (\sum_{n = 0}^{ +\infty} f_{n}(x)e^{-ipx} )dx = \frac{1}{2\pi} \int_{-\pi}^{\pi} (\sum_{n = 0}^{ +\infty} g_{n}(x))dx \text{ avec } g_{n}(x) = f_{n}(x)e^{-ipx}\]
+		\(\sum g_{n}\) converge uniformément sur le segment \([-\pi, \pi]\) :
+		\[\forall x \in \m{R}, \left|\sum_{k = n + 1}^{+\infty} g_{k}(x)\right| \less \left|\sum_{k = n + 1}^{+\infty} f_{k}(x)\right| \less \left\| \sum_{k = n + 1}^{+\infty} f_{k} \right\|_{\infty}\]
+		\[0 \less \left\| \sum_{k = n + 1}^{ +\infty} g_{k} \right\|_{\infty} \less \left|\sum_{k = n + 1}^{ +\infty} f_{k}(x)\right|\]
+		Or \(\sum f_{n}\) converge uniformément sur \(\m{R}\) : \(\lim_{n \to +\infty} \left\| \sum_{k = n + 1}^{+\infty} f_{k} \right\|_{\infty} = 0\)\\
+		Par encadrement, \(\lim_{n \to +\infty} \left\| \sum_{k = n + 1}^{ +\infty} g_{k} \right\|_{\infty} = 0\) et \(\sum g_{n}\) converge normalement donc uniformément sur \(\m{R}\).\\
+		Par théorème d'intégration termes à termes, \(c_{p}(g) = \frac{1}{2\pi} \int_{-\pi}^{\pi} (\sum_{n = 0}^{ +\infty} g_{n}(x))dx = \frac{1}{2\pi} \sum_{n = 0}^{ +\infty} \int_{-\pi}^{\pi} g_{n}(x) dx\)\\
+		or \(\int_{-\pi}^{\pi} g_{n} = \int_{-\pi}^{\pi} f_{n}(x)e^{-ipx}dx\)\\
+		Pour \(n \more 1\),
+		\[\int_{-\pi}^{\pi} g_{n} = \int_{-\pi}^{\pi} (c_{-n}(f)e^{-inx} + c_{n}(f)e^{inx})e^{-ipx}dx\]
+		\[= c_{-n}(f) \int_{-\pi}^{\pi} e^{-inx}e^{-ipx}dx + c_{n}(f) \int_{-\pi}^{\pi} e^{ + inx}e^{-ipx}dx\]\\
+		Et \(\int_{-\pi}^{\pi} g_{0} = \int_{-\pi}^{\pi} f_{0}(x)e^{-ipx}dx = \int_{-\pi}^{\pi} c_{0}(f)e^{-ipx}dx\)\\
+		Du coup, \[c_{p}(g) = \sum_{-\infty}^{ +\infty} \underbrace{\frac{1}{2\pi} \int_{-\pi}^{\pi} e^{inx}e^{-ipx}dx}_{(e_{in}|e_{ip}) = \delta_{np}} = c_{p}(f)\]
+
+	\paragraph{Énoncé}
+		Montrer que si \(c_{2n + 1}(f) = 0\) pour tout \(n \in \m{Z}\) alors l'application \(f\) est \(2\pi\)-périodique.
+
+	\paragraph{Démonstration}
+		Soit \(f \in \mathcal{C}_{2\pi}^{0}(\m{R}, \m{C})\).\\
+		Supposons que \(\forall n \in \m{Z}, c_{2n + 1}(f) = 0\).\\
+		Soit \(g : \m{R} \to \m{C}\) définie par \(g(x) = f(x + \pi)\).\\
+		Montrons que \(g = f\) i.e. comme \((f, g) \in \mathcal{C}_{2\pi}^{0}(\m{R}, \m{C}) ^{2}\), que \(\forall n \in \m{Z}, c_{n}(f) = c_{n}(g)\) :
+		\[c_{n}(g) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t + \pi)e^{-int}dt = \frac{1}{2\pi} \int_{0}^{2\pi} f(x)e^{-in(x-\pi)}dx\]
+		\((x \mapsto x - \pi)\) est de classe \(\mathcal{C}^{1}\).
+		\[c_{n}(g) = e^{in\pi} \frac{1}{2\pi} \int_{0}^{2\pi} f(x)e^{-inx}dt = e^{in\pi} c_{n}(f)\]
+		\[c_{2p + 1}(g) = e^{i(2p + 1)\pi} \underbrace{c_{2p + 1}(f)}_{ = 0} = 0 = c_{2p + 1}(f)\] \[c_{2p}(g) = \underbrace{e^{i2p\pi}}_{ = 1} c_{2p}(f) = c_{2p}(f)\]

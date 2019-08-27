@@ -1,0 +1,92 @@
+\section{$(45)$ Inéquation différentielle et inégalité de Gronwall - Exercices 4.18 et 4.20.}
+	\paragraph{Énoncé - Exercice 4.18}
+		Soit \(\omega \in \m{R}^{+*}\) et \(f \in \mathcal{C}^2(\m{R}, \m{R})\) telle que : \(f'' + \omega^2f \more 0\)\\
+		Montrer que : \(\forall x \in \m{R}, f(x) + f(x + \frac{\pi}{\omega}) \more 0\).
+
+	\paragraph{Résolution}
+		Soit \(f \in \mathcal{C}^2(\m{R}, \m{R})\), \(f'' + \omega^2f \more 0\).\\
+		Posons : \(g = f'' + \omega^2f\).\\
+		\(f \in S_{\m{R} \rightarrow \m{R}}(L)\) avec \((L) : y'' + \omega^2y = g\)
+		\[(H) : y'' + \omega^2y = 0\]
+		\(S_{\m{R} \rightarrow \m{R}}(H) = Vect(\cos_\omega, \sin_\omega)\)\\
+		Soient \((\alpha, \beta) \in (\m{R}^{\m{R}})^2\) dérivables sur \(\m{R}\)\\
+		On pose \(y_0 = \alpha\cos_\omega + \beta\sin_\omega\)\\
+		Montrons qu'il est possible de choisir \(\alpha\) et \(\beta\) de sorte que \(y_0 \in S_{\m{R} \rightarrow \m{R}}(L)\)\\
+		\(y_0\) est dérivable sur \(\m{R}\)
+		\(y_0' = \alpha'\cos_\omega + \beta'\sin_\omega + \alpha(-\omega\sin_\omega) + \beta(\omega\cos_\omega)\)\\
+		Supposons \(\alpha'\cos_\omega + \beta'\sin_\omega = 0\) :
+		\[\left\{
+    	\begin{array}{l l l}
+    	    y_0 & = & \alpha\cos_\omega + \beta\sin_\omega\\
+    	    y_0' & = & -\omega\alpha\sin_\omega + \omega\beta\cos_\omega
+    	\end{array}
+		\right.\]
+		\(y_0'\) est dérivable sur \(\m{R}\)\\
+		\(y_0'' = -\omega\alpha'\sin_\omega + \omega\beta'\cos_\omega - \omega^2\alpha\cos_\omega - \omega^2\beta\sin_\omega\)\\
+		\(y_0'' = -\omega\alpha'\sin_\omega + \omega\beta'\cos_\omega - \omega^2y_0\)
+		\[y_0'' + \omega^2y_0 = -\omega\alpha'\sin_\omega + \omega\beta'\cos_\omega\]
+		\[y_0 \in S_{\m{R} \rightarrow \m{R}}(L) \Leftrightarrow \left\{
+    	\begin{array}{l l l}
+    	    \alpha'\cos_\omega + \beta'\sin_\omega & = & 0\\
+    	    \alpha'(-\omega\sin_\omega) + \beta'(\omega\cos_\omega) & = & g
+    	\end{array}
+		\right.\]
+		\(D = \begin{vmatrix}
+			\cos_\omega & \sin_\omega \\
+			-\omega\sin_\omega & \omega\cos_\omega
+		\end{vmatrix} = \omega(\cos^2_\omega + \sin^2_\omega) = \omega\). \(D\) ne s'annule jamais.\\
+		On choisit \(\alpha\) et \(\beta\) vérifiant :
+		\[\left\{\begin{array}{l l l l l}
+    		\alpha' & = & \frac{1}{D}	\begin{vmatrix}
+											0 & \sin_\omega \\
+											g & \omega\cos_\omega
+										\end{vmatrix}
+			& = & \frac{1}{\omega}(-g\sin_\omega)\\
+    	    \beta' & = & \frac{1}{D}	\begin{vmatrix}
+											\cos_\omega & 0 \\
+											-\omega\sin_\omega & g
+										\end{vmatrix}
+			& = & \frac{1}{\omega}g\cos_\omega
+    	\end{array}
+		\right.\]
+		Il suffit de prendre \(\alpha(x) = \frac{-1}{\omega}\int_0^xg\sin_\omega\) et \(\beta(x) = \frac{1}{\omega}\int_0^xg\cos_\omega\).\\ Cela existe car \(g\sin_\omega\) et \(g\cos_\omega\) sont continues sur \(\m{R}\).\\
+		Dès lors : \(y_0 = \alpha\cos_\omega + \beta\sin_\omega \in S_{\m{R} \rightarrow \m{R}}(L)\)
+		\[S_{\m{R} \rightarrow \m{R}}(L) = y_0 + S_{\m{R} \rightarrow \m{R}}(H) = y_0 + Vect(\cos_\omega, \sin_\omega)\]
+		\(f \in S_{\m{R} \rightarrow \m{R}}(L)\) donc \(\exists (\lambda, \mu) \in \m{R}^2\), \(f = y_0 + \lambda\cos_\omega + \mu\sin_\omega\)
+		\[f(x) = \frac{-1}{\omega}(\int_0^xg(t)\sin(\omega t) dt)\cos(\omega x) + \frac{1}{\omega}(\int_0^xg(t)\cos(\omega t) dt)\sin(\omega x) + \lambda\cos_\omega + \mu\sin_\omega\]
+		\[f(x) = \frac{1}{\omega}\int_0^xg(t)(\cos(\omega t)\sin(\omega x) - \sin(\omega t)\cos(\omega x)) dt + \lambda\cos_\omega + \mu\sin_\omega\]
+		\[f(x) = \frac{1}{\omega}\int_0^xg(t)\sin(\omega(x - t)) dt + \lambda\cos_\omega + \mu\sin_\omega\]
+		Soit \(x \in \m{R}\)\\
+		\(f(x + \frac{\pi}{\omega}) = \frac{1}{\omega}\int_0^{x + \frac{\pi}{\omega}}g(t)\underbrace{\sin(\omega(x - t) + \pi)}_{-\sin(\omega(x - t))} dt - \lambda\cos_\omega - \mu\sin_\omega\)
+		\[f(x) + f(x + \frac{\pi}{\omega}) = -\frac{1}{\omega}\int_x^{x + \frac{\pi}{\omega}}g(t)\sin(w(x - t)) dt\]
+		\[ = \frac{1}{\omega}\int_x^{x + \frac{\pi}{\omega}}\underbrace{g(t)}_{\more 0}\underbrace{\sin(w(t - x))}_{\more 0} dt\]
+
+	\paragraph{Énoncé - Exercice 4.20}
+		Soient \(u, v : \left[a, b\right] \rightarrow \m{R}^{+}\) continues sur \(\left[a, b\right]\).\\
+		On suppose qu'il existe \(A \geqslant 0\) tel que :
+		\[\forall x \in \left[a, b\right], u(x) \less A + \int_{a}^{x}uv\]
+		Montrer que : \(\forall x \in \left[a, b\right], u(x) \less A \exp(\int_{a}^{x}v)\)
+
+	\paragraph{Résolution}
+		Pour \(a \in \left[a, b\right]\), posons \(w(x) = A + \int_{a}^{x}uv\) et \(l(x) = A \exp(\int_{a}^{x}v)\)\\
+		Montrons que \(u \less l\).\\
+		\(uv\) est continue sur \(\left[a, b\right]\). Alors \(uv\) admet une primitive \(F\) sur \(\left[a, b\right]\) : \(F' = uv\).
+		\[w(x) = A + \left[F(t)\right]_{a}^{x} = A + F(x) - F(a)\]
+		\(w' = F' = uv\) et \(uv \in \mathcal{C}^{0}(\left[a, b\right], \m{R})\) donc \(w \in \mathcal{C}^{1}(\left[a, b\right], \m{R})\).\\
+		De même \(l \in \mathcal{C}^{1}(\left[a, b\right], \m{R})\) et \(l' = vl\)\\
+		\(w\) et \(l\) sont dérivables, alors que \(u\) est seulement continue.\\
+		\\
+		Posons \(\psi = l - w \in \mathcal{C}^{1}(\left[a, b\right], \m{R})\)
+		\[\psi' = l' - w' = vl - uv = \underbrace{v}_{\geqslant 0}(l - u)\]
+		Donc \(u \less w\) i.e. \(-u \geqslant -w\) donc \(l - u \geqslant l - w\).\\
+		Or \(v \geqslant 0\) donc \(v(l - u) \geqslant v(l - w)\)\\
+		\(\psi' \geqslant v(l - w) \geqslant v\psi\) soit \(\psi' - w\psi \geqslant 0\)\\
+		\\
+		Soit \(V : \left[a, b\right] \rightarrow \m{R}\) définie par \(V(x) = \int_{a}^{x} v\)\\
+		V est dérivable sur \(\left[a, b\right]\) et \(V' = v\)
+		\[0 \less \psi' - v\psi = \psi' = v'\psi\]
+		\(\psi e^{-v} = e^{-v}(\psi' - v\psi)\) d'où \(\psi e^{-v}\) est croissante.\\
+		\\
+		\(\psi(a) = l(a) - w(a) = A - A = 0\).\\
+		\(\psi e^{-v} \geqslant 0\). Or \(e^{-v} > 0\) donc \(\psi \geqslant 0\) puis \(l - w \geqslant 0\)
+		\[u \less w \less l \text{ et } u \less l\]

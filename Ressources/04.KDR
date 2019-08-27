@@ -1,0 +1,52 @@
+\section{Équivalent simple de l'intégrale de Wallis.}
+	\paragraph{Énoncé}
+		\[\int_{0}^{\frac{\pi}{2}}(\sin (t))^{n} dt \sim \sqrt{\frac{\pi}{2n}}\]
+
+	\paragraph{Démonstration}
+		Posons \(W_{n} = \int_{0}^{\frac{\pi}{2}} ( \sin (t) )^{n} dt\)\\
+		Montrons que : \(W_{n+2} = \frac{n+1}{n+2} W_{n}\)\\
+		\begin{description}
+			\item[EF :] \(W_{n+2} = \int_{0}^{\frac{\pi}{2}} ( \sin (t) )^{n} \sin^{2}(t) dt\)\\
+			\(= \int_{0}^{\frac{\pi}{2}} ( \sin (t) )^{n} ( 1-\cos^{2}(t)) dt\)\\
+			\(= W_{n} + \int_{0}^{\frac{\pi}{2}} \left[( \sin (t) )^{n} \cos(t)\right] \times ( -cos (t)) dt\)\\ 
+			\(= W_{n} + \left[\frac{(\sin(t))^{n+1}}{n+1}(-\cos(t))\right]-\int_{0}^{\frac{\pi}{2}}\frac{(\sin(t))^{n+1}}{n+1}sin(t)dt\)\\
+			\(= W_{n}-\frac{1}{n+1}W_{n+2}\)\\
+			Donc \((1+\frac{1}{n+1})W_{n+2} = W_{n}\)\\
+			\textbf{FEF}	
+		\end{description}
+		\(W_{n}\) est décroissante :
+		\begin{description}
+			\item[EF :] \(W_{n+1} - W_{n} = \int_{0}^{\frac{\pi}{2}} (\sin(t))^{n}  \underbrace{(\sin(t) - 1)}_{ \less 0} dt \less 0 \)\\
+			\(0 \less \frac{\pi}{2}\)\\
+			\textbf{FEF}
+		\end{description}
+		\[(n+2)W_{n+2} = (n+1)W_n\]
+		\[(n+2)W_{n+2}W_{n+1} = (n+1)W_{n+1}W_n\]
+		\(U_{n+1} = U_{n} \text{ avec } U_{n} = (n+1)W_{n+1} W_{n}\)\\
+		La suite \(U_{n}\) est constante égale à \(U_{0}\).
+		\[U_{0} = W_{1}W_{0} = 1\times\frac{\pi}{2} = \frac{\pi}{2}\]
+		\[\forall n \in\m{N},(n+1)W_{n+1}W{n} = \frac{\pi}{2}\]
+		On a :
+		\[W_{n+1} = \frac{n+1}{n+2} \text{ et }(n+1)W_{n+1}W_{n}\]
+		\[W_{n+1}W_{n} = \frac{\pi}{2(n+1)}\sim\frac{\pi}{2n}\]\\
+		On voudrait \(W_{n+1}\sim W_{n}\)\\
+		\(W_{n+1}\sim W_{n}\) :
+		\begin{description}
+			\item[EF :] 
+			\begin{enumerate}
+				\item[\textbullet] \(\forall t \in \left[0, \frac{\pi}{2}\right], (\sin(t))^n > 0\) donc \(W_n \more 0\) car \(\frac{\pi}{2} \more 0\)\\
+				Supposons \(W_n = 0\)\\
+				\(\int_{0}^{\frac{\pi}{2}}(\sin(t))^n dt = 0\)\\
+				\(t \mapsto (\sin(t))^n\) est continue et positive sur\(\left[0, \frac{\pi}{2}\right]\) donc \(\forall t \in \left[0, \frac{\pi}{2}\right]\), \((\sin(t))^n = 0\).\\
+				Or \(\sin(\frac{\pi}{2}) = 1\). C'est absurde.\\
+				Donc : \(\forall n \in \m{N}, W_n > 0\)\\
+				\item[\textbullet] \(W_p\) est décroissante, donc \(W_{n + 2} \less W_{n + 1} \less W_n\)
+				\[\frac{1}{W_n} > 0 \text{ donc } \frac{W_{n + 2}}{W_n} \less \frac{W_{n + 1}}{W_n} \less 1\]
+				\[\underbrace{\frac{n + 1}{n + 2}}_{\underset{n \rightarrow +\infty}{\longrightarrow} 1} \less \frac{W_{n + 1}}{W_n} \less \underbrace{1}_{\underset{n \rightarrow +\infty}{\longrightarrow} 1}\]
+				Par passage à la limite : \(\lim \frac{W_{n + 1}}{W_n} = 1\)\\
+			\end{enumerate}
+			\textbf{FEF}
+		\end{description}
+		\(W_{n + 1}W_n \sim \frac{\pi}{2n}\) et \(W_{n + 1}W_n \sim W_nW_n \sim {W_n}^2\)\\
+		Par transitivité : \({W_n}^2 \sim \frac{\pi}{2n}\)\\
+		On élève à la puissance \(\frac{1}{2}\) : \(\left|W_n\right| = W_n \sim \sqrt{\frac{\pi}{2n}}\) car \(W_n \more 0\)

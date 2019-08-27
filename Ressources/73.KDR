@@ -1,0 +1,83 @@
+\section{$(73)$ Série numérique dont le terme général est une intégrale - Exercice 7.7.}
+	\paragraph{Énoncé}
+		Pour \(n \in \m{N}^*\) on pose : \(I_n = \int_0^{+\infty} \frac{1}{(1 + t^3)^n} dt\).
+		\begin{enumerate}
+			\item Justifier l'existence de la suite \((I_n)_{n \more 1}\) et déterminer sa limite.
+			\item Exprimer \(I_{n + 1}\) en fonction de \(I_n\).
+			\item Préciser la nature des séries \(\sum_{n \more 1} I_n\), \(\sum_{n \more 1} (-1)^n I_n\) et \(\sum_{n \more 1}n^\alpha I_n\).
+			\item Calculer \(\sum_{n = 1}^{+\infty} (-1)^n I_n\) et \(\sum_{n = 1}^{+\infty} \frac{I_n}{n}\).
+		\end{enumerate}
+	\paragraph{Résolution}
+		\begin{enumerate}
+			\item \(f_n(t) = \frac{1}{(1 + t^3)^n}\), \(f_n \in \mathcal{C}^0(\left[0, +\infty\right[)\) et \(f_n \more 0\).
+			\[\left| f_n(t) \right| \underset{t \rightarrow +\infty}{\sim} \frac{1}{t^{3n}}\]
+			\(3n > 1\), donc \(f_n \in L^1(\left[1, +\infty\right[)\) et \(f_n \in L^1(\left[0, 1\right])\) donc \(f_n \in \left[0, +\infty\right[\)\\
+			\(I_n = \int_{\left[0, +\infty\right[} \frac{1}{(1 + t^3)^n} dt\)\\
+			Soit \(t \in \left[0, +\infty\right[\)\\
+			\[\lim_{n \to +\infty} f_n(t) = \left\{
+    		\begin{array}{l l l}
+    			1 & si & t = 0\\
+    			0 & si & t \in \left]0, +\infty\right[
+    		\end{array}
+    		\right.\]
+    		\(f : \left[0, +\infty\right[ \longrightarrow \m{R}\) et \(f(t) = \left\{
+    		\begin{array}{l l l}
+    			1 & si & t = 0\\
+    			0 & si & t \in \left]0, +\infty\right[
+    		\end{array}
+    		\right.\)\\
+    		\((f_n)_{n \more 1}\) converge simplement vers \(f\).\\
+    		\[\forall n \more 1, \forall t \in \left[0, +\infty\right[, \left|f_n(t) \right| = \frac{1}{(1 + t^3)^n} \less \underbrace{\frac{1}{1 + t^3}}_{= f_1(t)}\]
+    		\(f_1 \in L^1(\left[0, +\infty\right[)\) et \(f_1\) est indépendante de \(n\).\\
+    		Par convergence dominée : \[\lim_{n \to +\infty} I_n = \int_{\left[0, +\infty\right[} f = \int_{\left]0, +\infty\right[} f = 0\]
+    		\\
+			\item \(I_n = \lim_{A \to +\infty} \int_0^A \frac{1}{(1 + t^3)^n} dt\), car \(f_n \in L^1(\left[0, +\infty\right[)\)
+			\[\int_0^A \frac{1}{(1 + t^3)^n} dt = \left[t \frac{1}{(1 + t^3)^n}\right]_0^A - \int_0^A t(-n)(1 + t^3)^{-n - 1}3t^2 dt\]
+			\[= \frac{A}{(1 + A^3)^n} + 3n \int_0^A \frac{t^3}{(1 + t^3)^{n + 1}} dt\]
+			\[= \frac{A}{(1 + A^3)^n} + 3n \int_0^A \frac{(1 + t^3) - 1}{(1 + t^3)^{n + 1}} dt\]
+			\[= \frac{A}{(1 + A^3)^n} + 3n (\int_0^A \frac{dt}{(1 + t^3)^n} - \int_0^A \frac{1}{(1 + t^3)^{n + 1}} dt)\]
+			Par passage à la limite lorsque \(A\) tend vers \(+\infty\) \((\text{toutes les limites existent})\) :\\
+			\(I_n = 0 + 3n(I_n - I_{n + 1})\)
+			\[I_{n + 1} = \frac{3n - 1}{3n}I_n \text{ pour } n \more 1\]
+			\\
+			\item
+			\begin{itemize}
+				\item[\textbullet] \(I_n > 0\) :
+				\begin{description}
+					\item[EF :] \(f_n \more 0\), \(f_n \ne 0\) et \(f_n\) est \(\mathcal{C}^0\)\\
+					Donc \(I_n \ne 0\).\\
+					\textbf{FEF}
+				\end{description}
+				\(\frac{I_{n + 1}}{I_n} = 1 - \frac{1}{3n} \underset{n \rightarrow +\infty}{\longrightarrow} 1\)\\
+				\(\frac{I_{n + 1}}{I_n} = 1 - \frac{\frac{1}{3}}{n} + O(\frac{1}{n^{12}})\). Alors \(\exists k > 0 \text{ | } I_n \sim \frac{k}{n^\frac{1}{3}}\)\\
+				Or \(\sum \frac{1}{n^\frac{1}{3}}\) diverge car \(\frac{1}{3} < 1\), donc :
+				\[\sum I_n \text{ diverge.}\]
+				\item[\textbullet] \(0 \less \frac{I_{n + 1}}{I_n} = 1 - \frac{1}{3n} < 1 \text{, } (I_n)_{n \more 1} \text{ décroît.}\)\\
+				et \(\lim I_n = 0\) donc d'après le critère des séries alternées :
+				\[\sum_{n \more 1} (-1)^n I_n \text{ converge.}\]
+				\item[\textbullet] \(n^\alpha I_n \sim \frac{K}{n^{\frac{1}{3} - \alpha}}\) avec \(K > 0\)\\
+				\[\sum_{n \more 1} \frac{1}{n^{\frac{1}{3} - \alpha}} \text{ converge } \Leftrightarrow \frac{1}{3} - \alpha > 1 \Leftrightarrow \alpha < \frac{-2}{3}\]
+			\end{itemize}
+			\item 
+			\begin{itemize}
+				\item[\textbullet] \(\sum_{n = 1}^N (-1)^n I_n = \sum_{n = 1}^N (-1)^n \int_0^{+\infty}(\frac{1}{1 + t^3})^n dt\)
+				\[\sum_{n = 1}^N (-1)^n I_n = \int_{\left[0, +\infty\right[} \sum_{n = 1}^N (\frac{-1}{1 + t^3})^n dt\]
+				\[= \int_{\left[0, +\infty\right[} (\frac{-1}{1 + t^3}) \sum_{n = 0}^{N - 1} (\frac{-1}{1 + t^3})^n dt = \int_{\left[0, +\infty\right[} \frac{-1}{1 + t^3} \frac{1 - (\frac{-1}{1 + t^3})^N}{1 - (\frac{-1}{1 + t^3})} dt\]
+				\[= \int_{\left[0, +\infty\right[} \frac{(\frac{-1}{1 + t^3})^N - 1}{2 + t^3} dt = - \underbrace{\int_{\left[0, +\infty\right[}\frac{1}{2 + t^3} dt}_{= J} + \underbrace{\int_{\left[0, +\infty\right[} \frac{(\frac{-1}{1 + t^3})^N}{2 + t^3} dt}_{= J_N} \text{ }(\text{tout est intégrable})\]
+				\(J_N = \int_{\left]0, +\infty\right[} g_N(t) dt\), \(\lim_{N \to +\infty} g_N(t) = 0\) pour \(t \in \left]0, +\infty\right[\)
+				\[\left| g_N(t) \right| = \frac{1}{(1 + t^3)^N(2 + t^3)} \less \underbrace{\frac{1}{2 + t^3}}_{= \varphi(t) \more 0} \text{ pour } t \in \left]0, +\infty\right[\]
+				\(\varphi(t) \underset{+\infty}{\sim} \frac{1}{t^3}\) et \(3 > 1\) donc \(\varphi \in L^1(\left[1, +\infty\right[)\).\\
+				Or \(\varphi \in \mathcal{C}^0(\left[0, 1\right])\) donc \(\varphi \in L^1(\left[0, 1\right])\) puis \(\varphi \in L^1(\left]0, 1\right])\).\\
+				Ainsi \(\varphi \in L^1(\left]0, +\infty\right[)\) et \(\varphi\) est indépendante de \(n\).\\
+				Par convergence dominée : \(\lim_{N \to +\infty} J_N = 0\)\\
+				Donc :
+				\[\sum_{n = 1}^{+\infty} (-1)^n I_n = \lim_{N \to +\infty} \sum_{n = 1}^N (-1)^n I_n = \lim_{N \to +\infty} (-J + J_N)\]
+				\\
+				\(J = \int_{\left]0, +\infty\right[} \frac{1}{2 + t^2} dt = \frac{1}{2} \int_{\left]0, +\infty\right[} \frac{1}{1 + (\frac{t}{\sqrt[3]{2}})^3} dt\)\\
+				Changement de variable : \(t = \sqrt[3]{2} u\). \((u \mapsto \sqrt[3]{2} u)\) est une bijection \(\mathcal{C}^1\) de \(\left]0, +\infty\right[\) sur \(\left]0, +\infty\right[\).
+				\[J = \frac{1}{2} \int_{\left]0, +\infty\right[} \frac{1}{1 + u^3} \sqrt[3]{2} du = \frac{1}{(\sqrt[3]{2})^2} \int_{\left]0, +\infty\right[} \frac{1}{1 + u^3} du\]
+				Il faut retrouver la KDR où l'on évalue : \(I_1 = \int_{\left]0, +\infty\right[} \frac{1}{1 + t^3} dt\). Quelqu'un sait ?
+				\[\sum_{n = 0}^{+\infty}(-1)^n I_n = - J\]
+				\item[\textbullet] \(\sum_{n = 1}^N \frac{I_n}{n} \underset{\underset{I_n = 3(I_n - I_{n + 1})}{\uparrow}}{=} 3 \sum_{n = 1}^N (I_n - I_{n + 1}) = 3n(I_1 - I_{n + 1}) \underset{N \rightarrow +\infty}{\longrightarrow} 3 I_1\)
+			\end{itemize}
+		\end{enumerate}

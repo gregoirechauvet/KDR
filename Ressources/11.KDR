@@ -1,0 +1,42 @@
+\section{$(11)$ Séries de Bertrand.}
+	\paragraph{Énonce}
+		Soit \((\alpha, \beta) \in \m{R}^{2}\). \(\sum_{n \geqslant 2}\frac{1}{n^{\alpha}(\ln(n))^{\beta}}\) converge si et seulement si \(\alpha > 1\) ou \(\alpha = 1\) et \(\beta > 1\).
+		
+	\paragraph{Démonstration}
+		Posons \(a_{n} = \frac{1}{n^{\alpha}(\ln(n))^{\beta}}\). Pour \(n \geqslant 2\), \(a_{n} > 0\).
+		On pense que \(n^{\alpha}\) a tendance à imposer son comportement pour \(\alpha > 1\).
+		\begin{itemize}
+			\item \textbf{Premier cas : \(\alpha > 1\)}
+		\end{itemize}
+		On souhaiterai appliquer la règle de Riemann, pour cela prenons \(\delta = \frac{1 + \alpha}{2}\). On a \(1 < \delta < \alpha\).
+		\[n^{\delta}a_{n} = \frac{1}{n^{\alpha - \delta}(\ln(n))^{\beta}}\]
+		Or \(\alpha - \delta > 0\). Donc \(\lim_{n \to +\infty}n^{\delta}a_{n} = 0\).
+		D'après la règle de Riemann : \(a_{n} = o(\frac{1}{n^{\delta}})\) car \(\delta > 1\).\\
+		Donc \(\sum \frac{1}{n^{\delta}}\) converge - car \(\delta > 1\). Puis \(\sum a_{n}\) converge.\\
+		\begin{itemize}
+			\item \textbf{Deuxième cas : \(\alpha < 1\)}
+		\end{itemize}
+		Prenons \(\delta = \frac{1 + \alpha}{2}\). On a \(\alpha < \delta < 1\).
+		\[n^{\delta}a_{n} = \frac{n^{\delta - \alpha}}{(\ln(n))^{\beta}}\]
+		Or \(\delta - \alpha > 0\). Donc \(\lim_{n \to +\infty}n^{\delta}a_{n} = +\infty\).\\
+		\[\exists N \in \m{N}, \forall n \geqslant N, n^{\delta}a_{n} \geqslant 1\]
+		Pour \(n \geqslant N\), \(a_{n} \geqslant \frac{1}{n^{\delta}} > 0\).\\
+		\(\sum \frac{1}{n^{\delta}}\) diverge - car \(\delta < 1\), donc \(\sum a_{n}\) diverge.\\
+		\begin{itemize}
+			\item \textbf{Troisième cas : \(\alpha = 1\)}
+		\end{itemize}
+		\[a_{n} = \frac{1}{n(\ln(n))^{\beta}}\]
+		On a \(\lim_{n \to +\infty}a_{n} = 0\).
+		Supposons \(\beta \less 0\), on a \(-\beta \geqslant 0\).\\
+		\(a_{n} = \frac{(\ln(n))^{-\beta}}{n} \geqslant \frac{(\ln(2))^{-\beta}}{n}\) car \(t \rightarrow (\ln(t))^{-\beta}\) est croissante sur \(\left[2, +\infty\right[\).
+		Or \(\sum \frac{1}{n}\) diverge, donc \(\sum a_{n}\) diverge.\\
+		\\
+		Supposons \(\beta > 0\)
+		\(a_{n} = f(n)\) avec \(f(t) = \frac{1}{t(\ln(t))^{\beta}}\) décroissante, continue et positive sur \(\left[2, +\infty\right[\).
+		Donc \(\sum_{n \geqslant 2} a_{n}\) est de même nature que la suite \((I_{n})_{n \geqslant 2}\) avec
+		\[I_{n} = \int_{2}^{n}{f} = \int_{2}^{n}{\frac{1}{t(\ln(t))^{\beta}}dt}\]
+		M. Roussel : \og Ce théorème est utile si on sait évaluer \(I_{n}\), ici c'est le cas.\fg
+		\[I_{n} = \int_{2}^{n}{(\ln(n))^{-\beta}\frac{1}{t}dt}\]
+		\[I_{n} = \left\{\begin{array}{c l}\left[\frac{(\ln(t))^{-\beta + 1}}{-\beta + 1}\right]_{2}^{n} & si~\beta \neq 1\\ \left[\ln\lvert\ln(t)\rvert\right]_{2}^{n} & si~\beta = 1\end{array}\right.\]
+		\[I_{n} = \left\{\begin{array}{c l}\frac{1}{1 - \beta}\left[(\ln(n))^{1 - \beta} - (\ln(2))^{1 - \beta}\right] & si~\beta \neq 1\\ \ln(\ln(n)) - \ln(\ln(2))& si~\beta = 1\end{array}\right.\]
+		\((I_{n})_{n \geqslant 2}\) converge si et seulement si \(\beta > 1\).

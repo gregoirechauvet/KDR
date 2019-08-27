@@ -1,0 +1,73 @@
+\section{$(47)$ Limite, continuité - Exercices 5.10, 5.12 et 5.13.}
+	\paragraph{Énoncé - Exercice 5.10}
+		Pour \(x \more 1\) on pose : \(f(x) = x^{x}\left\lfloor x \right\rfloor^{-\left\lfloor x \right\rfloor}\)\\
+		Montrer que \(f\) n'admet pas de limite en \(+\infty\).
+
+	\paragraph{Résolution}
+		\(f(x) = \frac{x^{x}}{\left\lfloor x \right\rfloor^{\left\lfloor x \right\rfloor}}\)\\
+		\[x^{x} = e^{x\ln(x)} \text{ et } \left\lfloor x \right\rfloor^{\left\lfloor x \right\rfloor} = e^{\left\lfloor x \right\rfloor \ln(\left\lfloor x \right\rfloor)}\]
+		\(f\) est définie sur \(\left[1, +\infty\right[\).\\
+		Supposons que \(\lim_{+\infty}f\) existe dans \(\overline{\m{R}}\) et posons \(\lim_{+\infty} f = l\)
+		\[\forall n \in \m{N}^{*}, f(n) = 1\]
+		\(x_{n} = n\) pour \(n \more 1\). \(\lim x_{n} = +\infty\) donc \(\lim f(x_{n}) = l\)\\
+		\(\forall n \in \m{N}^{*}, f(x_{n}) = 1\). Donc \(l = 1\).\\
+		Posons : \(y_{n} = n + \frac{1}{2}\) pour \(n \more 1\).\\
+		\[f(y_{n}) = \frac{(n + \frac{1}{2})^{n + \frac{1}{2}}}{n^{n}} = \frac{e^{( n + \frac{1}{2})\ln(n + \frac{1}{2})}}{e^{n\ln(n)}} = e^{(n + \frac{1}{2})\ln(n + \frac{1}{2}) - n\ln(n)} = e^{u_{n}}\]
+		\[u_{n} = (n + \frac{1}{2})\ln\left[n(1 + \frac{1}{2n})\right] - n\ln(n)\]
+		\[= (n + \frac{1}{2})\ln(n) + (n + \frac{1}{2})\ln(1 + \frac{1}{2n}) - n\ln(n)\]
+		\[= \frac{1}{2}\ln(n) + \underbrace{(n + \frac{1}{2})}_{\more 0}\underbrace{\ln\underbrace{(1 + \frac{1}{2n})}_{\more 1}}_{\more 0} \more \frac{1}{2}\ln(n)\]
+		\(\lim \frac{1}{2}\ln(n) = +\infty\) donc \(\lim u_{n} = +\infty\) puis \(\lim f(y_{n}) = +\infty\)\\
+		\(\lim_{+\infty} y_{n} = +\infty\) et \(\lim_{+\infty} f = l\) donc \(\lim_{+\infty} f(y_{n}) = l\)\\
+		Alors \(l = +\infty\).\\
+		Or \(1 = l = +\infty\)
+
+	\paragraph{Énoncé - Exercice 5.12}
+		Déterminer toutes les applications \(f : \m{R} \rightarrow \m{R}\) continue en \(0\) et en \(1\) qui vérifient : \(\forall x \in \m{R}, f(x) = f(x^{2})\)
+
+	\paragraph{Résolution}
+		Soit \(f : \m{R} \rightarrow \m{R}\)\\
+		Supposons \(f\) continue en \(0\) et en \(1\) et telle que : \(\forall x \in \m{R}, f(x) = f(x^{2})\)\\
+		Soit \(x \in \m{R}\).\\
+		\(\forall t \in \m{R}, f(-t) = f((-t)^{2}) f(t^{2}) = f(t)\). Donc \(f\) est paire.\\
+		Soit \(t \in \m{R}^{+}, f(t) = f((\sqrt{t})^{2}) = f(\sqrt{t})\)\\
+		Supposons que \(x > 0\)\\
+		\[f(x) = f(\sqrt{x}) f(x^{\frac{1}{2}}) = f(e^{\frac{1}{2}\ln(x)}) = f((x^{\frac{1}{2}})^{\frac{1}{2}}) = f(x^{\frac{1}{2}\times\frac{1}{2}})\]
+		En itérant : \(\forall n \in \m{N}, f(x) = f(x^{\frac{1}{2^{n}}})\)\\
+		\[x^{\frac{1}{2^{n}}} = e^{\frac{1}{2^{n}}\ln(x)} \rightarrow e^{0} = 1\]
+		\(f\) est continue au point \(1\) donc \(\lim_{n \to +\infty}f(x^{\frac{1}{2^{n}}}) = f(1)\)\\
+		Par passage à la limite : \(f(x) = f(1)\)\\
+		Par parité : \(\forall x \in \m{R}^{*}, f(x) = 1\)\\
+		\(\lim_{t \to 0, \ne} f(t) = \lim_{0} f = f(0)\) par continuité de \(f\) en \(0\)\\
+		Par passage à la limite : lorsque \(x \rightarrow 0, x \ne 0 \ f(0) = f(1)\)\\
+		\(\forall x \in \m{R}, f(x) = f(1)\). Donc \(f\) est constante.
+
+	\paragraph{Énoncé - Exercice 5.13}
+		Déterminer toutes les applications \(f : \m{R} \rightarrow \m{R}\) continues sur \(\m{R}\) vérifiant :
+		\(f(\m{Q}) \subset \m{R} \setminus \m{Q}\) et \(f(\m{R} \setminus \m{Q}) \subset \m{Q}\)
+
+	\paragraph{Résolution}
+		Soit \(f : \m{R} \rightarrow \m{R}\)\\
+		Supposons que \(f\) soit continue sur \(\m{R}\), que \(f(\m{Q}) \subset \m{R} \setminus \m{Q}\) et \(f(\m{R} \setminus \m{Q}) \subset \m{Q}\)\\
+		Posons \(g = f - Id_{\m{R}}\)\\
+		\(g(\m{R}) \in \m{R} \setminus \m{Q}\) :
+		\begin{description}
+			\item[EF :] Soit \(x \in \m{R}\)\\
+			\(g(x) = f(x) - x\)\\
+			Si \(x \in \m{Q}\), alors \(f(x) \in \m{R} \setminus \m{Q}\) puis \(f(x) - x = g(x) \in \m{R} \setminus \m{Q}\)\\
+			Si \(x \in \m{R} \setminus \m{Q}\), alors \(f(x) \in \m{Q}\) puis \(f(x) - x = g(x) \in \m{R} \setminus \m{Q}\)\\
+			\textbf{FEF}
+		\end{description}
+		\(\m{R}\) est un intervalle et \(g\) est continue, donc \(g(\m{R})\) est un intervalle.\\
+		De surcroît \(g(\m{R})\) est non vide car \(g(12) \in g(\m{R})\)\\
+		\(\exists \xi \in \m{R} \setminus \m{Q}, g(\m{R}) = \left\{\xi\right\}\) :
+		\begin{description}
+			\item[EF :] Supposons que \(g(\m{R})\) ne soit pas un singleton. Il existe \(x\), \(y\) dans \(g(R)\) tels que \(x < y\).\\
+			\(\m{Q}\) est dense dans \(\m{R}\) donc \(\exists r \in \m{Q}, x < r < y\).\\
+			\(x \in g(\m{R})\), \(x \in g(\m{R})\) et \(g(\m{R})\) est un intervalle donc \(\left[x, y\right] \subset g(\m{R})\) et \(r \in g(\m{R})\).\\
+			\(g(\m{R}) \subset \m{R} \setminus \m{Q}\) et \(r \in \m{R} \setminus \m{Q}\)\\
+			\textbf{FEF}
+		\end{description}
+		\(\forall x \in \m{R}, f(x) = x + \xi\)\\
+		\(f(\xi) = 2\xi\) et \(\xi \in \m{R} \setminus \m{Q}\) donc \(2\xi = f(\xi) \in \m{Q}\)\\
+		Donc \(\xi \in \m{Q}\). Ce qui n'est pas.\\
+		D'où il n'existe pas d'application \(f\) de \(\m{R}\) dans \(\m{R}\) continue sur \(\m{R}\) telle que : \(f(\m{Q}) \subset \m{R} \setminus \m{Q}\) et \(f(\m{R} \setminus \m{Q}) \subset \m{Q}\)

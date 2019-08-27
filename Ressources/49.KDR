@@ -1,0 +1,27 @@
+\section{$(49)$ Réunion de sous espaces vectoriels.}
+	\paragraph{Énoncé}
+		Soit \(E\) un\(K\)-espace vectoriel et \(F\) et \(G\) des sous espaces vectoriels de \(E\).
+		\begin{enumerate}
+			\item \(F \cup G\) est un sous espace vectoriel si et seulement si \(F \subset G\) ou \(G \subset F\).
+			\item Si \(F \ne E\) et \(G \ne E\) alors \(F \cup G \ne E\).
+		\end{enumerate}
+	\paragraph{Démonstration}
+		\begin{enumerate}
+			\item Supposons que \(F \cup G\) soit un sous-espace vectoriel de \(E\).\\
+			Supposons \(F \not\subset G\) et \(G \not\subset F\) :\\
+			Alors \(\exists a \in F ~ | ~ a \notin G\) et \(\exists b \in G ~ | ~ b \notin F\).\\
+			\(a \in F\) donc \(a \in F\cup G\) et \(b \in G\) donc \(b \in F\cup G\).\\
+			Ainsi \(a + b \in F\cup G\) i.e. \(a + b \in F\) ou \(a + b \in G\).\\
+			\textbf{1 cas :} \(a + b \in F\).
+			\[b = \underbrace{(a + b)}_{\in F} - \underbrace{a}_{\in F} \in F \text{ ce qui n'est pas.}\]
+			\textbf{2 cas :} \(a + b \in G\).\\
+			\[a = \underbrace{(a + b)}_{\in G} - \underbrace{b}_{\in G} \in G \text{ ce qui n'est pas.}\]
+			Dans tous les cas, c'est absurde. Alors \(F \subset G\) ou \(G \subset F\).\\
+			Réciproquement, supposons \(F \subset G\) ou \(G \subset F\) :\\
+			Alors \(F\cup G = G\) ou \(F\cup G = F\) et \(F \cup G\) est un sous espace vectoriel de \(E\).\\
+			\item Supposons \(F \neq E\) et \(G \neq E\).\\
+			Supposons \(F \cup G = E\) :\\
+			Alors \(F \cup G\) est un sous espace vectoriel de \(E\) et \(F\subset G\) ou \(F\subset G = F\).\\
+			Puis \(F\cup G = G\) ou \(F\cup G = F\) d'où \(G = E\) ou \(F = E\), ce qui n'est pas.\\
+			D'où \(F \cup G \neq E\).
+		\end{enumerate}

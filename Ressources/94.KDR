@@ -1,0 +1,109 @@
+\section{$(94)$ Séries de Fourier - les deux exemples de la fin du paragraphe 3 et les trois exemples de la fin du paragraphe 4.}
+	\paragraph{Énoncé}
+		Coefficient de Fourier de \(f\) définie par \(f(x) = \left|sin(x)\right|\).
+
+	\paragraph{Résolution}
+		\(f \in \mathcal{C}^{0}_{2\pi}(\m{R}, \m{C}) \cap \mathcal{M}_{2\pi}^{1}(\m{R},\m{C})\)\\
+		\(f\) est paire donc \(b_{n} = 0\).
+		\[a_{n}(f) = \frac{2}{\pi} \int_{0}^{\pi} \underbrace{\left|sin(t)\right|}_{= sin(t) \text{ } (\text{car }t \in \left[0, \pi\right])} cos(nt) dt = \frac{1}{\pi} \int_{0}^{\pi} (\sin(n + 1)t - \sin(n - 1)t)dt\]
+		Pour \(n \neq 1\), \(a_{n}(f) = \frac{1}{\pi} \left[ -\frac{cos(n + 1)t}{n + 1} + \frac{cos(n - 1)t}{n - 1}\right] _{0}^{\pi}\)
+		\[a_{n}(f) = \frac{1}{\pi} (-\frac{(-1)^{n + 1}}{n + 1} + \frac{(-1)^{n - 1}}{n - 1} + \frac{1}{n + 1} - \frac{1}{n - 1}) = \frac{1}{\pi}(\frac{1}{n + 1} - \frac{1}{n - 1})((-1)^n + 1)\]
+		\[\left\{
+		\begin{array}{l l l}
+			a_{2p} & = & \frac{2}{\pi}(\frac{1}{2p + 1} - \frac{1}{2p - 1}) = \frac{4}{\pi} \frac{1}{1 - 4p^{2}}\\
+			a_{2p + 1} & = & 0
+		\end{array}
+		\right.\]
+
+	\paragraph{Énoncé}
+		Coefficient de Fourier de \(g\) définie par \(g(x) = e^{ie^{ix}}\).
+
+	\paragraph{Résolution}
+		\(f \in \mathcal{C}^{\infty}_{2\pi}(\m{R}, \m{C})\)
+		\[c_{n}(g) = \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{ie^{it}}e^{-int}dt = \frac{1}{2\pi} \int_{[-\pi,\pi]} \sum_{k = 0}^{+\infty} \frac{(ie^{it})^{k}}{k!}e^{-int} = \frac{1}{2\pi} \int_{[-\pi,\pi]} \sum_{k = 0}^{+\infty} \underbrace{\frac{i^{k}}{k!}e^{i(k - n)t}}_{f_{k}(t)}\]
+		\[\left|f_{k}(t)\right| = \frac{1}{k!} \Rightarrow \int_{[-\pi,\pi]} \left|f_{k}\right| = \frac{2\pi}{k!}\]
+		Ainsi \(\sum \int_{\left[-\pi, \pi\right]} \left|f_{k}\right|\) converge et on a, par théorème d'intégration terme à terme \((\text{version convergence dominée})\) :
+		\[c_{n} = \frac{1}{2\pi} \sum_{k = 0}^{+\infty} \int_{[-\pi, \pi]} f_{k} = \frac{1}{2\pi} \sum_{k = 0}^{+\infty} i^{k} \int_{-\pi}^{\pi} e^{i(k_n)t}dt\]
+		\[\int_{-\pi}^{\pi} e^{i(k_n)t}dt = \left\{
+		\begin{array}{l l l}
+			\left[\frac{e^{i(k-n)t}}{i(k-n)}\right]_{-\pi}^{\pi} = 0 & \text{ si } & k \neq n\\
+			2\pi & \text{ si } & k = n
+		\end{array}
+		\right.\]
+		Si \(n \less -1\) alors \(\forall k \in \m{N}, k \neq n\) et \(c_{n}(f) = 0\).\\
+		Si \(n \in \m{N}\) alors \(c_{n}(f) = \frac{i^{n}}{n!}\).\\
+	
+	\paragraph{Énoncé}
+		Détermination du développement en série de Fourier de l'unique application \(f : \m{R} \longrightarrow \m{R}\) \(2\pi\)-périodique vérifiant \(f(x) = x^2\) pour tout \(x \in \left[-\pi, \pi\right[\). Obtention des sommes de séries suivantes : \(\sum_{n = 1}^{+\infty}\frac{1}{n^2} = \frac{\pi^2}{6}\), \(\sum_{n = 1}^{+\infty}\frac{(-1)^n}{n^2}\) et \(\sum_{n = 1}^{+\infty} \frac{1}{n^4} = \frac{\pi^4}{90}\).
+
+	\paragraph{Résolution}
+		\(f\) est \(2\pi\)-périodique, continue et \(\mathcal{C}^{1}\) par morceaux ; donc par théorème de la convergence normale, la série de Fourier de \(f\) converge normalement sur \(\m{R}\) vers \(f\).
+		\\
+		\(f\) est paire donc les \(b_{n}\) sont nuls.\\
+		\[a_{n}(f) = \frac{1}{\pi} \int_{-\pi}^{\pi} f \cos_{n} = \frac{2}{\pi} \int_{0}^{\pi} t^{2} \cos(nt)dt = \frac{2}{\pi} (\left[t^{2}\frac{sin(nt)}{n}\right]_{0}^{\pi} - \int_{0}^{\pi} 2t\frac{\sin(nt)}{n}dt)\]
+		\[= \frac{-4}{n\pi} \int_{0}^{\pi} t \sin(nt)dt = \frac{-4}{n\pi} (\left[t\frac{-\cos(nt)}{n}\right]_{0}^{\pi} - \int_{0}{\pi} \frac{-\cos(nt)}{n}dt )\]
+		\[= \frac{-4}{n\pi} (\frac{(-1)^{n}}{n}\pi + \frac{1}{n} \left[\frac{\sin(nt)}{n}\right]_{0}^{\pi} ) = (-1)^{n} \frac{4}{n^{2}} \text{ pour } n \more 1\]
+		\[a_{0} = \frac{2}{\pi} \int_{0}^{\pi} t^{2}dt = \frac{2\pi^{2}}{3}\]
+		Ainsi \(\forall x \in \m{R}\), \(f(x) = \frac{2\pi^{2}}{3} + \sum_{k = 0}^{+\infty} \frac{(-1)^{n}}{n^{2}} \cos(nx)\).\\
+		Puis \(f(0) = 0 = \frac{2\pi^{2}}{3} + \sum_{k = 0}^{+\infty} \frac{(-1)^{n}}{n^{2}}\) i.e. \(\sum_{k = 0}^{+\infty} \frac{(-1)^{n}}{n^{2}} = -\frac{\pi^{2}}{12}\).\\
+		De même, \(f(\pi) = \pi^{2} = \frac{2\pi^{2}}{3} + \sum_{k = 0}^{+\infty} \frac{(-1)^{n}}{n^{2}} (-1)^{n}\) i.e. \(\sum_{k = 0}^{+\infty} \frac{1}{n^2} = \frac{\pi^{2}}{4} - \frac{\pi^{2}}{3} = \frac{\pi^{2}}{6}\).\\
+		Comme \(f \in \mathcal{M}^{0}(\m{R},\m{C})\), on a par Parseval :
+		\[\left| f \right|_{2}{2} = \frac{\left|a_{0}(f)\right|^{2}}{4} + \frac{1}{2} \sum_{k = 1}{+\infty} (\left|a_{n}(f)\right|^{2} + \left|b_{n}(f)\right|^{2})\]
+		\(\frac{1}{2\pi} \int_{-\pi}^{\pi} \left|f\right|^{2} = \frac{4\pi^{4}}{4\times 9} + \frac{1}{2} \sum_{k = 1}^{+\infty} \frac{16}{n^{4}}\)
+		\[8 \sum_{k = 1}^{+\infty} \frac{1}{n^{4}} = \frac{1}{\pi} \int_{0}^{\pi} t^{4}dt - \frac{\pi^{4}}{9} = \frac{1}{\pi} \frac{\pi^{5}}{5} - \frac{\pi^{4}}{9} = \frac{4\pi^{4}}{45}\]
+		D'où \(\sum_{k = 1}^{+\infty} \frac{1}{n^{4}} = \frac{\pi^{4}}{90}\)\\
+
+	\paragraph{Énoncé}
+		Pour \(\alpha \in \m{R} \setminus \m{Z}\), détermination du développement en série de Fourier de \((x \rightarrow \cos(\alpha x))\).\\
+		Obtention des développements eulériens des fonctions \(\frac{1}{\sin}\) et \(\text{cotan}\) sur \(\m{R} \setminus \pi\m{Z}\) :\\
+		\(\frac{1}{\sin(x)} = \frac{1}{x} + \sum_{n = 1}^{+\infty} (-1)^n \frac{2x}{x^2 - \pi^2n^2}\) et \(\text{cotan}(x) = \frac{1}{x} + \sum_{n = 1}^{+\infty} \frac{2x}{x^2 - \pi^2 n^2}\).
+
+	\paragraph{Résolution}
+		Soit \(\alpha \in \m{R} \setminus \pi \m{N}\).\\
+		Soit \(h\) \(2\pi\)-périodique telle que \(\forall x \in \left[-\pi, \pi\right[, h(x) = \cos(\alpha x)\).\\
+		\(h\) coïncide avec \((x \mapsto \cos(\alpha x))\) sur \(\left[-\pi, \pi\right[\).\\
+		\\
+		\(h(\pi) = h(-\pi + 2\pi) = h(-\pi) = \cos(\alpha (-\pi)) = \cos(\alpha \pi)\) :\\
+		Ainsi \(\forall x \in \left[-\pi, \pi\right], h(x) = \cos(\alpha x)\)\\
+		\\
+		\(h\) est \(2\pi\)-périodique, continue et \(\mathcal{C}^{1}\) par morceaux ; donc par théorème de la convergence normale, la série de Fourier de \(h\) converge normalement sur \(\m{R}\) vers \(h\).\\
+		\(\forall x \in \m{R}, h(x) = \frac{a_{0}}{2} + \sum_{n = 1}^{+\infty} (a_{n}(h)\cos(nx) + b_{n}(h)\sin(nx))\) avec \(b_{n}(h) = 0\) car \(h\) est paire.
+		\[a_{n}(h) = \frac{2}{\pi} \int_{0}^{\pi} h(t)\cos(nt)dt = \frac{2}{\pi} \int_{0}^{\pi} \cos(\alpha t)\cos(nt)dt = \frac{1}{\pi} \int_{0}^{\pi} \cos(\alpha + n)t + \cos(\alpha - n)t dt\]
+		\[= \frac{1}{\pi} \left[\frac{\sin(\alpha + n)t}{\alpha + n} + \frac{\sin(\alpha - n)t}{\alpha - n}\right]_{0}^{\pi} = \frac{1}{\pi} (\frac{(-1)^{n}\sin(\alpha \pi)}{\alpha + n} + \frac{(-1)^{n}\sin(\alpha \pi)}{\alpha - n}) = (-1)^{n} \frac{2\alpha \sin(\alpha \pi)}{\pi (\alpha^{2} - n^{2})}\]
+		\(\forall x \in \m{R}, h(x) = \frac{\sin(\alpha \pi)}{\alpha \pi} + \frac{\sin(\alpha \pi)}{\alpha \pi} \sum_{n = 1}^{+\infty} (-1)^{n} \frac{2\alpha}{\alpha^{2} - n^{2}}\cos(nx)\).\\
+		\[1 = h(0) = \frac{\sin(\alpha \pi)}{\alpha \pi} 1 + \sum_{n = 1}^{+\infty} (-1)^{n} \frac{2\alpha^{2}}{\alpha^{2} - n^{2}}\]
+		\[\cos(\alpha \pi) = h(\pi) = \frac{\sin(\alpha \pi)}{\alpha \pi} 1 + \sum_{n = 1}^{+\infty} \frac{2\alpha^{2}}{\alpha^{2} - n^{2}}\]
+		Et cela pour tout \(\alpha \in \m{R} \setminus \m{Z}\).\\
+		Soit \(t \in \m{R} \setminus \pi\m{Z}\) alors \(\alpha = \frac{t}{\pi} \in \m{R} \setminus \m{Z}\)
+		\[1 = \frac{\sin(t)}{t}(1+\sum_{n = 1}^{+\infty} (-1)^{n} \frac{2t^{2}}{t^{2} - n^{2}\pi^{2}})\]
+		\[\cos(t) = \frac{\sin(t)}{t}(1+\sum_{n = 1}^{+\infty} \frac{2t^{2}}{t^{2} - n^{2}\pi^{2}})\]
+		On obtient alors les développements eulériens suivant :
+		\[\frac{1}{\sin(t)} = \frac{1}{t} +\sum_{n = 1}^{+\infty} (-1)^{n} \frac{2t}{t^{2} - n^{2}\pi^{2}}\]
+		\[\text{cotan}(t) = \frac{1}{t} +\sum_{n = 1}^{+\infty} \frac{2t}{t^{2} - n^{2}\pi^{2}}\]
+
+	\paragraph{Énoncé}
+		Détermination d'une suite réelle vérifiant \(\left|\sin(x)\right| = \sum_{n = 0}^{+\infty} \alpha_n \cos^2(nx)\) pour tout \(x \in \m{R}\). Obtention de la somme de la série \(\sum (-1)^n \frac{\alpha_{2n + 1}}{2n + 1}\).
+
+	\paragraph{Résolution}
+		Soit \(g = \left|\sin\right|\), \(g\) est \(2\pi\)-périodique, continue et \(\mathcal{C}^{1}\) par morceaux sur \(\m{R}\).\\
+		D'après le théorème de convergence normale, \(g\) est somme de sa série de Fourier i.e. \(\forall x \in \m{R}, g(x) = \frac{a_{0}(g)}{2} + \sum_{n = 1}^{+\infty} a_{n}(g)\cos(nx)\).\\
+		Or \(a_{2p} = \frac{4}{\pi}\frac{1}{1 - 4p^2}\), \(a_{2p + 1} = 0\) et \(b_{n} = 0\) \((\text{cf plus haut, classique})\)\\
+		Donc \(\forall x \in \m{R}, g(x) = \frac{2}{\pi} + \sum_{p = 1}^{+\infty} \frac{4}{\pi}\frac{1}{1- 4p^2}\cos(2px)\)
+		\[g(x) = \frac{2}{\pi} + \sum_{p = 1}^{+\infty} \frac{4}{\pi}\frac{1}{1 - 4p^2}(2\cos^{2}(px)-1) = \frac{2}{\pi} + \sum_{p = 1}^{+\infty} \frac{8}{\pi}\frac{\cos^{2}(px)}{1 - 4p^2} - \underbrace{\frac{4}{\pi} \sum_{p = 1}^{+\infty}\frac{1}{1 - 4p^{2}}}_{= g(0)-\frac{2}{\pi}} = \frac{4}{\pi} + \sum_{p = 1}^{+\infty} \frac{8}{\pi}\frac{\cos^{2}(px)}{1 - 4p^2}\]
+		Finalement, \(g(x) = \sum_{n = 0}^{+\infty} \alpha_{n} \cos^{2}(nx)\), avec \(\alpha_{0} = \frac{4}{\pi}\) et pour \(n \more 1, \alpha_{n} = \frac{8}{\pi(1 - 4n^{2})}\)\\
+		\\
+		Soit \(x \in \m{R}\), 
+		\(\int_{0}^{x} g(t)dt = \int_{0}^x (\sum_{n = 0}^{+\infty} \alpha_{n}\cos^{2}(nt))dt = \int_{0}^{x} \sum_{n = 1}^{+\infty} g_{n}(t)dt\)
+		\[\forall n \in \m{N}, \forall t \in \m{R}, \left|g_{n}(t)\right| \less \left|\alpha_{n}\right| \text{ i.e. } \forall n \in \m{N}, \left\| g_{n} \right\|_{\infty}^{\m{R}} \less \left|\alpha_{n}\right|\]
+		Comme \(\alpha_{n} \sim \frac{1}{4n^{2}}\), \(\sum \left\| g_{n} \right\|_{\infty}^{\m{R}}\) converge donc \(\sum g_{n}\) converge normalement sur \(\m{R}\) donc sur \(\left[min(0,x), max(0,x)\right]\).\\
+		Ainsi \(\int_{0}^{x} g = \sum_{n = 0}^{+\infty} \alpha_{n} \int_{0}^{x} \cos^{2}(nt)dt\)\\
+		Or :
+		\[\int_{0}^{x} \cos^{2}(nt)dt = \int_{0}^{x} \frac{1 + 2\cos(2nt)}{2} = \frac{1}{2} \left[t + \frac{\sin(2nt)}{2n}\right]_{0}^{x} = \frac{x}{2} +\frac{\sin(2nx)}{2n}, n \more 1\]
+		Et \(\int_{0}^{x} \cos^{2}(0 \times t)dt = x\)\\
+		On a donc \(\int_{0}^{x} g = \alpha_{0}x + \sum_{n = 1}^{+\infty} \alpha_{n} \frac{x}{2} +\frac{\sin(2nx)}{2n} = (\alpha_{0} + \sum_{n = 0}^{+\infty} \alpha_{n})x + \frac{1}{4} \sum_{n = 0}^{+\infty} \frac{\alpha_{n}}{n} \sin(2nx)\)\\
+		Prenons \(x = \frac{\pi}{4}\).
+		\[0 = g(0) = \sum_{n = 0}^{+\infty} \alpha_{n} = \alpha_{0} + \sum_{n = 1}^{+\infty} \alpha_{n} \text{ d'où } \sum_{n = 1}^{+\infty} \alpha_{n} = - \alpha_{0}\]
+		\[\sin(2p)\frac{\pi}{2} = 0 \text{ et } \sin(2p + 1)\frac{\pi}{2} = (-1)^{p}\]
+		Ainsi \(\int_{0}^{\frac{\pi}{4}} g = \frac{\alpha_{0}}{2} \frac{\pi}{4} + \sum_{n = 1}^{+\infty} (-1)^{p} \frac{\alpha_{2p + 1}}{2p + 1}\)
+		\[\int_{0}^{\frac{\pi}{4}} g = \int_{0}^{\frac{\pi}{4}} \sin(t)dt = \left[-\cos(t)\right]_{0}^{\frac{\pi}{4}} = - \frac{1}{\sqrt 2} + 1\]
+		Donc \(\sum_{n = 1}^{+\infty} (-1)^{p} \frac{\alpha_{2p + 1}}{2p + 1} = 4(-\frac{1}{\sqrt 2} +1 - \frac{\alpha_{0}}{2}\frac{\pi}{4}) = 4(-\frac{1}{\sqrt 2} +1 - \frac{4}{2\pi}\frac{\pi}{4}) = 2 - \sqrt{2}\)

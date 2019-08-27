@@ -1,0 +1,43 @@
+\section{Théorème de Cesàro et ses applications.}
+	\paragraph{Théorème}
+		Soit \((x_n)_{n \more 1} \in \m{K}^{\m{N}^*}\) et \(L \in \m{K}\). Si \(\lim_{n \to +\infty}x_n = L\) alors \(\lim_{n \to +\infty}\frac{1}{n}\sum_{k = 1}^n x_k = L\).
+
+	\paragraph{Démonstration}
+		Supposons que \(\lim_{n \to +\infty}x_n = L\)\\
+		\(y_n = \frac{1}{n}\sum_{k = 1}^n x_k\)\\
+		Soit \(\varepsilon > 0\)\\
+		\[\left|y_n - L\right| = \left| \frac{1}{n}\sum_{k = 1}^n x_k - \frac{1}{n}\sum_{k = 1}^n L \right| = \left| \frac{1}{n}\sum_{k = 1}^n (x_k - L) \right|\]
+		\[\left| \frac{1}{n}\sum_{k = 1}^n (x_k - L) \right| \less \frac{1}{n}\sum_{k = 1}^n \left| (x_k - L) \right|\]
+		\(\lim x_n = L\) donc \(\exists N \in \m{N}, \forall k \more N, (x_k - L) \less \frac{\varepsilon}{12}\) car \(\frac{\varepsilon}{12} > 0\)\\
+		Pour \(n \more N\) :
+		\[\frac{1}{n}\sum_{k = 1}^n \left| (x_k - L) \right| \less \frac{K}{n} + \frac{1}{n}\sum_{k = N}^n \left|x_k - L\right| \text{ avec } \underset{\underset{\text{indépendant de n}}{\uparrow}}{K} = \sum_{k = 1}^N \left|x_k - L\right|\]
+		\[\less \frac{K}{n} + \underbrace{\frac{n - N + 1}{n}}_{\less 1}\frac{\varepsilon}{12}\]
+		\[\less \frac{K}{n} + \frac{\varepsilon}{12}\]
+		Or \(\lim \frac{K}{n} = 0\) donc \(\exists N_0 \in \m{N}, \forall n \more N_0, \left|\frac{K}{n} - 0\right| \less \frac{\varepsilon}{12}\)\\
+		\(N_1 = max(N, N_0)\)\\
+		Pour \(n \more N_1\), \(\left|y_n - L\right| \less \frac{\varepsilon}{12} + \frac{\varepsilon}{12} \less \varepsilon\)\\
+		Donc :
+		\[\forall \varepsilon > 0, \exists N_1 \in \m{N}, \left|y_n - L\right| \less \varepsilon\]
+		C'est-à-dire : \(\lim y_n = L\)
+
+	\paragraph{Applications}
+		Soit \((u_n)_{n \more 1}\) une suite d'éléments de \(\m{K}\).
+		\begin{enumerate}
+			\item Si \(\lim_{n \to +\infty}(u_{n + 1} - u_n) = L\), alors \(\lim_{n \to +\infty} \frac{u_n}{n} = L\)
+			\item Si \((\forall n \in \m{N}^*, u_n > 0)\) et si \(\lim_{n \to +\infty}\frac{u_{n + 1}}{u_n} = L\) alors \(\lim_{n \to +\infty} (u_n)^{\frac{1}{n}} = L\)
+		\end{enumerate}
+
+	\paragraph{Résolution}
+		\begin{enumerate}
+			\item Supposons que \(\lim_{n \to +\infty}(u_{n + 1} - u_n) = L\).\\
+			Pour \(n \more 1\), \(\frac{u_n}{n} = \frac{1}{n}((u_n - u_{n - 1}) + (u_{n - 1} - u_{n - 2}) + ... + (u_1 - u_0)) + \frac{u_0}{n}\)\\
+			Par Cesàro : \(\frac{u_n}{n} \underset{n \rightarrow +\infty}{\longrightarrow} L + 0 = L\)\\
+			\item \(\forall n \in \m{N}^*, u_n > 0\)\\
+			Supposons \(\lim \frac{u_{n + 1}}{u_n} = L\).\\
+			\(\forall n \in \m{N}^*, \frac{u_{n + 1}}{u_n} > 0\) donc, par passage à la limite : \(L \more 0\).\\
+			\[u_n^\frac{1}{n} = e^{\frac{1}{n}\ln(u_n)} = e^{v_n}\]
+			\[v_n = \frac{1}{n}\ln(u_n) = \frac{1}{n}\ln\left[(\frac{u_n}{u_{n - 1}} \times \frac{u_{n - 1}}{u_{n - 2}} \times ... \times \frac{u_1}{u_0}) \times u_0\right]\]
+			\[= \frac{1}{n}\sum_{k = 1}^n \ln(\frac{u_k}{u_{k - 1}}) + \frac{\ln(u_0)}{n} \underset{n \rightarrow +\infty}{\longrightarrow} \ln(L) + 0\]
+			\(\lim v_n = \ln(L)\)\\
+			Puis \(\lim u_n = e^{\ln(L)} = L\) par continuité de l'exponentielle.
+		\end{enumerate}

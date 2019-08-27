@@ -1,0 +1,27 @@
+\section{$(24)$ Si $a$ est d'ordre fini alors pour tout $k \in \m{Z}$, $a^k$ est d'ordre fini et $\omega(a^k) = \frac{\omega(a)}{k \wedge \omega(a)}$}
+	\paragraph{Énoncé}
+		Si \(a\) est d'ordre fini alors pour tout \(k \in \m{Z}\), \(a^k\) est d'ordre fini et \(\omega(a^k) = \frac{\omega(a)}{k \wedge \omega(a)}\).
+	\paragraph{Démonstration}
+		Supposons \(a\) d'ordre fini i.e. \(\omega(a) < + \infty\).\\
+		On peut donc écrire \(a^{\omega(a)} = 1_G\) et \(\forall m \in \m{Z}\), \(a^{m} = 1_G \Rightarrow \omega(a) | m\)
+		\[<a^k> = \left\{(a^k)^{q}, q \in \m{Z}\right\} = \left\{a^{kq}, q \in \m{Z}\right\} \subset \left\{a^{p}, p \in \m{Z}\right\} = \underbrace{<a>}_{\text{fini}}\]
+		Donc \(a^k\) est d'ordre fini i.e. \(\omega(a^k) < + \infty\).\\
+		Posons : \(d = k \wedge \omega(a)\).\\
+		\(d = 0 \Leftrightarrow k = 0\) et \(\omega(a) = 0\) or \(\omega(a) \more 1\) donc \(d \neq 0\).\\
+		On dispose de \(k = dk'\) avec \(k' \in \m{Z}\) et de \(\omega(a) = d\omega'\) avec \(\omega' \in \m{Z}\). Par théorème : \(k' \wedge \omega' = 1\).\\
+		Montrons que \(\omega(a^k) = \frac{\omega(a)}{d} = \omega'\).\\
+		\textbf{Théorème :} \(\forall(a, b) \in \m{Z}^2, (a|b \text{ et } b|a) \Leftrightarrow \left|a\right| = \left|b\right|\)\\
+		Ici : \(\omega' \in \m{N}\) et \(\omega(a^k) \in \m{N}^{*}\).
+		\[\left\{
+		\begin{array}{c c c r}
+			\omega' = \omega(a^k) & \Leftrightarrow & \omega' ~ | ~ \omega(a^k)\\
+			\omega(a^k) ~ | ~ \omega'
+		\end{array}
+		\right.\]
+		\[(a^k)^{\omega'} = a^{k\omega'} = a^{d\omega'k'} = a^{\omega(a)k'} = (a^{\omega(a)})^{k'} = 1_G^{k'} = 1_G\]
+		Ainsi : \(\omega(a^k) ~ | ~ \omega'\).\\
+		\(\underbrace{d \omega'}_{= \omega(a)}|d\omega(a^k)\) \((\text{car } d \neq 0)\)\\
+		\[a^{k'd\omega(a^k)} = a^{k\omega(a^k)} = (a^k)^{\omega(a^k)} = 1_G\]
+		Ainsi : \(\omega(a) ~ | ~ k'd\omega(a^k)\) i.e. \(d\omega' ~ | ~ k'd\omega(a^k)\) et comme \(d\neq0\), \(\omega' ~ | ~ k'\omega(a^k)\).\\
+		Or \(\omega' \wedge k' = 1\) donc d'après Gauss : \(\omega' ~ | ~ \omega(a^k)\)\\
+		On a donc montré : \(\omega(a^k) = \omega'\).

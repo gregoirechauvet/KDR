@@ -1,0 +1,55 @@
+\section{$(96)$ Calcul de la fonction somme d'une série d'applications - Exercice 9.28.}
+	\paragraph{Énoncé}
+		Soit \(f : \m{R} \to \m{R}\) défini par : \(f(x) = \sum_{n = 0}^{ + \infty} \frac{( - 1)^n}{n^2(n^2 + 1)}\cos(nx)\)\\
+		Montrer que : \(\forall x \in [\pi,\pi]\) , \(f'(x) - f(x) = \frac{\pi^2}{12} - \frac{x^2}{4}\). En déduire le calcul de \(f(x)\).
+
+	\paragraph{Démonstration}
+		\[f(x) = \sum_{n = 0}^{ + \infty} \frac{( - 1)^n}{n^2(n^2 + 1)}\cos(nx) = \sum_{n = 0}^{ + \infty} f_{n}(x)\]
+		\(f_{n} \in \mathcal{C}^2(\m{R},\m{R})\)
+		\[f'_{n}(x) = \frac{(-1)^{n + 1}}{n(n^2 + 1)}\sin(nx)\]
+		\[f''_{n}(x) = \frac{(-1)^{n + 1}}{n^2 + 1}\cos(nx)\]
+		\\
+		\(\forall x \in \m{R}, \left|f_{n}(x)\right| \less \frac{1}{n^2(n^2 + 1)}\) puis \(0 \less \left\| f_{n} \right\|_{ + \infty}^{\m{R}} \less \frac{1}{n^2(n^2 + 1)} \sim \frac{1}{n^4}\)\\
+		Ainsi \(\sum_{n \more 1} \left\| f_{n} \right\|_{ + \infty}^{\m{R}}\) converge i.e \(\sum_{n \more 1} f_{n}\) converge normalement sur \(\m{R}\)\\
+		\(\forall x \in \m{R}, |f'_{n}(x)| \less \frac{1}{n(n^2 + 1)}\) puis \(0 \less \left\| f'_{n} \right\|_{ + \infty}^{\m{R}} \less \frac{1}{n(n^2 + 1)} \sim \frac{1}{n^3}\)\\
+		Ainsi \(\sum_{n \more 1} \left\| f'_{n} \right\|_{ + \infty}^{\m{R}}\) converge i.e \(\sum_{n \more 1} f'_{n}\) converge normalement sur \(\m{R}\)\\
+		\(\forall x \in \m{R}, |f''_{n}(x)| \less \frac{1}{(n^2 + 1)}\) puis \(0 \less \left\| f''_{n} \right\|_{ + \infty}^{\m{R}} \less \frac{1}{n^2 + 1} \sim \frac{1}{n^2}\)\\
+		Ainsi \(\sum_{n \more 1} \left\| f''_{n} \right\|_{ + \infty}^{\m{R}}\) converge i.e \(\sum_{n \more 1} f''_{n}\) converge normalement sur \(\m{R}\)\\
+		\(\sum_{n \more 1} f_{n}\) converge simplement sur \(\m{R}\), \(\sum_{n \more 1} f'_{n}\) converge simplement sur \(\m{R}\) et \(\sum_{n \more 1} f''_{n}\) converge normalement sur \(\m{R}\)\\
+		Par théorème, \(f \in \mathcal{C}^2(\m{R})\) et :
+		\[\forall x \in \m{R}, f'(x) - f(x) = \sum_{n = 0}^{ + \infty} \frac{( - 1)^{n + 1}}{n^2 + 1}\cos(nx) - \sum_{n = 0}^{ + \infty} \frac{( - 1)^n}{n^2(n^2 + 1)}\cos(nx)\]
+		\[= \sum_{n = 0}^{ + \infty} \frac{( - 1)^{n + 1}}{n^2 + 1}(\frac{1}{n^2} + 1)\cos(nx)\]
+		\[= \sum_{n = 0}^{ + \infty} \frac{( - 1)^{n + 1}}{n^2}\cos(nx)\]
+		Soit \(g : [ - \pi,\pi] \to \m{R}\) définie par \(g(x) = \frac{\pi^2}{12} - \frac{x^2}{4}\)\\
+		\(g( - \pi) = g(\pi)\) donc on peut considérer l'application \(\overset{\sim}{g} : \m{R} \to \m{R}\), \(2\pi\) - périodique qui vérifie : \(\forall x \in [ - \pi,\pi], \overset{\sim}{g}(x) = g(x)\).\\
+		\(\overset{\sim}{g} \in \mathcal{C}_{2\pi}^{0}(\m{R})\cap\mathcal{M}^{1}(\m{R})\)\\
+		D'après le théorème de convergence normale, la série de Fourier de \(\overset{\sim}{g}\) converge normalement sur \(\m{R}\) vers \(\overset{\sim}{g}\) et \(\overset{\sim}{g}\) est paire donc \(b_{n}(\overset{\sim}{g}) = 0\).\\
+		Ainsi :
+		\[\forall x \in \m{R}, \overset{\sim}{g}(x) = \frac{a_{0}(\overset{\sim}{g})}{2} + \sum_{n = 1}^{ + \infty} a_{n}(\overset{\sim}{g})\cos(nx)\]
+		\[a_0 (\overset{\sim}{g}) = \frac{2}{\pi} \int_{0}^{\pi} \overset{\sim}{g} = \frac{2}{\pi} \int_{0}^{\pi} (\frac{\pi^2}{12} - \frac{x^2}{4})dx = \left[\frac{x\pi^2}{12} - \frac{x^3}{12}\right]_{0}^{\pi} = 0\]
+		Pour \(n \more 1\),
+		\[a_{n}(\overset{\sim}{g}) = \frac{2}{\pi} \int_{0}^{\pi} \overset{\sim}{g}\cos_n = \frac{2}{\pi} \int_{0}^{\pi} (\frac{\pi^2}{12} - \frac{x^2}{4})\cos(nx)dx\]
+		\[= \frac{2}{\pi}(\left[\frac{\sin(nx)}{n}(\frac{\pi^2}{12} - \frac{x^2}{4})\right]_{0}^{\pi} + \int_{0}^{\pi} \frac{\sin(nx)}{n}\frac{x}{2}dx)\]
+		\[= \frac{1}{n\pi} \int_{0}^{\pi} x\sin(nx)dx = \frac{1}{n\pi} (\left[ - \frac{\cos(nx)}{n}x\right]_{0}^{\pi} + \int_{0}^{\pi} \frac{\cos(nx)}{n}dx)\]
+		\[= \frac{1}{n\pi} ( - \frac{( - 1)^n}{n})\pi + \left[\frac{\sin(nx)}{n}\right]_{0}^{\pi}\]
+		\[= \frac{( - 1)^{n + 1}}{n^2}\]
+		\\
+		Dès lors, \(\forall x \in [ - \pi,\pi], \frac{\pi^2}{12} - \frac{x^2}{4} = \overset{\sim}{g}(x) = \sum_{n = 1}^{ + \infty} \frac{( - 1)^{n + 1}}{n^2}\cos(nx) = f'(x) - f(x)\)\\
+		\[\left\{
+		\begin{array}{l l l l l}
+			(H) & : & y' - y & = & 0\\
+			(L) & : & y' - y & = & \frac{\pi^2}{12} - \frac{x^2}{4}
+		\end{array}
+		\right.\]
+		\(S_{\m{R} \to \m{R} }(H) = \m{R}ch + \m{R}sh\)\\
+		Soit \(y_0 : \m{R} \to \m{R}\)\\
+		\(x \mapsto x^0(ax^2 + bx + c)\)
+		\[y_0'(x) - y_0(x) = 2a - (ax^2 + bx + c) = - ax^2 - bx + (2a - c)\]
+		Prenons \(a = \frac{1}{4}\), \(b = 0\) et \(\frac{1}{2} - \frac{\pi^2}{12}\), dés lors \(y_0 \in S_{\m{R} \to \m{R}} (L)\) et \(S_{\m{R} \to \m{R} }(L) = y_0 + \m{R}ch + \m{R}sh\)\\
+		\(f \in S_{[ - \pi,\pi] \to \m{R} }(L)\) donc \(\exists(\alpha,\beta) \in \m{R}^2 ~ | ~ \forall x \in [ - \pi,\pi], f(x) = \alpha ch(x) + \beta sh(x) + \frac{1}{4} x^2 + \frac{1}{2} - \frac{\pi^2}{12}\)\\
+		\(f\) est paire donc \(\beta = 0\):\\
+		En effet, \(f = \underbrace{\alpha ch + y_0}_{\in P(\m{R},\m{R})} + \underbrace{\beta sh}_{I(\m{R},\m{R})} = \underbrace{f}_{P(\m{R},\m{R})} + \underbrace{0}_{I(\m{R},\m{R})}\) Comme \(\m{R}^{\m{R}} = P(\m{R},\m{R}) \oplus I(\m{R},\m{R})\), par unicité \(\beta sh = 0\) puis \(\beta = 0\)\\
+		\(f = \alpha ch + y_0\)\\
+		Pour \(n \more 1\), \(\int_0^\pi \cos_n = \left[\frac{\sin(nx)}{n}\right]_0^\pi = 0\)\\
+		\(\int_{0}^{\pi} f = \int_{0}^{\pi} \sum_{n = 1}^{ + \infty} f_n = \sum_{n = 1}^{ + \infty} \underbrace{\int_{0}^{\pi} f_n}_{ = 0} = 0\) car \(\sum f_n\) converge normalement \((\text{donc uniformément})\) sur le segment \([0,\pi]\).\\
+		\(0 = \int_0^\pi f = \int_0^\pi (\alpha ch(x) + \frac{1}{4} x^2 + \frac{1}{2} - \frac{\pi^2}{12})dx = \left[\alpha sh(x) + \frac{1}{12} x^3 + \frac{1}{2}x - \frac{\pi^2}{12}x\right]_0^\pi = \alpha sh(\pi) + \frac{\pi}{2}\) d'où \(\alpha = - \frac{\pi}{2sh(\pi)}\)

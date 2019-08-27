@@ -1,0 +1,21 @@
+\section{$(38)$ Inégalité de Kolmogorov.}
+	\paragraph{Énoncé}
+	\paragraph{Résolution}
+		Soit \(f \in \mathcal{C}^2(\m{R},\m{R})\) telle que \(f\) et \(f''\) soient bornées sur \(\m{R}\).\\
+		\begin{enumerate}
+			\item Montrer que : \(\forall x \in \m{R}, \forall h \in \m{R}^{+*}, \left|f'(x)\right| \less \frac{1}{h} \left\| f \right\|_\infty + \frac{h}{2} \left\|f''\right\|_{\infty}\).\\
+			\(f\) est \(\mathcal{C}^2\) sur \(\m{R}\) et \(f''\) est bornée sur \(\m{R}\) donc d'après l'inégalité de Taylor-Lagrange :\\
+			\[\left\{
+			\begin{array}{l l l r}
+				\left|f(x + h) - (f(x) + hf'(x))\right| & \less & \left\|f''\right\|_\infty \frac{h^2}{2} & (1)\\
+				\left|f(x - h) - (f(x) - hf'(x))\right| & \less & \left\|f''\right\|_\infty \frac{h^2}{2} & (2)
+			\end{array}
+			\right.\]
+			D'après \((1)\) et \((2)\) :
+			\[\left|\underbrace{\left[f(x + h) - (f(x) + hf'(x))\right]} _ {= A} - \underbrace{\left[f(x - h) - (f(x) - hf'(x))\right]}_{= B}\right| \less \left|A\right| + \left|B\right| \less \left\|f''\right\|_\infty h^2\]
+			Ainsi : \(\left|(f(x + h) - f(x - h)) - 2hf'(x) \right| \less \left\|f''\right\|_\infty h^2\)\\
+			Comme \(\left|(f(x + h) - f(x - h)) - 2hf'(x)\right| \more \left|\left|f(x + h) - f(x - h)\right| - \left|2hf'(x)\right|\right| \underbrace{\more}_{\text{car } -t \less \left|t\right|\\ \text{ pour } t \in \m{R}} - \left|f(x + h) - f(x - h)\right| + \left|2hf'(x)\right|\)\\
+			Il vient : \(2\left|h\right|\left|f'(x)\right| - \left|f(x + h) - f(x - h)\right| \less \left\|f''\right\|_\infty h^2\)\\
+			\(2h \left|f'(x)\right| \less \left\|f''\right\|_\infty h^2 + \left|f(x + h) - f(x - h)\right| \less \left\|f''\right\|_\infty h^2 + \left|f(x + h)\right| + \left|f(x - h)\right|\)\\
+			\(2h\left|f'(x)\right| \less \left\|f''\right\|_\infty h^2 + 2\left\|f\right\|_\infty\)
+		\end{enumerate}

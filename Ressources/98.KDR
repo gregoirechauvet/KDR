@@ -1,0 +1,114 @@
+\section{$(98)$ Connexité par arcs.}
+	\paragraph{Énoncé} 
+		L'ensemble \(\m{U}\) des nombres complexes de module \(1\) est connexe par arc mais non convexe.
+
+	\paragraph{Démonstration} 
+		\(\m{U} = \{e^{it}, t \in \m{R}\} = f(\m{R})\) avec \(f : \m{R} \rightarrow \m{C}\) définie par \(f(t) = e^{it}\)\\
+		\(f\) est continue sur \(\m{R}\) qui est connexe par arc donc \(\m{U}  = f(\m{R})\) est connexe par arc.\\
+		\(-1 \in \m{U}\), \(1 \in \m{U}\) et \(\left[-1, 1\right] \notin \m{U}\) car \(0 \in \left[-1, 1\right]\) et \(0 \notin \m{U}\)\\
+		\(\m{U}\) n'est pas convexe.
+
+	\paragraph{Énoncé}
+		Si \(I\) est un intervale de \(\m{R}\) et si \(f : I \rightarrow \m{R}\) est continue et injective sur \(I\) alors \(f\) est strictement monotone.
+
+	\paragraph{Démonstration}
+		Posons \(A = \{(x,y) \in I^2 | x < y \}\)\\
+		\(A\) est connexe par arc :
+		\begin{description}
+			\item[EF :] Soient \(X_1 = (x_1,y_1)\) et \(X_2 = (x_2,y_2)\) dans \(A\) ; montrons que \([X_1,X_2] \subset A\) :\\
+			Soit \(X \in [X_1,X_2]\) , \(X = (1-\lambda)X_1+ \lambda X_2, \lambda \in [0,1]\)\\
+			\(X = (1-\lambda)(x_1,y_1) + \lambda (x_2,y_2) = ( (1-\lambda)x_1 + \lambda x_2, (1-\lambda) y_1 + \lambda y_2)\)\\
+			\[\left\{
+				\begin{array}{l l l}
+				x & = & (1 - \lambda)x_1 + \lambda x_2 \in \left[x_1, x_2\right] \subset I\\
+				y & = & (1 - \lambda)y_1 + \lambda y_2 \in \left[y_1, y_2\right] \subset I
+				\end{array}
+			\right.\]
+			car \((x_1, x_2) \in I^2\), \((y_1,y_2) \in I^2\) et \(I\) convexe.\\
+			\(y - x = \underbrace{(1 - \lambda)}_{\more 0} \underbrace{(y_1 - x_1)}_{> 0} + \underbrace{\lambda}_{\more 0} \underbrace{(y_2-x_2)}_{>0} > 0\) car \(\lambda \in [0,1]\) et \(0 \neq 1\)\\
+			Ainsi \(X = (x,y) \in A\), d'où \([X_1,X_2] \subset A\)\\
+			\(A\) est convexe donc connexe par arc.\\
+			\textbf{FEF}
+		\end{description}
+
+		Posons \[T :
+		\begin{array}{c c c}
+			A \subset \m{R}^2 & \longrightarrow & \m{R}\\
+			(x, y) & \longmapsto & T(x, y) = \frac{f(y) - f(x)}{y-x}
+		\end{array}
+		\]		
+		\(t\) est continue sur \(A\) :
+		\begin{description}
+			\item[EF :] Si \((x, y) \in A\), alors \(x \neq y\) et \(T\) est bien définie.\\
+			\(((x, y) \mapsto x)\) et \(((x, y) \mapsto y)\) sont continues sur \(\m{R}^2\) car linéaire en dimension finie.\\
+			\(((x, y) \mapsto f(x))\) et \(((x, y) \mapsto f(y))\) sont donc continues comme composée car \(f\) est continue sur \(I\).\\
+			\(((x, y) \mapsto \frac{1}{y-x})\) est continue sur \(A\).\\
+			Donc \(T\) est donc continue sur \(A\) en tant que produit.\\
+			\textbf{FEF}
+		\end{description}
+		\(T\) ne s'annule pas sur \(A\) :
+		\begin{description}
+			\item[EF :] Soit \((x,y) \in A\), on a alors \(x \neq y\) et comme \(f\) est injective, \(f(x) \neq f(y)\) d'où \(T(x,y) \neq 0\).\\
+			\textbf{FEF}
+		\end{description}
+		Ainsi \(f\) est continue sur \(A\), connexe par arc, et ne s'y annule pas donc \(T\) est strictement de signe fixe sur \(A\).\\
+		\textbf{Premier cas :} \(T > 0\) sur \(A\)
+		\[\forall (x,y) \in A, T(x,y) > 0\]
+		\[\forall (x,y) \in I^2, x < y \Rightarrow f(x) < f(y)\]
+		\(f\) est strictement croissante sur \(I\).\\
+		\textbf{Second cas :} \(T < 0\) sur \(A\)
+		\[\forall (x,y) \in A, T(x,y) < 0\]
+		\[\forall (x,y) \in I^2, x < y \Rightarrow f(x) > f(y)\]
+		\(f\) est strictement décroissante sur \(I\).\\
+
+	\paragraph{Énoncé}
+		\begin{enumerate}
+			\item Si \(I\) est un intervalle de \(\m{R}\), si \(f : I \rightarrow \m{R}\) est dérivable sur \(I\) et si \(f'\) change strictement de signe sur \(I\), alors \(f'\) s'annule sur \(I\).
+			\item Théorème de Darboux : Si \(I\) est un intervalle de \(\m{R}\) et si \(f : I \rightarrow \m{R}\) est dérivable sur \(I\), alors \(f'(I)\) est un intervalle de \(\m{R}\).
+		\end{enumerate}
+
+	\paragraph{Démonstration}
+		\begin{enumerate}
+			\item \(f\) n'est pas strictement monotone :
+			\begin{description}
+				\item[EF :] Supposons \(f\) strictement monotone sur \(I\), alors \(f'\) est de signe fixe sur \(I\), ce qui n'est pas !\\
+				\textbf{FEF}
+			\end{description}
+			\(f\) n'est pas injective :
+			\begin{description}
+				\item[EF :] Supposons \(f\) injective, alors comme \(f\) est continue \((\text{car } f \text{ dérivable})\) sur l'intervalle \(I\), \(f\) est strictement monotone sur \(I\), ce qui n'est pas !\\
+				\textbf{FEF}
+			\end{description}
+			\(\exists (a, b) \in I^2 | a \neq b\) et \(f(a) = f(b)\)\\
+			\(f\) est continue sur \(\left[a, b\right] \subset I\) car \(I\) intervalle de \(\m{R}\) donc convexe.\\
+			\(f\) est dérivable sur \(\left]a, b\right[ \subset I\)\\
+			Par Rolle, \(\exists c \in \left]a, b\right[ \ | \ f'(c) = 0\)\\
+			\item Remarque : Si l'on suppose \(f\) de classe \(\mathcal{C}^1\) sur \(I\), alors \(f'\) est continue sur l'intervalle \(I\) et par théorème, \(f'(I)\) est un intervalle.\\
+			\\
+			Soit \((x,y) \in f'(I)^2\) ; montrons que \(\left[x, y\right] \subset f'(I)\) :
+			\[\left\{\begin{array}{l}
+				x \in f'(I) \text{ donc } x = f'(a) \text{ avec } a \in I\\
+				y \in f'(I) \text{ donc } y = f'(b) \text{ avec } b \in I
+			\end{array}
+			\right.\]
+			Soit \(z \in \left[x, y\right]\), on a alors \(x \less z \less y\).\\
+			Si \(z = x\) ou \(z = y\) alors \(z \in f'(I)\).\\
+			Supposons \(z \neq x\) et \(z \neq y\) : \(x < z < y\)  i.e. \(f'(a) < z < f'(b)\).\\
+			Soit \(g : I \rightarrow \m{R}\) définie par \(g(t) = f(t) - zt\)\\
+			\(g\) est dérivable sur \(I\) car \(f\) l'est et \(g'(t) = f'(t) - z\)
+			\[g'(a) = f'(a) - z <0 \text{ et } g'(b) = f'(b) - z > 0\]
+			Ainsi \(g\) est dérivable sur l'intervalle \(I\) et \(g'\) change strictment de signe sur \(I\) donc \(g'\) s'annule sur \(I\) :\\
+			\(\exists c \in I \ | \ g'(c) = 0 = f'(c) - z\).\\
+			On a alors \(z = f'(c)\) avec \(c \in I\), d'où \(z \in f'(I)\).\\
+			\(\left[x, y\right] \subset f'(I)\), cela pour tout \((x,y) \in f'(I)^2\)\\
+			\(f'(I)\) est donc un convexe de \(\m{R}\) i.e. \(f'(I)\) est donc un intervalle.\\
+		\end{enumerate}
+
+	\paragraph{Application}
+		Soit \(I\) un intervalle de \(\m{R}\).\\
+		Soit \(f : I \rightarrow \m{R}\) une application telle que \(f(I)\) ne soit pas un intervalle.\\
+		Par exemple, \(f = \chi_\m{Q}\), \(f(\m{R}) = \{0, 1\}\).\\
+		Déterminons les primitives de \(f\) sur \(I\).\\
+		\\
+		Supposons que \(f\) admette une primitive \(F\) sur \(I\), alors \(F\) est dérivable sur \(I\) et \(F' = f\).\\
+		Ainsi \(F\) est dérivable  sur \(I\), un intervalle de \(\m{R}\) donc d'après Darboux, \(f(I) = F'(I)\) est un intervalle, ce qui n'est pas !\\

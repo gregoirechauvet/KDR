@@ -1,0 +1,97 @@
+\section{$(51)$ Automorphismes, images et noyaux : les situations de la fin du paragraphe 5 du cours.}
+	\paragraph{Énoncé}
+		\begin{enumerate}
+			\item Soient \(n \in \m{N}\) et \(u : \m{K}_{n}\left[X\right] \rightarrow \m{K}_{n}\left[X\right]\) défini par \(u(P) = P - P'\).\\
+		Montrer que \(u\) est un automorphisme de \(\m{K}_{n}\left[X\right]\) et déterminer \(u^{-1}\).
+			\item Soient \(E\) un \(K\)-espace vectoriel de dimension \(n \more 1\) et \(u \in L(E)\)
+			\begin{enumerate}
+				\item Montrer que : \(E = Im(u) \oplus Ker(u) \Rightarrow Im(u) = Im(u^{2})\)
+				\item Montrer que : \(Im(u) = Im(u^{2}) \Leftrightarrow Ker(u) = Ker(u^{2})\)
+				\item Montrer que : \(Im(u) = Im(u^{2}) \Rightarrow E = Im(u) \oplus Ker(u)\)
+			\end{enumerate}
+		\end{enumerate}
+
+	\paragraph{Résolution}
+		\begin{enumerate}
+			\item
+				\begin{equation*}
+					u \colon
+					\begin{aligned}
+						\m{K}_{n}\left[X\right] & \longrightarrow & \m{K}_{n}\left[X\right]\\
+						P & \longmapsto & P - P'
+					\end{aligned}
+				\end{equation*}
+				\(u\) est bien une application linéaire de \(\m{K}_{n}\left[X\right]\) dans \(\m{K}_{n}\left[X\right]\)\\
+				\(u\) est linéaire par linéarité de la dérivation.
+				\[u \in L(\m{K}_{n}\left[X\right])\]
+				Montrons que \(u\) est bijective, i.e. \(\forall Q \in \m{K}_{n}\left[X\right], \exists ! P \in \m{K}_{n}\left[X\right], Q = u(P)\)\\
+				Soit \(Q \in \m{K}_{n}\left[X\right]\).\\
+				Supposons : \(\exists P \in \m{K}_{n}\left[X\right], Q = u(P)\)
+				\[Q = P - P'\]
+				\[Q^{(k)} = P^{(k)} - P^{(k + 1)} \text{ pour tout } k \in \m{N}\]
+				\(P \in \m{K}_{n}\left[X\right]\) donc \(P^{(n + 1)} = 0\)
+				\[P = P - P^{(n + 1)} = \sum_{k = 0}^{n}P^{(k)} - P^{(k + 1)} = \sum_{k = 0}^{n}Q^{(k)}\]
+				Si \(Q\) admet un antécédent par \(u\), ce ne peut être que \(\sum_{k = 0}^{n}Q^{(k)}\)
+				\[\sum_{k = 0}^{n}Q^{(k)} \in \m{K}_{n}\left[X\right] \text{ car } Q \in \m{K}_{n}\left[X\right]\]
+				\[u(\sum_{k = 0}^{n}Q^{(k)}) = \sum_{k = 0}^{n}Q^{(k)} - \sum_{k = 0}^{n}Q^{(k + 1)} = \sum_{k = 0}^{n}Q^{(k)} - \sum_{k = 1}^{n + 1}Q^{(k)} = Q^{0} - Q^{n + 1} = Q - 0 = Q\]
+				\(\sum_{k = 0}^{n}Q^{(k)}\) est l'unique antécédent de \(Q\) par \(u\), cela pour tout \(Q \in \m{K}_{n}\left[X\right]\).
+				\[\forall Q \in \m{K}_{n}\left[X\right], \exists ! P \in \m{K}_{n}\left[X\right], Q = u(P)\]
+				\(u\) est donc bijective ; on dispose de \(u^{-1} : \m{K}_{n}\left[X\right] \rightarrow \m{K}_{n}\left[X\right]\).
+				\(u^{-1}(Q)\) est l'unique antécédent de \(Q\) par \(u\), à savoir \(\sum_{k = 0}^{n}Q^{(k)}\).
+				\[\forall P \in \m{K}_{n}\left[X\right], u^{-1}(P) = \sum_{k = 0}^{n}P^{(k)}\]
+			\item 
+				\begin{enumerate}
+					\item Supposons \(E = Im(u) \oplus Ker(u)\)\\
+					Tout d'abord \(Im(u^{2}) \subset Im(u)\) :
+					\begin{description}
+						\item[EF :]	Soit \(x \in E\).\\
+							\(u(x) \in Im(u) \subset E\)\\
+							Donc \(u(u(x)) \in Im(u)\) car \(u(x) \in E\)\\
+							D'où \(Im(u^2) \subset Im(u)\)\\
+						\textbf{FEF}
+					\end{description}
+					Soit \(y \in u(x)\), \(\exists x \in E \text{ | } y = u(x)\).\\
+					\(E = Im(u) + Ker(u)\) donc \(x = a + b\) avec \(a \in Im(u)\) et \(b \in Ker(u)\).
+					\[y = u(a) + \underbrace{u(b)}_{= 0_E} = u(a)\]
+					Or \(a \in Im(u)\) donc \(\exists c \in E \text{ | } a = u(c)\).\\
+					Ainsi \(y = u^2(c) \in Im(u^2)\).\\
+					\(Im(u) \subset Im(u^2)\). Donc \(Im(u) = Im(u^2)\).\\
+					\item 
+					\begin{itemize}
+						\item[\textbullet] Supposons \(Im(u) = Im(u^2)\).\\
+						\(Ker(u) \subset Ker(u^2)\) :
+						\begin{description}
+							\item[EF :]	Soit \(x \in Ker(u)\).\\
+								\(u(x) = 0_E\)\\
+								Donc \(u(u(x)) = 0_E \) et \(0_E \in Ker(u)\) car \(u \in L(E)\)\\
+								D'où \(Ker(u) \subset Ker(u^2)\)\\
+							\textbf{FEF}
+						\end{description}
+						Formule du rang :
+						\[dim(Ker(u)) = dim(E) - dim(Im(u)) = dim(E) - dim(Im(u^2)) = dim(Ker(u^2))\]
+						Ainsi \(Ker(u) = Ker(u^2)\).
+						\item[\textbullet] Supposons \(Ker(u) = Ker(u^2)\)\\
+						\(Im(u^2) \subset Im(u)\)
+						\[dim(Im(u^2)) = dim(E) - dim(Ker(u^2)) = dim(E) - dim(Ker(u)) = dim(Im(u))\]
+						Alors \(Im(u) = Im(u^2)\)
+					\end{itemize}
+					In fine : \(Ker(u) = Ker(u^2) \Leftrightarrow Im(u) = Im(u^2)\)\\
+					\item Supposons \(Im(u) = Im(u^2)\)\\
+					\(Im(u) \cap Ker(u) = \left\{0_E\right\}\) :
+					\begin{description}
+						\item[EF :] Soit \(x \in Im(u) \cap Ker(u)\).\\
+							\(x \in Im(u)\) donc \(\exists a \in E \text{ | } x = u(a)\).\\
+							\(x \in Ker(u)\) donc \(u(x) = 0_E\).\\
+							Alors \(a \in Ker(u^2)\).\\
+							\(Im(u) = Im(u^2)\) donc d'après \((\text{b})\), \(Ker(u) = Ker(u^2)\).\\
+							\(a \in Ker(u^2)\) donc \(a \in Ker(u)\).\\
+							\(x = u(a) = 0_E\).\\
+							Alors \(Im(u) \cap Ker(u) \subset \left\{0_E\right\}\) puis \(Im(u) \cap Ker(u) = \left\{0_E\right\}\).\\
+							\textbf{FEF}
+					\end{description}
+					\(Im(u) + Ker(u) \subset E\)
+					\[dim(Im(u) + Ker(u)) = \underbrace{dim(Im(u)) + dim(Ker(u))}_{= dim(E)} - dim(\underbrace{Im(u) \cap Ker(u)}_{= \left\{0_E\right\}}) = dim(E)\]
+					\(E = Im(u) + Ker(u)\) et \(Im(u) \cap Ker(u) = \left\{0_E\right\}\).\\
+					Donc \(E = Im(u) \oplus Ker(u)\).
+				\end{enumerate}
+		\end{enumerate}
